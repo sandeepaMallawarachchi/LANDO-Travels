@@ -9,16 +9,21 @@ import flight6 from '../images/flight6.jpg'
 
 const Home = () => {
   return (
-    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-      <Carousel slide={true}>
-        <img src={flight1} alt="..." />
-        <img src={flight2} alt="..." />
-        <img src={flight3} alt="..." />
-        <img src={flight4} alt="..." />
-        <img src={flight5} alt="..." />
-      </Carousel>
-    </div>
+    <div>
+      <div className="h-[670px]">
+        <Carousel slideInterval={4000} className="rounded-none">
+          <img src={flight1} alt="Flight 1" className="object-cover h-full w-full rounded-none" />
+          <img src={flight2} alt="Flight 2" className="object-cover h-full w-full rounded-none" />
+          <img src={flight3} alt="Flight 3" className="object-cover h-full w-full rounded-none" />
+          <img src={flight4} alt="Flight 4" className="object-cover h-full w-full rounded-none" />
+          <img src={flight5} alt="Flight 5" className="object-cover h-full w-full rounded-none" />
+          <img src={flight6} alt="Flight 6" className="object-cover h-full w-full rounded-none" />
+        </Carousel>
+      </div>
+      <div className='h-96'>
 
+      </div>
+    </div>
   )
 }
 
