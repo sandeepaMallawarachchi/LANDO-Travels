@@ -11,8 +11,7 @@ const Header = () => {
         </Navbar.Brand>
         <div className="flex md:order-2">
           <Button
-            className="text-sm px-2 py-1 sm:px-4 sm:py-2"
-            style={{ backgroundColor: "#76cbf0", color: "#374151" }}
+            className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700"
           >
             Get started
           </Button>
