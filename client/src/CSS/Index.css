@@ -3,7 +3,7 @@
   font-size: 6rem; /* Adjust based on your design */
   font-weight: 800;
   color: transparent; /* Make text transparent */
-  -webkit-text-stroke: 2px white; /* Outline with white color */
+  -webkit-text-stroke: 4px white; /* Outline with white color */
   text-stroke: 2px white; /* For browsers that support text-stroke */
 }
 
