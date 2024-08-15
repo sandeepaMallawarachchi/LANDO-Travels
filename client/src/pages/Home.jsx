@@ -19,7 +19,7 @@ import flight5 from "../images/flight5.jpg";
 import flight6 from "../images/flight6.jpg";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => setIsOpen(false);
 
@@ -181,7 +181,7 @@ const Home = () => {
                   rows={4}
                 />
               </div>
-              <div className="mb-6">
+              <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
                 <Button type="submit" className="w-full">
                   Send message
                 </Button>
