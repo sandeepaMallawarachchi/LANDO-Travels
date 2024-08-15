@@ -36,8 +36,8 @@ export function Component() {
               </Footer.LinkGroup>
             </div>
           </div>
-          <div className="flex justify-end items-center mt-4 sm:mt-0">
-            <img src={logo} alt="Logo" className="h-10 sm:h-12" />
+          <div className="flex justify-start items-center mt-4 sm:mt-0 mr-20">
+            <Link><img src={logo} alt="Logo" className="h-10 sm:h-12" /></Link>
           </div>
         </div>
         <Footer.Divider />
