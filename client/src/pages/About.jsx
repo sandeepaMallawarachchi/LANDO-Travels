@@ -8,7 +8,7 @@ const About = () => {
                 <img
                     src={aboutCover}
                     alt="corparate Services"
-                    style={{ width: "1920px", height: "920px" }}
+                    style={{ width: "1920px", height: "720px" }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <h1 className="text-white text-8xl font-extrabold drop-shadow-lg leading-none">
