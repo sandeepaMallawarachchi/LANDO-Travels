@@ -1,15 +1,7 @@
-import React from "react";
-import {
-  Carousel,
-  Button,
-  Card,
-  Drawer,
-  Label,
-  Textarea,
-  TextInput,
-} from "flowbite-react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Carousel, Button, Card, Drawer, Label, Textarea, TextInput, } from "flowbite-react";
 import { HiEnvelope } from "react-icons/hi2";
+import '../CSS/logoScrolling.css';
 
 import flight1 from "../images/flight1.jpg";
 import flight2 from "../images/flight2.jpg";
@@ -18,10 +10,30 @@ import flight4 from "../images/flight4.jpg";
 import flight5 from "../images/flight5.jpg";
 import flight6 from "../images/flight6.jpg";
 
+import logo1 from '../images/partners/logo1.svg';
+import logo2 from '../images/partners/logo2.svg';
+import logo4 from '../images/partners/logo4.svg';
+import logo5 from '../images/partners/logo5.jpg';
+import logo6 from '../images/partners/logo6.jpg';
+import logo7 from '../images/partners/logo7.jpg';
+import logo8 from '../images/partners/logo8.svg';
+import logo9 from '../images/partners/logo9.jpg';
+import logo10 from '../images/partners/logo10.png';
+import logo11 from '../images/partners/logo11.png';
+import logo12 from '../images/partners/logo12.png';
+import logo13 from '../images/partners/logo13.png';
+import logo14 from '../images/partners/logo14.png';
+import logo15 from '../images/partners/logo15.png';
+import logo16 from '../images/partners/logo16.svg';
+import logo17 from '../images/partners/logo17.png';
+
+
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => setIsOpen(false);
+
+  const logos = [logo10, logo12, logo13, logo14, logo15, logo7, logo8, logo9, logo1, logo11, logo2, , logo4, logo5, logo6, logo16, logo17];
 
   return (
     <div>
@@ -73,6 +85,20 @@ const Home = () => {
               Get Started
             </Button>
           </div>
+        </div>
+      </div>
+
+      {/* partners logos */}
+      <div className="overflow-hidden py-20">
+        <div className="flex items-center animate-scroll">
+          {logos.concat(logos).map((logo, index) => ( 
+            <img
+              key={index}
+              src={logo}
+              alt={`Partner ${index + 1}`}
+              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110"
+            />
+          ))}
         </div>
       </div>
 
@@ -129,6 +155,8 @@ const Home = () => {
           </Card>
         </div>
       </div>
+
+
       <div className="flex justify-center items-center mt-12 mb-12">
         <Card className="w-full max-w-6xl" imgSrc={flight5} horizontal>
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -141,6 +169,7 @@ const Home = () => {
         </Card>
       </div>
 
+      {/* Contact Form Section */}
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
         <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
           <Button onClick={() => setIsOpen(true)}>Show contact form</Button>
@@ -200,8 +229,6 @@ const Home = () => {
           </Drawer.Items>
         </Drawer>
       </div>
-
-      {/* Contact Form Section */}
     </div>
   );
 };

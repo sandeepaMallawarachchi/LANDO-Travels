@@ -42,7 +42,8 @@ const Header = () => {
             Outbound Tours
           </Navbar.Link>
           <Navbar.Link
-            href="#"
+            as={Link}
+            to='/corporateTravelServices'
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             Services
@@ -54,7 +55,8 @@ const Header = () => {
             About
           </Navbar.Link>
           <Navbar.Link
-            href="#"
+            as={Link}
+            to='#'
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             Contact Us
