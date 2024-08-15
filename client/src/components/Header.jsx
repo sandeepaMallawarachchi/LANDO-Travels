@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Navbar } from "flowbite-react";
 import logo from "../images/logo-white-remove-bg.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -27,10 +28,18 @@ const Header = () => {
             Home
           </Navbar.Link>
           <Navbar.Link
-            href="#"
+            as={Link} // Specify that this Navbar.Link will use the Link component
+            to="/InboundTours" // Set the destination path for this link
             className="hover:text-blue-500 text-sm sm:text-base"
           >
-            About
+            Inbound Tours
+          </Navbar.Link>
+          <Navbar.Link
+            as={Link} // Specify that this Navbar.Link will use the Link component
+            to="/OutboundTours" // Set the destination path for this link
+            className="hover:text-blue-500 text-sm sm:text-base"
+          >
+            Outbound Tours
           </Navbar.Link>
           <Navbar.Link
             href="#"
@@ -42,13 +51,13 @@ const Header = () => {
             href="#"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
-            Pricing
+            About
           </Navbar.Link>
           <Navbar.Link
             href="#"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
-            Contact
+            Contact Us
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
