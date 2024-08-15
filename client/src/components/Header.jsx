@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="sticky top-0 z-50 bg-white shadow-lg lg:pl-10 lg:pr-10">
       <Navbar fluid rounded>
-        <Navbar.Brand href="/">
+        <Navbar.Brand as={Link} to="/">
           <img
             src={logo}
             className="mr-3 h-6 sm:h-9"
