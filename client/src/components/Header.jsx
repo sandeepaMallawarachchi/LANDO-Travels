@@ -43,20 +43,20 @@ const Header = () => {
           </Navbar.Link>
           <Navbar.Link
             as={Link}
-            to='/corporateTravelServices'
+            to="/corporateTravelServices"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
-            Services
+            Corporate Travel Services
           </Navbar.Link>
           <Navbar.Link
-            href="#"
+            as={Link}
+            to="#about-us"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             About
           </Navbar.Link>
           <Navbar.Link
-            as={Link}
-            to='#'
+            href="#"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             Contact Us
