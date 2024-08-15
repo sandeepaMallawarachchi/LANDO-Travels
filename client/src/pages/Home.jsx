@@ -78,18 +78,8 @@ const Home = () => {
 
       {/* Card Section */}
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
-        <Card href="#" className="max-w-sm">
-          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Noteworthy technology acquisitions 2021
-          </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-          </p>
-        </Card>
-        <Card className="max-w-sm flex-1">
-          <img src={flight1} alt="Flight 1" className="rounded-t-lg" />
-          <div className="p-5">
+        <div className="flex justify-center gap-6 w-full">
+          <Card className="flex-1 max-w-sm w-full">
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Noteworthy technology acquisitions 2021
             </h5>
@@ -97,33 +87,47 @@ const Home = () => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <Button className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
-              Read more
-              <svg
-                className="-mr-1 ml-2 h-4 w-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </Button>
-          </div>
-        </Card>
-
-        <Card className="max-w-sm" imgSrc={flight2} horizontal>
-          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Noteworthy technology acquisitions 2021
-          </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-          </p>
-        </Card>
+          </Card>
+          <Card className="flex-1 max-w-sm w-full">
+            <img src={flight1} alt="Flight 1" className="rounded-t-lg" />
+            <div className="p-5">
+              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+              <p className="font-normal text-gray-700 dark:text-gray-400">
+                Here are the biggest enterprise technology acquisitions of 2021
+                so far, in reverse chronological order.
+              </p>
+              <Button className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
+                Read more
+                <svg
+                  className="-mr-1 ml-2 h-4 w-4"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </Button>
+            </div>
+          </Card>
+          <Card className="flex-1 max-w-sm w-full">
+            <img src={flight2} alt="Flight 2" className="rounded-t-lg" />
+            <div className="p-5">
+              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+              <p className="font-normal text-gray-700 dark:text-gray-400">
+                Here are the biggest enterprise technology acquisitions of 2021
+                so far, in reverse chronological order.
+              </p>
+            </div>
+          </Card>
+        </div>
       </div>
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
         <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
