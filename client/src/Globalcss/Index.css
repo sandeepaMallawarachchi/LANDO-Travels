@@ -1,0 +1,18 @@
+.transparent-text {
+  position: relative;
+  color: transparent; /* Make text transparent */
+}
+
+.transparent-text::before {
+  content: "Tours"; /* Use the same text */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: white; /* Text color for the border */
+  -webkit-background-clip: text; /* For webkit browsers */
+  background-clip: text; /* For other browsers */
+  text-shadow: 0 0 1px white; /* Border effect */
+}
+html {
+  scroll-behavior: smooth;
+}
