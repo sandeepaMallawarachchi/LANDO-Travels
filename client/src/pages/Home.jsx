@@ -91,12 +91,12 @@ const Home = () => {
       {/* partners logos */}
       <div className="overflow-hidden py-20">
         <div className="flex items-center animate-scroll">
-          {logos.concat(logos).map((logo, index) => ( 
+          {logos.concat(logos).map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110"
+              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110 mr-5"
             />
           ))}
         </div>
@@ -156,7 +156,7 @@ const Home = () => {
         </div>
       </div>
 
-
+      {/* about section */}
       <div className="flex justify-center items-center mt-12 mb-12">
         <Card className="w-full max-w-6xl" imgSrc={flight5} horizontal>
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
