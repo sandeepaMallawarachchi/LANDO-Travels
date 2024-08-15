@@ -129,6 +129,18 @@ const Home = () => {
           </Card>
         </div>
       </div>
+      <div className="flex justify-center items-center mt-12 mb-12">
+        <Card className="w-full max-w-6xl" imgSrc={flight5} horizontal>
+          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            ABOUT US
+          </h5>
+          <p className="font-normal text-gray-700 dark:text-gray-400">
+            Here are the biggest enterprise technology acquisitions of 2021 so
+            far, in reverse chronological order.
+          </p>
+        </Card>
+      </div>
+
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
         <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
           <Button onClick={() => setIsOpen(true)}>Show contact form</Button>
