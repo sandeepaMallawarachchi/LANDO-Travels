@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import { Component } from "./components/Footer";
 import InboundTours from "./pages/InboundTours";
 import OutboundTours from "./pages/OutboundTours";
-import "./Globalcss/Index.css";
 
 function App() {
   return (
