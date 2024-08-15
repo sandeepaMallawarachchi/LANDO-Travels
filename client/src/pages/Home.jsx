@@ -91,7 +91,7 @@ const Home = () => {
       {/* partners logos */}
       <div className="overflow-hidden py-20">
         <div className="flex items-center animate-scroll">
-          {logos.concat(logos).map((logo, index) => ( // Duplicate the logos array
+          {logos.concat(logos).map((logo, index) => ( 
             <img
               key={index}
               src={logo}
