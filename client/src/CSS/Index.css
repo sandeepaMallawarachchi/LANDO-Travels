@@ -1,9 +1,9 @@
-.transparent-text {
+.h1 {
   position: relative;
   color: transparent; /* Make text transparent */
 }
 
-.transparent-text::before {
+.h1::before {
   content: "Tours"; /* Use the same text */
   position: absolute;
   left: 0;
