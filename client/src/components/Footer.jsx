@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from "../images/logo-white-remove-bg.png";
 import { Footer } from "flowbite-react";
 import {
@@ -37,7 +38,7 @@ export function Component() {
             </div>
           </div>
           <div className="flex justify-start items-center mt-4 sm:mt-0 mr-20">
-            <Link><img src={logo} alt="Logo" className="h-10 sm:h-12" /></Link>
+            <Link to='/'><img src={logo} alt="Logo" className="h-10 sm:h-12" /></Link>
           </div>
         </div>
         <Footer.Divider />
