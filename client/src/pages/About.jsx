@@ -1,12 +1,12 @@
 import React from 'react'
-import aboutCOver from '../images/aboutCOver.jpg'
+import aboutCover from '../images/aboutCover.jpg'
 
 const About = () => {
     return (
         <div>
             <div>
                 <img
-                    src={aboutCOver}
+                    src={aboutCover}
                     alt="corparate Services"
                     style={{ width: "1920px", height: "920px" }}
                 />

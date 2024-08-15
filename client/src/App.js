@@ -7,6 +7,7 @@ import { Component } from "./components/Footer";
 import InboundTours from "./pages/InboundTours";
 import OutboundTours from "./pages/OutboundTours";
 import CorporateTravelServices from "./pages/CorporateTravelServices";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/inboundTours" element={<InboundTours />} />
           <Route path="/outboundTours" element={<OutboundTours />} />
           <Route path="/corporateTravelServices" element={<CorporateTravelServices />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
       <Component />
