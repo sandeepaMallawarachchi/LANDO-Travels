@@ -1,5 +1,6 @@
 import React from "react";
 import Outboundcover from "../images/Unboundcover.jpg";
+import "../CSS/Index.css";
 
 const OutboundTours = () => {
   return (
