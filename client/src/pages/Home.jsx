@@ -113,6 +113,20 @@ const Home = () => {
         </div>
       </div>
 
+      {/* partners logos */}
+      <div className="overflow-hidden py-20">
+        <div className="flex items-center animate-scroll">
+          {logos.concat(logos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`Partner ${index + 1}`}
+              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110 pr-5"
+            />
+          ))}
+        </div>
+      </div>
+
       {/* Card Section */}
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
         <div className="flex justify-center gap-6 w-full">
@@ -167,6 +181,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/* about section */}
       <div className="flex justify-center items-center mt-12 mb-12">
         <Card className="w-full max-w-6xl" imgSrc={flight5} horizontal>
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -178,7 +193,8 @@ const Home = () => {
           </p>
         </Card>
       </div>
-
+      
+      {/* Contact Form Section */}
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
         <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
           <Button onClick={() => setIsOpen(true)}>Show contact form</Button>
@@ -237,19 +253,6 @@ const Home = () => {
             </form>
           </Drawer.Items>
         </Drawer>
-      </div>
-      {/* partners logos */}
-      <div className="overflow-hidden py-20">
-        <div className="flex items-center animate-scroll">
-          {logos.concat(logos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Partner ${index + 1}`}
-              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110"
-            />
-          ))}
-        </div>
       </div>
 
       {/* Contact Form Section */}
