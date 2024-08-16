@@ -17,6 +17,7 @@ import flight3 from "../images/flight3.jpg";
 import flight4 from "../images/flight4.jpg";
 import flight5 from "../images/flight5.jpg";
 import flight6 from "../images/flight6.jpg";
+import aboutushome from "../images/aboutushome.jpg";
 
 import logo1 from "../images/partners/logo1.svg";
 import logo2 from "../images/partners/logo2.svg";
@@ -168,26 +169,65 @@ const Home = () => {
       </div>
 
       <div className="flex justify-center items-center mt-12 mb-12">
-        <Card className="w-full max-w-6xl" imgSrc={flight5} horizontal>
-          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            ABOUT US
-          </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-          </p>
-        </Card>
+        <section className="flex flex-col lg:flex-row items-center justify-center my-12">
+          {/* Text Section */}
+          <div className="lg:w-1/2 p-6">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">About Us</h2>
+            <p className="text-gray-600 text-lg mb-6">
+              At Lando Travels, we take pride in being one of Sri Lanka's
+              premier travel agencies, specializing in corporate travel
+              services. With over two decades of industry experience, our
+              dedicated and highly trained team is committed to providing
+              top-tier service, handling all your travel needs with efficiency
+              and care.
+            </p>
+            <p>
+              Whether your business requires air ticketing, visa processing, or
+              comprehensive travel insurance, Lando Travels is your go-to
+              partner. Our expertise extends beyond corporate travel, offering
+              tailor-made tour packages to Sri Lanka and beyond, designed to
+              meet the specific needs of your business and clients.
+            </p>
+            <h4>
+              Explore the world with confidence, knowing that Lando Travels is
+              by your side.
+            </h4>
+            <br></br>
+
+            <div className="flex space-x-4">
+              <Button
+                className="mt-8 px-4 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
+                onClick={() => setIsOpen(true)}
+              >
+                Contact
+              </Button>
+              <button className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
+                See More
+              </button>
+            </div>
+          </div>
+
+          {/* Image Section */}
+          <div className="lg:w-1/2 p-6">
+            <img
+              src={aboutushome} // Replace this with your image URL
+              alt="About Us"
+              className="rounded-lg shadow-lg w-full"
+            />
+          </div>
+        </section>
       </div>
 
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
-        <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
-          <Button onClick={() => setIsOpen(true)}>Show contact form</Button>
-        </div>
         <Drawer open={isOpen} onClose={handleClose}>
           <Drawer.Header title="CONTACT US" titleIcon={HiEnvelope} />
           <Drawer.Items>
-            <form action="#">
-              <div className="mb-6 mt-3">
+            <form action="#" className="p-6">
+              {" "}
+              {/* Added padding for more margin */}
+              <div className="mb-8 mt-4">
+                {" "}
+                {/* Increased margin-bottom and margin-top */}
                 <Label htmlFor="email" className="mb-2 block">
                   Your email
                 </Label>
@@ -198,7 +238,9 @@ const Home = () => {
                   type="email"
                 />
               </div>
-              <div className="mb-6">
+              <div className="mb-8">
+                {" "}
+                {/* Increased margin-bottom */}
                 <Label htmlFor="subject" className="mb-2 block">
                   Subject
                 </Label>
@@ -208,7 +250,9 @@ const Home = () => {
                   placeholder="Let us know how we can help you"
                 />
               </div>
-              <div className="mb-6">
+              <div className="mb-8">
+                {" "}
+                {/* Increased margin-bottom */}
                 <Label htmlFor="message" className="mb-2 block">
                   Your message
                 </Label>
@@ -219,26 +263,37 @@ const Home = () => {
                   rows={4}
                 />
               </div>
-              <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
-                <Button type="submit" className="w-full">
+              <div className="mt-6">
+                {" "}
+                {/* Increased margin-top */}
+                <Button
+                  type="submit"
+                  className="w-full bg-blue-500 text-white hover:bg-blue-700"
+                >
                   Send message
                 </Button>
               </div>
-              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                <a href="mailto:info@company.com" className="hover:underline">
-                  info@company.com
-                </a>
-              </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                <a href="tel:2124567890" className="hover:underline">
-                  212-456-7890
-                </a>
-              </p>
+              <div className="mt-4">
+                {" "}
+                {/* Added margin-top for contact info */}
+                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                  <a href="mailto:info@company.com" className="hover:underline">
+                    info@landotravels.net
+                  </a>
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <a href="tel:2124567890" className="hover:underline">
+                    +94 11 4653201-212
+                  </a>
+                </p>
+              </div>
             </form>
           </Drawer.Items>
         </Drawer>
       </div>
       {/* partners logos */}
+      <h1 className="h1">Our Partners</h1>
+
       <div className="overflow-hidden py-20">
         <div className="flex items-center animate-scroll">
           {logos.concat(logos).map((logo, index) => (
