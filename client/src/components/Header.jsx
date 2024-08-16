@@ -22,7 +22,8 @@ const Header = () => {
         </div>
         <Navbar.Collapse>
           <Navbar.Link
-            href="/"
+            as={Link}
+            to='/'
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             Home
@@ -50,7 +51,7 @@ const Header = () => {
           </Navbar.Link>
           <Navbar.Link
             as={Link}
-            to="#about-us"
+            to="/about"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             About
