@@ -14,14 +14,16 @@ const About = () => {
                     <h1 className="text-white text-8xl font-extrabold drop-shadow-lg leading-none">
                         About Us
                     </h1>
-                    <p className="text-white text-3xl drop-shadow-lg mt-10">
-                        Explore the world with confidence, knowing that Lando Travels is by your side.
+                    <p className="text-white text-3xl drop-shadow-lg p-10 text-center">
+                        Lando Travels (pvt) Ltd has grown over the years as a leading IATA accredited
+                        travel Agency in Sri Lanka with professional and well experienced management and staff.
                     </p>
-                    {/* <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
-                        Explore Now
-                    </button> */}
-                    <p></p>
                 </div>
+            </div>
+
+            <div>
+                <h1 className='text-white text-8xl font-extrabold drop-shadow-lg leading-none'>Our Services</h1>
+                
             </div>
         </div>
     )
