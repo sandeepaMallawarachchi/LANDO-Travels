@@ -57,10 +57,11 @@ const Header = () => {
             About
           </Navbar.Link>
           <Navbar.Link
-            href="#"
+            as={Link}
+            to='/contact'
             className="hover:text-blue-500 text-sm sm:text-base"
           >
-            Contact Us
+            Contact
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>

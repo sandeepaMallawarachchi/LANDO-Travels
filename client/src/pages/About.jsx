@@ -55,7 +55,7 @@ const About = () => {
             <div>
                 <img
                     src={aboutCover}
-                    alt="corporate Services"
+                    alt="about us"
                     style={{ width: "1920px", height: "720px" }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
