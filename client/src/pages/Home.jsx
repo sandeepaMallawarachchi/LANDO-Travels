@@ -103,9 +103,9 @@ const Home = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Welcome to LANDO Travels
             </h1>
-            <p className="mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl">
+            <h4 className="mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl">
               Your journey starts here
-            </p>
+            </h4>
             <Button className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-700">
               Get Started
             </Button>
@@ -121,7 +121,7 @@ const Home = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110 pr-5"
+              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110"
             />
           ))}
         </div>
@@ -254,6 +254,8 @@ const Home = () => {
           </Drawer.Items>
         </Drawer>
       </div>
+
+      {/* Contact Form Section */}
     </div>
   );
 };
