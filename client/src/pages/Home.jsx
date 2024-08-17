@@ -17,6 +17,14 @@ import flight3 from "../images/flight3.jpg";
 import flight4 from "../images/flight4.jpg";
 import flight5 from "../images/flight5.jpg";
 import flight6 from "../images/flight6.jpg";
+import aboutushome from "../images/aboutushome.jpg";
+
+import Slider from "react-slick";
+import airTicketing from "../images/airTicketing.jpg";
+import travelInsurance from "../images/travelInsurance.png";
+import inboundCard from "../images/inboundCard.jpg";
+import outboundCard from "../images/outboundCard.jpg";
+import hotelReservationCard from "../images/hotelReservationCard.jpg";
 
 import logo1 from "../images/partners/logo1.svg";
 import logo2 from "../images/partners/logo2.svg";
@@ -36,6 +44,50 @@ import logo16 from "../images/partners/logo16.svg";
 import logo17 from "../images/partners/logo17.png";
 
 const Home = () => {
+  const cards = [
+    {
+      src: airTicketing,
+      title: "Airline Ticketing & Reservations",
+      description:
+        "We issue tickets through all online Airlines/offline airlines in Sri Lanka at competitive fares. Participating in IATA BSP program.",
+    },
+    {
+      src: travelInsurance,
+      title: "Travel Insurance",
+      description:
+        "We provide comprehensive travel insurance covers to all passengers upon request Visa Process & Travel Advice Free travel consultation, passport and visa process to all countries with minimum time requirements",
+    },
+    {
+      src: outboundCard,
+      title: "Out bound Holidays/tour programs",
+      description:
+        "Provide comprehensive tailor-made holidays packages and tour programs to India, Maldives, Singapore, Malaysia, Thailand, Indonesia, China, Vietnam, Cambodia, Laos, Dubai, Egypt, Greece, Turkey, Kenya, Tanzania, Jordan, Holy land.",
+    },
+    {
+      src: inboundCard,
+      title: "Inbound Tour Programs",
+      description:
+        "We provide Honeymoon, Cultural, Heritage, Adventure, Sports, Educational, Shopping, Entertainment packages in Sri Lanka , also MICE.",
+    },
+    {
+      src: hotelReservationCard,
+      title: "Worldwide Hotel Reservations",
+      description:
+        "Reservations of hotel accommodation most of the major cities throughout Europe, India, Middle East and far east Representations.",
+    },
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true, // Automatically slide
+    autoplaySpeed: 4000, // Speed of auto slide (in milliseconds)
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => setIsOpen(false);
@@ -100,110 +152,114 @@ const Home = () => {
 
           {/* Overlay Text and Button */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-              Welcome to LANDO Travels
-            </h1>
+            <div className="flex items-center justify-center">
+              <h1 className="h1 mr-2">Welcome to</h1>
+              <h1 className="text-white text-8xl font-extrabold leading-none mr-2">
+                LANDO
+              </h1>
+              <h1 className="h1">Travels</h1>
+            </div>
+
             <h4 className="mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl">
               Your journey starts here
             </h4>
-            <Button className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-700">
+            <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
               Get Started
-            </Button>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* partners logos */}
-      <div className="overflow-hidden py-20">
-        <div className="flex items-center animate-scroll">
-          {logos.concat(logos).map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Partner ${index + 1}`}
-              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110 pr-5"
-            />
-          ))}
-        </div>
-      </div>
-
       {/* Card Section */}
-      <div className="flex justify-center items-center mt-12 mb-12 gap-6">
-        <div className="flex justify-center gap-6 w-full">
-          <Card className="flex-1 max-w-sm w-full">
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Noteworthy technology acquisitions 2021
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
-            </p>
-          </Card>
-          <Card className="flex-1 max-w-sm w-full">
-            <img src={flight1} alt="Flight 1" className="rounded-t-lg" />
-            <div className="p-5">
-              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Noteworthy technology acquisitions 2021
-              </h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order.
-              </p>
-              <Button className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
-                Read more
-                <svg
-                  className="-mr-1 ml-2 h-4 w-4"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Button>
-            </div>
-          </Card>
-          <Card className="flex-1 max-w-sm w-full">
-            <img src={flight2} alt="Flight 2" className="rounded-t-lg" />
-            <div className="p-5">
-              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Noteworthy technology acquisitions 2021
-              </h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order.
-              </p>
-            </div>
-          </Card>
+      <div className="my-10">
+        <div className="p-10">
+          <Slider {...settings}>
+            {cards.map((card, index) => (
+              <div key={index} className="px-5">
+                <Card className="flex-shrink-0 w-full h-[500px]">
+                  {" "}
+                  {/* Fixed height */}
+                  <img
+                    src={card.src}
+                    alt={card.title}
+                    className="w-full h-64 object-cover rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
+                  />{" "}
+                  {/* Object-cover to fit image */}
+                  <h5 className="text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white mt-4">
+                    {card.title}
+                  </h5>
+                  <p className="font-normal text-gray-700 text-center dark:text-gray-400">
+                    {card.description}
+                  </p>
+                </Card>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
 
       {/* about section */}
       <div className="flex justify-center items-center mt-12 mb-12">
-        <Card className="w-full max-w-6xl" imgSrc={flight5} horizontal>
-          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            ABOUT US
-          </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-          </p>
-        </Card>
+        <section className="flex flex-col lg:flex-row items-center justify-center my-12 px-10">
+          {/* Text Section */}
+          <div className="lg:w-1/2 p-6">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">About Us</h2>
+            <p className="text-gray-600 text-lg mb-6">
+              At Lando Travels, we take pride in being one of Sri Lanka's
+              premier travel agencies, specializing in corporate travel
+              services. With over two decades of industry experience, our
+              dedicated and highly trained team is committed to providing
+              top-tier service, handling all your travel needs with efficiency
+              and care.
+            </p>
+            <p>
+              Whether your business requires air ticketing, visa processing, or
+              comprehensive travel insurance, Lando Travels is your go-to
+              partner. Our expertise extends beyond corporate travel, offering
+              tailor-made tour packages to Sri Lanka and beyond, designed to
+              meet the specific needs of your business and clients.
+            </p>
+            <h4>
+              Explore the world with confidence, knowing that Lando Travels is
+              by your side.
+            </h4>
+            <br></br>
+
+            <div className="flex space-x-4">
+              <Button
+                className="mt-8 px-4 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
+                onClick={() => setIsOpen(true)}
+              >
+                Contact
+              </Button>
+              <button className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
+                See More
+              </button>
+            </div>
+          </div>
+
+          {/* Image Section */}
+          <div className="lg:w-1/2 p-6">
+            <img
+              src={aboutushome} // Replace this with your image URL
+              alt="About Us"
+              className="rounded-lg shadow-lg w-full"
+            />
+          </div>
+        </section>
       </div>
-      
+
       {/* Contact Form Section */}
       <div className="flex justify-center items-center mt-12 mb-12 gap-6">
-        <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
-          <Button onClick={() => setIsOpen(true)}>Show contact form</Button>
-        </div>
         <Drawer open={isOpen} onClose={handleClose}>
           <Drawer.Header title="CONTACT US" titleIcon={HiEnvelope} />
           <Drawer.Items>
-            <form action="#">
-              <div className="mb-6 mt-3">
+            <form action="#" className="p-6">
+              {" "}
+              {/* Added padding for more margin */}
+              <div className="mb-8 mt-4">
+                {" "}
+                {/* Increased margin-bottom and margin-top */}
                 <Label htmlFor="email" className="mb-2 block">
                   Your email
                 </Label>
@@ -214,7 +270,9 @@ const Home = () => {
                   type="email"
                 />
               </div>
-              <div className="mb-6">
+              <div className="mb-8">
+                {" "}
+                {/* Increased margin-bottom */}
                 <Label htmlFor="subject" className="mb-2 block">
                   Subject
                 </Label>
@@ -224,7 +282,9 @@ const Home = () => {
                   placeholder="Let us know how we can help you"
                 />
               </div>
-              <div className="mb-6">
+              <div className="mb-8">
+                {" "}
+                {/* Increased margin-bottom */}
                 <Label htmlFor="message" className="mb-2 block">
                   Your message
                 </Label>
@@ -235,24 +295,47 @@ const Home = () => {
                   rows={4}
                 />
               </div>
-              <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
-                <Button type="submit" className="w-full">
+              <div className="mt-6">
+                {" "}
+                {/* Increased margin-top */}
+                <Button
+                  type="submit"
+                  className="w-full bg-blue-500 text-white hover:bg-blue-700"
+                >
                   Send message
                 </Button>
               </div>
-              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                <a href="mailto:info@company.com" className="hover:underline">
-                  info@company.com
-                </a>
-              </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                <a href="tel:2124567890" className="hover:underline">
-                  212-456-7890
-                </a>
-              </p>
+              <div className="mt-4">
+                {" "}
+                {/* Added margin-top for contact info */}
+                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                  <a href="mailto:info@company.com" className="hover:underline">
+                    info@landotravels.net
+                  </a>
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <a href="tel:2124567890" className="hover:underline">
+                    +94 11 4653201-212
+                  </a>
+                </p>
+              </div>
             </form>
           </Drawer.Items>
         </Drawer>
+      </div>
+      <h2 className="heading drop-shadow-lg">Partnerships</h2>
+      {/* partners logos */}
+      <div className="overflow-hidden py-20">
+        <div className="flex items-center animate-scroll">
+          {logos.concat(logos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`Partner ${index + 1}`}
+              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110"
+            />
+          ))}
+        </div>
       </div>
 
       {/* Contact Form Section */}
