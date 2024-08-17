@@ -42,28 +42,3 @@
 html {
   scroll-behavior: smooth;
 }
-.headingpartner {
-  position: relative;
-  font-size: 5rem; /* Adjust based on your design */
-  font-weight: 800;
-  text-align: center;
-  color: transparent; /* Make text transparent */
-  -webkit-text-stroke: 2px #1a56db; /* Outline with blue color */
-  text-stroke: 2px #1a56db; /* For browsers that support text-stroke */
-  background-image: url("../images/Unboundcover.jpg"); /* Image that shows through the letters */
-  background-size: cover; /* Ensure the image covers the text */
-  -webkit-background-clip: text; /* Clip the background to the text */
-  background-clip: text; /* Clip the background to the text for non-webkit browsers */
-}
-
-.headingpartner::before {
-  content: attr(data-text); /* Use the same text from the data-text attribute */
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  color: #1a56db; /* Outline color */
-  z-index: -1; /* Ensure it’s behind the text */
-  background-color: transparent; /* Ensure background is transparent */
-}

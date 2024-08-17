@@ -20,55 +20,6 @@ const OutboundTours = () => {
         </button>
       </div>
     </div>
-
-        <div className="parent">
-          <div className="card">
-            <div className="content-box">
-              <h1 className="card-title">{title}</h1>
-              <p className="card-content">{content}</p>
-              <span className="see-more">See More</span>
-            </div>
-            <div className="date-box">
-              <span className="month">{month}</span>
-              <span className="date">{date}</span>
-            </div>
-          </div>
-        </div>
-      );
-    };
-    
-    const App = () => {
-      return (
-        <div className="container">
-          <Card
-            title="Card Title 1"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias ipsam repudiandae laudantium perspiciatis itaque?"
-            month="Neon"
-            date="3D"
-          />
-          <Card
-            title="Card Title 2"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias ipsam repudiandae laudantium perspiciatis itaque?"
-            month="Neon"
-            date="3D"
-          />
-          <Card
-            title="Card Title 3"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias ipsam repudiandae laudantium perspiciatis itaque?"
-            month="Neon"
-            date="3D"
-          />
-          <Card
-            title="Card Title 4"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias ipsam repudiandae laudantium perspiciatis itaque?"
-            month="Neon"
-            date="3D"
-          />
-        </div>
-   
-    
-  
-    
   );
 };
 
