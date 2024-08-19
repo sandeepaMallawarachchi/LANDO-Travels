@@ -1,9 +1,49 @@
 import React from "react";
-import { Card, Button } from "flowbite-react";
-import inboundcover from "../images/inboundcover.jpg"; // Adjust the path as needed
+import inboundcover from "../images/inboundcover.jpg";
+import inboundtiger from "../images/inboundtiger.jpg";
+import inboundtemple from "../images/inboundtemple.jpg";
+import inboundbeach from "../images/inboundbeach.jpg";
+import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
+const Card = ({ imgSrc, description, title }) => {
+  return (
+    <article className="card__article">
+      <img src={imgSrc} alt={title} className="card__img" />
+      <div className="card__data">
+        <span className="card__description">{description}</span>
+        <h2 className="card__title">{title}</h2>
+        <a href="#" className="card__button">
+          Read More
+        </a>
+      </div>
+    </article>
+  );
+};
 const InboundTours = () => {
+  const cardsData = [
+    {
+      imgSrc: inboundbeach,
+      description: "Vancouver Mountains, Canada",
+      title: "The Great Path",
+    },
+    {
+      imgSrc: inboundtiger,
+      description: "Poon Hill, Nepal",
+      title: "Starry Night",
+    },
+    {
+      imgSrc: inboundtemple,
+      description: "Bojcin Forest, Serbia",
+      title: "Path Of Peace",
+    },
+    {
+      imgSrc: inboundtemple,
+      description: "Bojcin Forest, Serbia",
+      title: "Path Of Peace",
+    },
+  ];
+
   return (
     <div>
       <img
@@ -16,90 +56,31 @@ const InboundTours = () => {
           Inbound
         </h1>
         <h1 className="h1">Tours</h1>
-
         <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
           Explore Now
         </button>
       </div>
 
-      {/* Blog Posts Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-black">
-            Explore Sri Lanka with Lando Travels
-          </h1>
-
-          <h2 className="text-3xl font-bold text-gray-600 mb-8 text-left">
-            Featured Tours
-          </h2>
-
-          <div className="flex flex-wrap -mx-4">
-            <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-              <Card>
-                <img
-                  src={inboundcover}
-                  alt="Tour 1"
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold mb-2">
-                    Exciting Tour in the City
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Discover the hidden gems of the city with our guided tours.
-                    Perfect for solo travelers and groups alike.
-                  </p>
-                  <Button className="bg-blue-500 text-white hover:bg-blue-600">
-                    Read More
-                  </Button>
-                </div>
-              </Card>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-              <Card>
-                <img
-                  src={inboundcover}
-                  alt="Tour 2"
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold mb-2">
-                    Adventure in the Mountains
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Join us for a thrilling adventure in the mountains.
-                    Experience breathtaking views and exhilarating hikes.
-                  </p>
-                  <Button className="bg-blue-500 text-white hover:bg-blue-600">
-                    Read More
-                  </Button>
-                </div>
-              </Card>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-              <Card>
-                <img
-                  src={inboundcover}
-                  alt="Tour 3"
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold mb-2">
-                    Cultural Heritage Tour
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Immerse yourself in the rich cultural heritage with our
-                    comprehensive tours that showcase history and tradition.
-                  </p>
-                  <Button className="bg-blue-500 text-white hover:bg-blue-600">
-                    Read More
-                  </Button>
-                </div>
-              </Card>
-            </div>
-          </div>
+      <div className="container mt-12">
+        {/* Added margin-top for spacing */}
+        <h2 class="bold-heading">Explore Sri Lanka with Lando Travels</h2>{" "}
+        <p>
+          If you are promoting tourism in Sri Lanka as part of your business
+          expansion, Lando Travels offers a range of exciting inbound tour
+          packages. <br />
+          Our itineraries include:
+        </p>
+        <div className="card__container">
+          {cardsData.map((card, index) => (
+            <Card
+              key={index}
+              imgSrc={card.imgSrc}
+              description={card.description}
+              title={card.title}
+            />
+          ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 };
