@@ -1,8 +1,50 @@
 import React from "react";
 import Outboundcover from "../images/Unboundcover.jpg";
+import inboundtiger from "../images/inboundtiger.jpg";
+import inboundtemple from "../images/inboundtemple.jpg";
+import inboundbeach from "../images/inboundbeach.jpg";
+import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
+const Card = ({ imgSrc, description, title }) => {
+  return (
+    <article className="card__article">
+      <img src={imgSrc} alt={title} className="card__img" />
+      <div className="card__data">
+        <span className="card__description">{description}</span>
+        <h2 className="card__title">{title}</h2>
+        <a href="#" className="card__button">
+          Read More
+        </a>
+      </div>
+    </article>
+  );
+};
+
 const OutboundTours = () => {
+  const cardsData = [
+    {
+      imgSrc: inboundbeach,
+      description: "Vancouver Mountains, Canada",
+      title: "The Great Path",
+    },
+    {
+      imgSrc: inboundtiger,
+      description: "Poon Hill, Nepal",
+      title: "Starry Night",
+    },
+    {
+      imgSrc: inboundtemple,
+      description: "Bojcin Forest, Serbia",
+      title: "Path Of Peace",
+    },
+    {
+      imgSrc: inboundtemple,
+      description: "Bojcin Forest, Serbia",
+      title: "Path Of Peace",
+    },
+  ];
+
   return (
     <div>
       <img
@@ -18,6 +60,21 @@ const OutboundTours = () => {
         <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
           Explore Now
         </button>
+      </div>
+
+      <div className="container mt-12">
+        {" "}
+        {/* Added margin-top for spacing */}
+        <div className="card__container">
+          {cardsData.map((card, index) => (
+            <Card
+              key={index}
+              imgSrc={card.imgSrc}
+              description={card.description}
+              title={card.title}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
