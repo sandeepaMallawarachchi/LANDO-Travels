@@ -32,8 +32,39 @@ const Contact = () => {
 
             <div className="flex flex-row gap-4 p-20">
                 <div className="w-1/2 pt-10">
-                    At Lando Travels, we're here to assist you with all your travel needs. Whether you're planning corporate travel, booking a tour, or seeking travel consultation, our team is ready to help. Contact us today and let us take care of the details, so you can focus on your business.
+                    <p>
+                        At Lando Travels, we're here to assist you with all your travel needs.
+                        Whether you're planning corporate travel, booking a tour, or seeking travel consultation, our team is ready to help.
+                        Contact us today and let us take care of the details, so you can focus on your business.
+                    </p>
+
+                    <div className="mt-6">
+                        <h2 className="font-bold mb-2">Contact Information:</h2>
+                        <p>Phone: +94 1234567</p>
+                        <p>Email: landotravels@gmail.com</p>
+                        <p>Address: No:514, 2/1-Galle Road, Colombo 3</p>
+                    </div>
+
+                    <div className="mt-6">
+                        <h2 className="font-bold mb-2">Follow Us on Social Media:</h2>
+                        <div className="flex space-x-4">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                                <i className="fab fa-facebook-f text-blue-600"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                                <i className="fab fa-instagram text-pink-600"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                                <i className="fab fa-twitter text-blue-400"></i>
+                            </a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                                <i className="fab fa-youtube text-red-600"></i>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
+
                 <div className="w-1/2">
                     <form action="#">
                         <div className="mb-6 mt-3">
@@ -48,13 +79,12 @@ const Contact = () => {
                             <Label htmlFor="message" className="mb-2 block">Your message</Label>
                             <Textarea id="message" name="message" placeholder="Your message..." rows={4} />
                         </div>
-                        <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700">
+                        <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700 rounded-md">
                             <Button type="submit" className="w-full">Send message</Button>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div >
     )
 }
