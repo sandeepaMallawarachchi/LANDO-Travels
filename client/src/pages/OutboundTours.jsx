@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "flowbite-react";
 import Outboundcover from "../images/Unboundcover.jpg";
 import outboundsingapore from "../images/outboundsingapore.jpg";
 import outboundgreek from "../images/outboundgreek.jpg";
@@ -25,6 +24,12 @@ const Card = ({ imgSrc, description, title }) => {
 };
 
 const OutboundTours = () => {
+  const outboundRef = useRef(null);
+
+  const handleScrollToOutboundServices = () => {
+    outboundRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   const cardsData = [
     {
       imgSrc: outboundsingapore,
@@ -60,12 +65,15 @@ const OutboundTours = () => {
           Outbound
         </h1>
         <h1 className="h1">Tours</h1>
-        <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+        <button
+          onClick={handleScrollToOutboundServices}
+          className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+        >
           Explore Now
         </button>
       </div>
 
-      <div className="container mt-12">
+      <div className="container mt-12" ref={outboundRef}>
         {" "}
         {/* Added margin-top for spacing */}
         <h2 className="text-4xl font-bold text-gray-800 mb-4">

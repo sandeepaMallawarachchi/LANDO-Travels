@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import aboutCover from '../images/aboutCover.jpg';
 import '../CSS/Index.css';
 import { Card } from 'flowbite-react';
@@ -10,6 +10,12 @@ import outboundCard from '../images/outboundCard.jpg';
 import hotelReservationCard from '../images/hotelReservationCard.jpg';
 
 const About = () => {
+
+    const servicesRef = useRef(null);
+
+    const handleScrollToServices = () => {
+        servicesRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
 
     const cards = [
         {
@@ -42,12 +48,12 @@ const About = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 600,
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
-        autoplay: true,  // Automatically slide
-        autoplaySpeed: 4000,  // Speed of auto slide (in milliseconds)
+        autoplay: true, 
+        autoplaySpeed: 4000, 
     };
 
     return (
@@ -67,13 +73,16 @@ const About = () => {
                         travel Agency in Sri Lanka with professional and well experienced management and staff.
                     </p>
 
-                    <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+                    <button
+                        onClick={handleScrollToServices}
+                        className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+                    >
                         Explore Now
                     </button>
                 </div>
             </div>
 
-            <div className='my-10'>
+            <div ref={servicesRef} className='my-10'>
                 <h2 className='heading drop-shadow-lg'>Our Services</h2>
                 <div className="p-10">
                     <Slider {...settings}>

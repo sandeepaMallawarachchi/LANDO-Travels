@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Carousel,
   Button,
@@ -113,6 +113,12 @@ const Home = () => {
     logo17,
   ];
 
+  const getStartedRef = useRef(null);
+
+  const handleScrollToServices = () => {
+    getStartedRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div>
       {/* Carousel Section */}
@@ -164,7 +170,9 @@ const Home = () => {
             <h4 className="mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl">
               Your journey starts here
             </h4>
-            <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+            <button
+              onClick={handleScrollToServices}
+              className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
               Get Started
             </button>
           </div>
@@ -172,7 +180,7 @@ const Home = () => {
       </div>
 
       {/* Card Section */}
-      <div className="my-10">
+      <div className="my-10" ref={getStartedRef}>
         <div className="p-10">
           <Slider {...settings}>
             {cards.map((card, index) => (

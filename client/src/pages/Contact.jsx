@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import contactCover from '../images/contactCover.jpg';
 import {
     Button,
@@ -8,6 +8,13 @@ import {
 } from "flowbite-react";
 
 const Contact = () => {
+
+    const contactRef = useRef(null);
+
+    const handleScrollToContact = () => {
+        contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <div>
             <div>
@@ -24,13 +31,16 @@ const Contact = () => {
                         Get in Touch with Lando Travels.
                     </p>
 
-                    <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+                    <button
+                        onClick={handleScrollToContact}
+                        className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+                    >
                         Contact Now
                     </button>
                 </div>
             </div>
 
-            <div className="flex flex-row gap-4 p-20">
+            <div className="flex flex-row gap-4 p-20" ref={contactRef}>
                 <div className="w-1/2 pt-10">
                     <p>
                         At Lando Travels, we're here to assist you with all your travel needs.
