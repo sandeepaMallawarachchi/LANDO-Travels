@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Navbar } from "flowbite-react";
 import logo from "../images/logo-white-remove-bg.png";
 import { Link } from "react-router-dom";
+import Login from "./Login";
 
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="sticky top-0 z-50 bg-white shadow-lg lg:pl-10 lg:pr-10">
       <Navbar fluid rounded>
@@ -15,7 +25,10 @@ const Header = () => {
           />
         </Navbar.Brand>
         <div className="flex md:order-2">
-          <Button className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700">
+          <Button
+            onClick={handleOpenModal}
+            className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700"
+          >
             Login
           </Button>
           <Navbar.Toggle />
@@ -65,6 +78,9 @@ const Header = () => {
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
+
+      <Login isOpen={isModalOpen} onClose={handleCloseModal} />
+
     </div>
   );
 };
