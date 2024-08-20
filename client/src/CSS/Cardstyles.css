@@ -7,21 +7,13 @@
   --first-color: hsl(82, 60%, 28%);
   --title-color: hsl(0, 0%, 15%);
   --text-color: hsl(0, 0%, 35%);
-  --body-color: hsl(0, 0%, 95%);
+  --body-color: hsl(0, 0%, 100%);
   --container-color: hsl(0, 0%, 100%);
 
   /*========== Font and typography ==========*/
-  --body-font: "Poppins", sans-serif;
+  /* --body-font: "Poppins", sans-serif;
   --h2-font-size: 1.25rem;
-  --small-font-size: 0.813rem;
-}
-
-/*========== Responsive typography ==========*/
-@media screen and (min-width: 1120px) {
-  :root {
-    --h2-font-size: 1.5rem;
-    --small-font-size: 0.875rem;
-  }
+  --small-font-size: 0.813rem; */
 }
 
 /*=============== BASE ===============*/
