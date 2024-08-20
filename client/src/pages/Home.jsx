@@ -53,9 +53,9 @@ const Home = () => {
     },
     {
       src: travelInsurance,
-      title: "Travel Insurance",
+      title: "The world’s best airlines for 2023, according to Skytrax",
       description:
-        "We provide comprehensive travel insurance covers to all passengers upon request Visa Process & Travel Advice Free travel consultation, passport and visa process to all countries with minimum time requirements",
+        " Singapore Airlines: The Singapore flag-carrier has been named Airline of the Year at the Skytrax World Airline Awards 2023 in Paris. Click through the gallery to see the best of the rest.",
     },
     {
       src: outboundCard,
@@ -323,7 +323,9 @@ const Home = () => {
           </Drawer.Items>
         </Drawer>
       </div>
-      <h2 className="heading drop-shadow-lg">Partnerships</h2>
+      <h2 className="text-4xl font-bold text-gray-800 mb-4 text-center">
+        Partnerships
+      </h2>
       {/* partners logos */}
       <div className="overflow-hidden py-20">
         <div className="flex items-center animate-scroll">
