@@ -3,6 +3,7 @@ import inboundcover from "../images/inboundcover.jpg";
 import inboundtiger from "../images/inboundtiger.jpg";
 import inboundtemple from "../images/inboundtemple.jpg";
 import inboundbeach from "../images/inboundbeach.jpg";
+import inboundleisure from "../images/inboundleisure.jpg";
 import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
@@ -24,23 +25,23 @@ const InboundTours = () => {
   const cardsData = [
     {
       imgSrc: inboundbeach,
-      description: "Vancouver Mountains, Canada",
-      title: "The Great Path",
+      description: "Sigiriya, Rock fortress in Srilanka",
+      title: "Historic & Archaeological Sites",
     },
     {
       imgSrc: inboundtiger,
-      description: "Poon Hill, Nepal",
-      title: "Starry Night",
+      description: "National Park, Yala",
+      title: "Nature & Wildlife",
     },
     {
       imgSrc: inboundtemple,
-      description: "Bojcin Forest, Serbia",
-      title: "Path Of Peace",
+      description: "Temple of tooth, Kandy",
+      title: "Cultural & Religious Centers",
     },
     {
-      imgSrc: inboundtemple,
-      description: "Bojcin Forest, Serbia",
-      title: "Path Of Peace",
+      imgSrc: inboundleisure,
+      description: "Unawatuna, Galle",
+      title: "Adventure & Leisure",
     },
   ];
 
@@ -63,14 +64,16 @@ const InboundTours = () => {
 
       <div className="container mt-12">
         {/* Added margin-top for spacing */}
-        <h2 class="bold-heading">Explore Sri Lanka with Lando Travels</h2>{" "}
+        <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          Explore Sri Lanka with Lando Travels
+        </h2>{" "}
         <p>
           If you are promoting tourism in Sri Lanka as part of your business
           expansion, Lando Travels offers a range of exciting inbound tour
           packages. <br />
           Our itineraries include:
         </p>
-        <div className="card__container">
+        <div className="card__container mt-6">
           {cardsData.map((card, index) => (
             <Card
               key={index}
@@ -79,6 +82,15 @@ const InboundTours = () => {
               title={card.title}
             />
           ))}
+        </div>
+        <div className="flex justify-center items-center mt-12 mb-12">
+          <p>
+            <br />
+            Our tours are led by experienced guides who speak your language,
+            ensuring a comfortable and informative experience. Whether it's a
+            honeymoon, educational trip, or business event, we tailor each
+            package to your specific needs.
+          </p>
         </div>
       </div>
     </div>
