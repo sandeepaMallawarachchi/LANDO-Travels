@@ -11,9 +11,6 @@
   --container-color: hsl(0, 0%, 100%);
 
   /*========== Font and typography ==========*/
-  --body-font: "Poppins", sans-serif;
-  --h2-font-size: 1.25rem;
-  --small-font-size: 0.813rem;
 }
 
 /*========== Responsive typography ==========*/
