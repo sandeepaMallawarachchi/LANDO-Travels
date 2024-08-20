@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import inboundcover from "../images/inboundcover.jpg";
 import inboundtiger from "../images/inboundtiger.jpg";
 import inboundtemple from "../images/inboundtemple.jpg";
@@ -21,6 +21,13 @@ const Card = ({ imgSrc, description, title }) => {
   );
 };
 const InboundTours = () => {
+
+  const inboundRef = useRef(null);
+
+  const handleScrollToInboundServices = () => {
+    inboundRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const cardsData = [
     {
       imgSrc: inboundbeach,
@@ -56,12 +63,14 @@ const InboundTours = () => {
           Inbound
         </h1>
         <h1 className="h1">Tours</h1>
-        <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+        <button
+          onClick={handleScrollToInboundServices}
+          className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
           Explore Now
         </button>
       </div>
 
-      <div className="container mt-12">
+      <div className="container mt-12" ref={inboundRef}>
         {/* Added margin-top for spacing */}
         <h2 class="bold-heading">Explore Sri Lanka with Lando Travels</h2>{" "}
         <p>

@@ -9,7 +9,6 @@ import OutboundTours from "./pages/OutboundTours";
 import CorporateTravelServices from "./pages/CorporateTravelServices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Login from "./components/Login";
 
 function App() {
   return (

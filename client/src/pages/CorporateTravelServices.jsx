@@ -1,7 +1,14 @@
-import React from "react";
+import React,{useRef} from "react";
 import corparateServices from "../images/corparateServices.jpg";
 
 const CorporateTravelServices = () => {
+
+  const corporateRef = useRef(null);
+
+  const handleScrollToCorporateServices = () => {
+    corporateRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div>
       <div>
@@ -15,11 +22,15 @@ const CorporateTravelServices = () => {
             Corporate Travel
           </h1>
           <h1 className="h1">Services</h1>
-          <button className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+          <button 
+          onClick={handleScrollToCorporateServices}
+          className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
             Explore Now
           </button>
         </div>
       </div>
+
+      <div ref={corporateRef}></div>
     </div>
   );
 };
