@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import contactCover from '../images/contactCover.jpg';
 import {
     Button,
@@ -6,6 +6,7 @@ import {
     Textarea,
     TextInput,
 } from "flowbite-react";
+import axios from 'axios';
 
 const Contact = () => {
 
@@ -14,6 +15,32 @@ const Contact = () => {
     const handleScrollToContact = () => {
         contactRef.current.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const res = await axios.post(`http://localhost:4000/admin/contact`, {
+                email,
+                subject,
+                message
+            });
+            console.log(res.data);
+            alert('Message sent successfully')
+
+            setEmail("");
+            setSubject("");
+            setMessage("");
+
+        } catch (error) {
+            console.log(error.message);
+            alert('Error sending message!')
+        }
+    }
 
     return (
         <div>
@@ -76,18 +103,27 @@ const Contact = () => {
                 </div>
 
                 <div className="w-1/2">
-                    <form action="#">
+                    <form onSubmit={handleSubmit}>
                         <div className="mb-6 mt-3">
                             <Label htmlFor="email" className="mb-2 block">Your email</Label>
-                            <TextInput id="email" name="email" placeholder="name@company.com" type="email" />
+                            <TextInput id="email" name="email" placeholder="name@company.com" type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                         </div>
                         <div className="mb-6">
                             <Label htmlFor="subject" className="mb-2 block">Subject</Label>
-                            <TextInput id="subject" name="subject" placeholder="Let us know how we can help you" />
+                            <TextInput id="subject" name="subject" placeholder="Let us know how we can help you"
+                                value={subject}
+                                onChange={(e) => setSubject(e.target.value)}
+                            />
                         </div>
                         <div className="mb-6">
                             <Label htmlFor="message" className="mb-2 block">Your message</Label>
-                            <Textarea id="message" name="message" placeholder="Your message..." rows={4} />
+                            <Textarea id="message" name="message" placeholder="Your message..." rows={4}
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                            />
                         </div>
                         <div className="mt-4 bg-blue-500 text-white hover:bg-blue-700 rounded-md">
                             <Button type="submit" className="w-full">Send message</Button>

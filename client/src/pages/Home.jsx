@@ -42,6 +42,7 @@ import logo14 from "../images/partners/logo14.png";
 import logo15 from "../images/partners/logo15.png";
 import logo16 from "../images/partners/logo16.svg";
 import logo17 from "../images/partners/logo17.png";
+import axios from "axios";
 
 const Home = () => {
   const cards = [
@@ -118,6 +119,32 @@ const Home = () => {
   const handleScrollToServices = () => {
     getStartedRef.current.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(`http://localhost:4000/admin/contact`, {
+        email,
+        subject,
+        message
+      });
+      console.log(res.data);
+      alert('Message sent successfully')
+
+      setEmail("");
+      setSubject("");
+      setMessage("");
+
+    } catch (error) {
+      console.log(error.message);
+      alert('Error sending message!')
+    }
+  }
 
   return (
     <div>
@@ -263,7 +290,7 @@ const Home = () => {
         <Drawer open={isOpen} onClose={handleClose}>
           <Drawer.Header title="CONTACT US" titleIcon={HiEnvelope} />
           <Drawer.Items>
-            <form action="#" className="p-6">
+            <form onSubmit={handleSubmit} className="p-6">
               {" "}
               {/* Added padding for more margin */}
               <div className="mb-8 mt-4">
@@ -277,6 +304,8 @@ const Home = () => {
                   name="email"
                   placeholder="name@company.com"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mb-8">
@@ -289,6 +318,8 @@ const Home = () => {
                   id="subject"
                   name="subject"
                   placeholder="Let us know how we can help you"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
                 />
               </div>
               <div className="mb-8">
@@ -302,6 +333,8 @@ const Home = () => {
                   name="message"
                   placeholder="Your message..."
                   rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
               <div className="mt-6">
@@ -348,8 +381,6 @@ const Home = () => {
           ))}
         </div>
       </div>
-
-      {/* Contact Form Section */}
     </div>
   );
 };
