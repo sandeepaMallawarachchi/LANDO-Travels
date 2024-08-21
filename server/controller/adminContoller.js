@@ -2,7 +2,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const Admin = require('../models/adminDetails');
+const Contact = require('../models/contactDetails');
 
+//admin login
 exports.getAdmin = async (req, res) => {
     const { email, password } = req.body;
 
@@ -43,5 +45,44 @@ exports.getAdmin = async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Server error" });
+    }
+};
+
+//save contact details
+exports.submitContactForm = async (req, res) => {
+    const { email, subject, message } = req.body;
+
+    // Validate input
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+        // Create a new contact entry
+        const contact = new Contact({
+            email,
+            subject,
+            message,
+        });
+
+        await contact.save();
+
+        return res.status(201).json({ message: "Contact form submitted successfully" });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+};
+
+//get contact details
+exports.getAllContacts = async (req, res) => {
+    try {
+        const contacts = await Contact.find();
+        return res.status(200).json(contacts);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Server error" });
     }
 };
