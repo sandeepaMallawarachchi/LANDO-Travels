@@ -1,15 +1,8 @@
-const express = require('express');
-const { getAdmin } = require('../controller/adminContoller');
-const authMiddleware = require('../middlewares/authMiddleware');
-
+const express = require("express");
 const router = express.Router();
+const adminController = require("../controller/adminContoller");
 
-// Login route
-router.post('/login', getAdmin);
-
-// Example of a protected route
-router.get('/dashboard', authMiddleware, (req, res) => {
-    res.send('Welcome to admin dashboard');
-});
+// Define routes
+router.get("/", adminController.getAllAdmin);
 
 module.exports = router;
