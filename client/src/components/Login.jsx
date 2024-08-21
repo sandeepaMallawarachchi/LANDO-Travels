@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { HiMail, HiLockClosed, HiX } from "react-icons/hi";
 
 const Login = ({ isOpen, onClose }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const sendData = async (e) => {
+        e.preventDefault();
+
+        try {
+            const res = await axios.post('http://localhost:4000/admin/login', {
+                email,
+                password
+            });
+
+            console.log("Login successful:", res.data);
+            alert('Login successful');
+
+        } catch (error) {
+            console.error("Error:", error.message);
+            alert('Login failed! Invalid email or password.');
+        }
+    }
+
     if (!isOpen) return null;
 
     return (
@@ -16,18 +38,32 @@ const Login = ({ isOpen, onClose }) => {
                     <HiX className="w-6 h-6" />
                 </button>
 
-                <form className="flex flex-col gap-4">
+                <form className="flex flex-col gap-4" onSubmit={sendData}>
                     <div>
                         <div className="mb-2 block">
-                            <Label htmlFor="email1" value="Your email" />
+                            <Label htmlFor="email" value="Your email" />
                         </div>
-                        <TextInput id="email4" type="email" icon={HiMail} placeholder="name@flowbite.com" required />
+                        <TextInput
+                            id="email"
+                            type="email"
+                            icon={HiMail}
+                            placeholder="name@flowbite.com"
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
                     <div>
                         <div className="mb-2 block">
-                            <Label htmlFor="password1" value="Your password" />
+                            <Label htmlFor="password" value="Your password" />
                         </div>
-                        <TextInput id="password" type="password" icon={HiLockClosed} placeholder="Password" required />
+                        <TextInput
+                            id="password"
+                            type="password"
+                            icon={HiLockClosed}
+                            placeholder="Password"
+                            required
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
                     <div className="flex items-center gap-2">
                         <Checkbox id="remember" />
