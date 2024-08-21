@@ -11,7 +11,7 @@ import {
 
 export function Component() {
   return (
-    <Footer container className="bg-gray-50">
+    <Footer container className="bg-gray-100 border border-t-2 shadow-lg z-50">
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
@@ -52,7 +52,7 @@ export function Component() {
           </div>
         </div>
         {/* Footer Section */}
-        <div className="bg-gray-50 text-black p-6 text-center">
+        <div className="bg-gray-100 text-black p-6 text-center">
           <p>&copy; 2024 LANDO Travels. All Rights Reserved.</p>
         </div>
       </div>
