@@ -20,10 +20,10 @@ import flight6 from "../images/flight6.jpg";
 import aboutushome from "../images/aboutushome.jpg";
 
 import Slider from "react-slick";
-import airTicketing from "../images/airTicketing.jpg";
-import travelInsurance from "../images/travelInsurance.png";
-import inboundCard from "../images/inboundCard.jpg";
-import outboundCard from "../images/outboundCard.jpg";
+import quatar from "../images/quatar.jpg";
+import singaporeairlines from "../images/singaporeairlines.jpg";
+import srilankanairlines from "../images/srilankanairlines.jpg";
+import male from "../images/male.jpg";
 import hotelReservationCard from "../images/hotelReservationCard.jpg";
 
 import logo1 from "../images/partners/logo1.svg";
@@ -46,28 +46,29 @@ import logo17 from "../images/partners/logo17.png";
 const Home = () => {
   const cards = [
     {
-      src: airTicketing,
-      title: "Airline Ticketing & Reservations",
+      src: quatar,
+      title:
+        "Airlines Qatar Airways takes minority stake in South Africa’s Airlink",
       description:
-        "We issue tickets through all online Airlines/offline airlines in Sri Lanka at competitive fares. Participating in IATA BSP program.",
+        "Qatar Airways is taking a 25% shareholding in South African regional carrier Airlink, having previously teased that it was intending to invest in an airline in the region.",
     },
     {
-      src: travelInsurance,
+      src: singaporeairlines,
       title: "The world’s best airlines for 2023, according to Skytrax",
       description:
         " Singapore Airlines: The Singapore flag-carrier has been named Airline of the Year at the Skytrax World Airline Awards 2023 in Paris. Click through the gallery to see the best of the rest.",
     },
     {
-      src: outboundCard,
-      title: "Out bound Holidays/tour programs",
+      src: male,
+      title: "Maldives Weather: When to Visit and What to Expect",
       description:
-        "Provide comprehensive tailor-made holidays packages and tour programs to India, Maldives, Singapore, Malaysia, Thailand, Indonesia, China, Vietnam, Cambodia, Laos, Dubai, Egypt, Greece, Turkey, Kenya, Tanzania, Jordan, Holy land.",
+        "Discover the Maldives weather and the best time to visit this tropical paradise. Learn about the average temperatures, rainfall, and what to pack for your trip..",
     },
     {
-      src: inboundCard,
-      title: "Inbound Tour Programs",
+      src: srilankanairlines,
+      title: "Srilankan airlines customer services",
       description:
-        "We provide Honeymoon, Cultural, Heritage, Adventure, Sports, Educational, Shopping, Entertainment packages in Sri Lanka , also MICE.",
+        "SriLankan Airlines is renowned for its warm, hospitable service, rooted in Sri Lankan culture. Their staff is trained to offer personalized care, ensuring passengers feel valued and comfortable throughout their journey.",
     },
     {
       src: hotelReservationCard,
