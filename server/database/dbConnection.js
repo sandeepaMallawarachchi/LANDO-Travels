@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// uri in the .env file
+// URI in the .env file
 const uri = process.env.URI;
 
 const connectDB = async () => {
@@ -11,8 +11,8 @@ const connectDB = async () => {
             console.log('Database connection success');
         }
     } catch (err) {
-        // Throw an error if the connection fails
-        res.status(404).send('Database connection error: ' + err.message);
+        console.error('Database connection error: ' + err.message);
+        process.exit(1);  // Exit the process with failure
     }
 };
 
