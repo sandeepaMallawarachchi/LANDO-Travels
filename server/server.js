@@ -10,15 +10,16 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-//import routes
-const adminRouter = require('./routes/adminRoutes')
+// Import routes
+const adminRouter = require('./routes/adminRoutes');
 
-//use routes
+// Use routes
 app.use('/admin', adminRouter);
 
-//db connection
+// DB connection
 dbConnection();
 
+// Server listen
 if (process.env.NODE_ENV !== 'deployment') {
     app.listen(port, () => console.log(`Listening on port ${port}`));
 }
