@@ -9,6 +9,7 @@ import OutboundTours from "./pages/OutboundTours";
 import CorporateTravelServices from "./pages/CorporateTravelServices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Admindashboard from "./pages/Admindashboard";
 
 function App() {
   return (
@@ -19,9 +20,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/inboundTours" element={<InboundTours />} />
           <Route path="/outboundTours" element={<OutboundTours />} />
-          <Route path="/corporateTravelServices" element={<CorporateTravelServices />} />
+          <Route
+            path="/corporateTravelServices"
+            element={<CorporateTravelServices />}
+          />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admindashboard" element={<Admindashboard />} />
         </Routes>
       </div>
       <Component />
