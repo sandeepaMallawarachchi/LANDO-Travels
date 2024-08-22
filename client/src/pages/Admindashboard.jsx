@@ -32,7 +32,7 @@ const AdminDashboard = () => {
               Dashboard
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiViewBoards}>
-              Kanban
+              Work History
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiInbox}>
               Inbox
@@ -41,19 +41,14 @@ const AdminDashboard = () => {
               Users
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiShoppingBag}>
-              Products
+              Blogs
             </Sidebar.Item>
-            <Sidebar.Item href="#" icon={HiArrowSmRight}>
-              Sign In
-            </Sidebar.Item>
+
             <Sidebar.Item href="#" icon={HiTable}>
-              Sign Up
+              Log Out
             </Sidebar.Item>
           </Sidebar.ItemGroup>
           <Sidebar.ItemGroup>
-            <Sidebar.Item href="#" icon={HiChartPie}>
-              Upgrade to Pro
-            </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiViewBoards}>
               Documentation
             </Sidebar.Item>
@@ -63,23 +58,6 @@ const AdminDashboard = () => {
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
-      <div className="p-4 flex-1">
-        <h2>Admin Dashboard</h2>
-        <div>
-          <h3>Manage Posts</h3>
-          {posts.map((post) => (
-            <div key={post._id} className="mb-4">
-              <h4>{post.title}</h4>
-              <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded">
-                Edit
-              </button>
-              <button className="bg-red-500 text-white px-4 py-2 rounded">
-                Delete
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };
