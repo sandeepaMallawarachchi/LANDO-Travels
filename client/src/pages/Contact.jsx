@@ -77,25 +77,22 @@ const Contact = () => {
 
                     <div className="mt-6">
                         <h2 className="font-bold mb-2">Contact Information:</h2>
-                        <p>Phone: +94 1234567</p>
-                        <p>Email: landotravels@gmail.com</p>
-                        <p>Address: No:514, 2/1-Galle Road, Colombo 3</p>
+                        <p>Phone:
+                            <a href="tel:+94722267400" className="hover:underline">+94 722267400</a>
+                        </p>
+                        <p>
+                            Email:
+                            <a href="mailto:lawrence@landotravel.com" className="hover:underline">lawrence@landotravel.com</a>
+                        </p>
+                        <p>Address: No:514, 2/1-Galle Road, Colombo 3, Sri Lanka</p>
                     </div>
 
                     <div className="mt-6">
                         <h2 className="font-bold mb-2">Follow Us on Social Media:</h2>
                         <div className="flex space-x-4">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-facebook-f text-blue-600"></i>
-                            </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-instagram text-pink-600"></i>
-                            </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-twitter text-blue-400"></i>
-                            </a>
-                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-youtube text-red-600"></i>
+                            <a href="https://www.facebook.com/Landotravel?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                                <i className="fab fa-facebook-f text-blue-600 mr-3"></i>
+                                FaceBook
                             </a>
                         </div>
                     </div>

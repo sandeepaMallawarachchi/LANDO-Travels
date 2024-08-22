@@ -351,13 +351,13 @@ const Home = () => {
                 {" "}
                 {/* Added margin-top for contact info */}
                 <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                  <a href="mailto:info@company.com" className="hover:underline">
-                    info@landotravels.net
+                  <a href="mailto:lawrence@landotravel.com" className="hover:underline">
+                    lawrence@landotravel.com
                   </a>
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  <a href="tel:2124567890" className="hover:underline">
-                    +94 11 4653201-212
+                  <a href="tel:+94722267400" className="hover:underline">
+                    +94 722267400
                   </a>
                 </p>
               </div>
