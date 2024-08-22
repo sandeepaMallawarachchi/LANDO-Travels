@@ -7,22 +7,7 @@ import inboundleisure from "../images/inboundleisure.jpg";
 import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
-const Card = ({ imgSrc, description, title }) => {
-  return (
-    <article className="card__article">
-      <img src={imgSrc} alt={title} className="card__img" />
-      <div className="card__data">
-        <span className="card__description">{description}</span>
-        <h2 className="card__title">{title}</h2>
-        <a href="#" className="card__button">
-          Read More
-        </a>
-      </div>
-    </article>
-  );
-};
 const InboundTours = () => {
-
   const inboundRef = useRef(null);
 
   const handleScrollToInboundServices = () => {
@@ -71,12 +56,11 @@ const InboundTours = () => {
         </button>
       </div>
 
-      <div className="container mt-12" ref={inboundRef}>
-        {/* Added margin-top for spacing */}
+      <div className="container mt-12 mb-24 px-10" ref={inboundRef}>
         <h2 className="text-4xl font-bold text-gray-800 mb-4">
           Explore Sri Lanka with Lando Travels
-        </h2>{" "}
-        <p>
+        </h2>
+        <p className="text-center">
           If you are promoting tourism in Sri Lanka as part of your business
           expansion, Lando Travels offers a range of exciting inbound tour
           packages. <br />
@@ -84,17 +68,20 @@ const InboundTours = () => {
         </p>
         <div className="card__container mt-6">
           {cardsData.map((card, index) => (
-            <Card
-              key={index}
-              imgSrc={card.imgSrc}
-              description={card.description}
-              title={card.title}
-            />
+            <article className="card__article" key={index}>
+              <img src={card.imgSrc} alt={card.title} className="card__img" />
+              <div className="card__data">
+                <span className="card__description">{card.description}</span>
+                <h2 className="card__title">{card.title}</h2>
+                <a href="#" className="card__button">
+                  Read More
+                </a>
+              </div>
+            </article>
           ))}
         </div>
-        <div className="flex justify-center items-center mt-12 mb-12">
+        <div className="flex justify-center items-center my-12">
           <p>
-            <br />
             Our tours are led by experienced guides who speak your language,
             ensuring a comfortable and informative experience. Whether it's a
             honeymoon, educational trip, or business event, we tailor each
