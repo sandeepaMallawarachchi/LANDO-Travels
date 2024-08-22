@@ -9,21 +9,6 @@ import hotels from "../images/hotels.jpg";
 import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
-const Card = ({ imgSrc, description, title }) => {
-  return (
-    <article className="card__article">
-      <img src={imgSrc} alt={title} className="card__img" />
-      <div className="card__data">
-        <span className="card__description">{description}</span>
-        <h2 className="card__title">{title}</h2>
-        <a href="#" className="card__button">
-          Read More
-        </a>
-      </div>
-    </article>
-  );
-};
-
 const OutboundTours = () => {
   const outboundRef = useRef(null);
 
@@ -74,13 +59,13 @@ const OutboundTours = () => {
         </button>
       </div>
 
-      <div className="container mt-12" ref={outboundRef}>
+      <div className="container mt-12 px-10" ref={outboundRef}>
         {" "}
         {/* Added margin-top for spacing */}
         <h2 className="text-4xl font-bold text-gray-800 mb-4">
           Tailor-Made Outbound Travel
         </h2>{" "}
-        <p>
+        <p className="text-center my-10">
           Expand your horizons with our outbound tour programs, offering travel
           packages to top destinations around the world. Whether it's leisure or
           business, we provide customized itineraries to countries such as:
@@ -89,12 +74,16 @@ const OutboundTours = () => {
         </p>
         <div className="card__container">
           {cardsData.map((card, index) => (
-            <Card
-              key={index}
-              imgSrc={card.imgSrc}
-              description={card.description}
-              title={card.title}
-            />
+            <article className="card__article">
+              <img src={card.imgSrc} alt={card.title} className="card__img" />
+              <div className="card__data">
+                <span className="card__description">{card.description}</span>
+                <h2 className="card__title">{card.title}</h2>
+                <a href="#" className="card__button">
+                  Read More
+                </a>
+              </div>
+            </article>
           ))}
         </div>
       </div>

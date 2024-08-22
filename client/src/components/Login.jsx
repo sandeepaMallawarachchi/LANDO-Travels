@@ -19,6 +19,11 @@ const Login = ({ isOpen, onClose }) => {
       });
 
       console.log("Login successful:", res.data);
+
+      // Store the JWT token in localStorage
+      localStorage.setItem("token", res.data.token);
+      console.log(res.data.token)
+
       alert("Login successful");
       navigate("/admindashboard");
     } catch (error) {
@@ -26,6 +31,7 @@ const Login = ({ isOpen, onClose }) => {
       alert("Login failed! Invalid email or password.");
     }
   };
+
 
   if (!isOpen) return null;
 

@@ -9,7 +9,7 @@ import {
   BsTwitter,
 } from "react-icons/bs";
 
-export function Component() {
+const Footers = () => {
   return (
     <Footer container className="bg-gray-100 border border-t-2 shadow-lg z-50">
       <div className="w-full">
@@ -59,3 +59,5 @@ export function Component() {
     </Footer>
   );
 }
+
+export default Footers;
