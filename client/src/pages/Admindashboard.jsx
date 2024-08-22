@@ -11,9 +11,12 @@ import {
   HiUser,
   HiViewBoards,
 } from "react-icons/hi";
+import { Link } from "react-router-dom";
+import Login from "../components/Login";
 
 const AdminDashboard = () => {
   const [posts, setPosts] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Fetch all posts
@@ -21,14 +24,21 @@ const AdminDashboard = () => {
       .get("/api/posts")
       .then((response) => setPosts(response.data))
       .catch((error) => console.log(error));
+    
+    // Close modal when entering AdminDashboard
+    setIsModalOpen(false);
   }, []);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="flex">
       <Sidebar aria-label="Sidebar with content separator example">
         <Sidebar.Items>
           <Sidebar.ItemGroup>
-            <Sidebar.Item href="#" icon={HiChartPie}>
+            <Sidebar.Item as={Link} to="/admindashboard" icon={HiChartPie}>
               Dashboard
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiViewBoards}>
@@ -43,7 +53,7 @@ const AdminDashboard = () => {
             <Sidebar.Item href="#" icon={HiShoppingBag}>
               Products
             </Sidebar.Item>
-            <Sidebar.Item href="#" icon={HiArrowSmRight}>
+            <Sidebar.Item as="button" icon={HiArrowSmRight} onClick={() => setIsModalOpen(true)}>
               Sign In
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiTable}>
@@ -80,6 +90,8 @@ const AdminDashboard = () => {
           ))}
         </div>
       </div>
+
+      <Login isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };

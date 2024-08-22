@@ -1,9 +1,10 @@
 import React from "react";
 import "./index.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
-import { Component } from "./components/Footer";
+import AdminHeader from "./components/AdminHeader";
+import Footers from "./components/Footers";
 import InboundTours from "./pages/InboundTours";
 import OutboundTours from "./pages/OutboundTours";
 import CorporateTravelServices from "./pages/CorporateTravelServices";
@@ -12,11 +13,23 @@ import Contact from "./pages/Contact";
 import Admindashboard from "./pages/Admindashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+function Layout({ children }) {
+  const location = useLocation();
+  const isAdminDashboard = location.pathname === "/admindashboard";
+
+  return (
+    <>
+      {isAdminDashboard ? <AdminHeader /> : <Header />}
+      <div>{children}</div>
+      {!isAdminDashboard && <Footers />}
+    </>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <div className="">
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/inboundTours" element={<InboundTours />} />
@@ -31,8 +44,7 @@ function App() {
           }
           />
         </Routes>
-      </div>
-      <Component />
+      </Layout>
     </BrowserRouter>
   );
 }

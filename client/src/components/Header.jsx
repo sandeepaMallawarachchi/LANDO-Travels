@@ -14,6 +14,7 @@ const Header = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div className="sticky top-0 z-50 bg-white shadow-lg lg:pl-10 lg:pr-10">
       <Navbar fluid rounded>
@@ -21,7 +22,7 @@ const Header = () => {
           <img
             src={logo}
             className="mr-3 h-6 sm:h-9"
-            alt="Flowbite React Logo"
+            alt="Logo"
           />
         </Navbar.Brand>
         <div className="flex md:order-2">

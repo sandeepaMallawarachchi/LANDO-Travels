@@ -46,7 +46,7 @@ img {
   place-items: center;
   margin-inline: auto;
   padding-block: 3rem;
-  max-width: 1200px; /* Limits the container width */
+  /* max-width: 1200px; Limits the container width */
 }
 
 .card__container {
