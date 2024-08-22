@@ -42,7 +42,7 @@ const AdminDashboard = () => {
               Dashboard
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiViewBoards}>
-              Kanban
+              Work History
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiInbox}>
               Inbox
@@ -51,19 +51,16 @@ const AdminDashboard = () => {
               Users
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiShoppingBag}>
-              Products
+              Blogs
             </Sidebar.Item>
-            <Sidebar.Item as="button" icon={HiArrowSmRight} onClick={() => setIsModalOpen(true)}>
+            <Sidebar.Item href="#" icon={HiArrowSmRight}>
               Sign In
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiTable}>
-              Sign Up
+              Log Out
             </Sidebar.Item>
           </Sidebar.ItemGroup>
           <Sidebar.ItemGroup>
-            <Sidebar.Item href="#" icon={HiChartPie}>
-              Upgrade to Pro
-            </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiViewBoards}>
               Documentation
             </Sidebar.Item>
@@ -90,8 +87,6 @@ const AdminDashboard = () => {
           ))}
         </div>
       </div>
-
-      <Login isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };
