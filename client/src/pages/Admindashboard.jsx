@@ -12,7 +12,6 @@ import {
   HiViewBoards,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import Login from "../components/Login";
 
 const AdminDashboard = () => {
   const [posts, setPosts] = useState([]);
