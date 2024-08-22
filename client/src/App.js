@@ -10,6 +10,7 @@ import CorporateTravelServices from "./pages/CorporateTravelServices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Admindashboard from "./pages/Admindashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -20,13 +21,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/inboundTours" element={<InboundTours />} />
           <Route path="/outboundTours" element={<OutboundTours />} />
-          <Route
-            path="/corporateTravelServices"
-            element={<CorporateTravelServices />}
-          />
+          <Route path="/corporateTravelServices" element={<CorporateTravelServices />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admindashboard" element={<Admindashboard />} />
+          <Route path="/admindashboard" element={
+            <ProtectedRoute>
+              <Admindashboard />
+            </ProtectedRoute>
+          }
+          />
         </Routes>
       </div>
       <Component />
