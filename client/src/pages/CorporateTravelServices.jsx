@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import corparateServices from "../images/corparateServices.jpg";
-import airTicketing from "../images/airTicketing.jpg";
+import airTicketing from "../images/airTicketing2.jpg";
 import visaProcessing from "../images/visaProcessing.jpg";
 import travelInsurance from "../images/travelInsurance.png";
 import travelConsultation from "../images/travelConsultation.jpg";
