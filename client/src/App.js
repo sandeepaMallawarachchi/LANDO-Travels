@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Admindashboard from "./pages/Admindashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Inbox from "./pages/Inbox";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -43,6 +44,7 @@ function App() {
             </ProtectedRoute>
           }
           />
+          <Route path="/admindashboard/inbox" element={<Inbox />} />
         </Routes>
       </Layout>
     </BrowserRouter>
