@@ -1,21 +1,21 @@
 import React from "react";
 import "./index.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
-import { Component } from "./components/Footer";
+import AdminHeader from "./components/AdminHeader";
+import Footers from "./components/Footers";
 import InboundTours from "./pages/InboundTours";
 import OutboundTours from "./pages/OutboundTours";
 import CorporateTravelServices from "./pages/CorporateTravelServices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Admindashboard from "./pages/adminpages/Admindashboard";
+import Admindashboard from "./pages/Admindashboard";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <div className="">
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/inboundTours" element={<InboundTours />} />
@@ -26,10 +26,16 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admindashboard" element={<Admindashboard />} />
+          <Route
+            path="/admindashboard"
+            element={
+              <ProtectedRoute>
+                <Admindashboard />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-      </div>
-      <Component />
+      </Layout>
     </BrowserRouter>
   );
 }
