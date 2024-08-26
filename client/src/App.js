@@ -1,6 +1,8 @@
 import React from "react";
 import "./index.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+//user routes
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import AdminHeader from "./components/AdminHeader";
@@ -10,19 +12,35 @@ import OutboundTours from "./pages/OutboundTours";
 import CorporateTravelServices from "./pages/CorporateTravelServices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Admindashboard from "./pages/Admindashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Inbox from "./pages/Inbox";
+
+//admin routes
+// import Admindashboard from "./pages/adminPages/Admindashboard";
+import Inbox from "./pages/adminPages/Inbox";
+import AdminSideBar from "./pages/adminPages/AdminSideBar";
 
 function Layout({ children }) {
   const location = useLocation();
-  const isAdminDashboard = location.pathname === "/admindashboard";
+
+  const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
     <>
-      {isAdminDashboard ? <AdminHeader /> : <Header />}
-      <div>{children}</div>
-      {!isAdminDashboard && <Footers />}
+      {isAdminRoute ? (
+        <>
+          <AdminHeader />
+          <div className="flex">
+            <AdminSideBar />
+            <div className="flex-grow">{children}</div>
+          </div>
+        </>
+      ) : (
+        <>
+          <Header />
+          <div>{children}</div>
+          <Footers />
+        </>
+      )}
     </>
   );
 }
@@ -38,13 +56,22 @@ function App() {
           <Route path="/corporateTravelServices" element={<CorporateTravelServices />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admindashboard" element={
-            <ProtectedRoute>
-              <Admindashboard />
-            </ProtectedRoute>
-          }
+          <Route
+            path="/admin/admindashboard"
+            element={
+              <ProtectedRoute>
+                {/* <Admindashboard /> */}
+              </ProtectedRoute>
+            }
           />
-          <Route path="/admindashboard/inbox" element={<Inbox />} />
+          <Route
+            path="/admin/inbox"
+            element={
+              <ProtectedRoute>
+                <Inbox />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Layout>
     </BrowserRouter>
