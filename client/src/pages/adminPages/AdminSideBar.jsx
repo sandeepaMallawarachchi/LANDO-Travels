@@ -13,6 +13,7 @@ import {
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
+
 const AdminSideBar = () => {
     return (
         <div className="h-screen">
@@ -28,7 +29,7 @@ const AdminSideBar = () => {
                         <Sidebar.Item as={Link} to='/admin/inbox' icon={HiInbox}>
                             Inbox
                         </Sidebar.Item>
-                        <Sidebar.Item href="#" icon={HiUser}>
+                        <Sidebar.Item href="/admin/adminregister" icon={HiUser}>
                             Users
                         </Sidebar.Item>
                         <Sidebar.Item href="#" icon={HiShoppingBag}>

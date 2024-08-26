@@ -18,6 +18,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 // import Admindashboard from "./pages/adminPages/Admindashboard";
 import Inbox from "./pages/adminPages/Inbox";
 import AdminSideBar from "./pages/adminPages/AdminSideBar";
+import AdminRegister from "./pages/adminPages/AdminRegister";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -72,6 +73,15 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/admin/adminregister"
+            element={
+              <ProtectedRoute>
+                <AdminRegister />
+              </ProtectedRoute>
+            }
+          />
+
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -11,6 +11,15 @@ router.get('/dashboard', authMiddleware, (req, res) => {
     res.send('Welcome to admin dashboard');
 });
 
+//register route
+router.post('/register', adminController.registerAdmin);
+
+//update route
+router.post('/update', adminController.updateAdmin);
+
+//delete route
+router.post('/delete', adminController.deleteAdmin);
+
 //contact routes
 router.post('/contact', [
     body('email').isEmail(),
