@@ -9,7 +9,7 @@ import OutboundTours from "./pages/OutboundTours";
 import CorporateTravelServices from "./pages/CorporateTravelServices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Admindashboard from "./pages/Admindashboard";
+import Admindashboard from "./pages/adminpages/Admindashboard";
 
 function App() {
   return (
