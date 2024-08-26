@@ -86,3 +86,40 @@ exports.getAllContacts = async (req, res) => {
         return res.status(500).json({ message: "Server error" });
     }
 };
+
+// delete a contact
+exports.deleteContact = async (req, res) => {
+    try {
+        const { id } = req.params;  // Get the id from the route parameters
+        const deletedContact = await Contact.findByIdAndDelete(id);
+
+        if (!deletedContact) {
+            return res.status(404).json({ message: "Contact not found" });
+        }
+
+        return res.status(200).json({ message: "Contact deleted successfully" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Server error" });
+    }
+};
+
+//mark as read
+
+exports.updateReadStatus = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { read } = req.body;
+
+        const updatedContact = await Contact.findByIdAndUpdate(id, { read }, { new: true });
+
+        if (!updatedContact) {
+            return res.status(404).json({ message: 'Contact not found' });
+        }
+
+        return res.status(200).json(updatedContact);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Server error' });
+    }
+};

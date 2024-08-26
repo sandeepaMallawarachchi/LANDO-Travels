@@ -12,7 +12,6 @@ import {
   HiViewBoards,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import Login from "../components/Login";
 
 const AdminDashboard = () => {
   const [posts, setPosts] = useState([]);
@@ -44,7 +43,7 @@ const AdminDashboard = () => {
             <Sidebar.Item href="#" icon={HiViewBoards}>
               Work History
             </Sidebar.Item>
-            <Sidebar.Item href="#" icon={HiInbox}>
+            <Sidebar.Item as={Link} to='/admindashboard/inbox' icon={HiInbox}>
               Inbox
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiUser}>
