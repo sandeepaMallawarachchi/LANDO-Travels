@@ -11,6 +11,20 @@ import CorporateTravelServices from "./pages/CorporateTravelServices";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Admindashboard from "./pages/Admindashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+function Layout({ children }) {
+  const location = useLocation();
+  const isAdminDashboard = location.pathname === "/admindashboard";
+
+  return (
+    <>
+      {isAdminDashboard ? <AdminHeader /> : <Header />}
+      <div>{children}</div>
+      {!isAdminDashboard && <Footers />}
+    </>
+  );
+}
 
 function App() {
   return (
@@ -34,6 +48,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/admindashboard/inbox" element={<Inbox />} />
         </Routes>
       </Layout>
     </BrowserRouter>

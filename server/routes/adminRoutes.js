@@ -20,4 +20,8 @@ router.post('/contact', [
 
 router.get('/contacts', adminController.getAllContacts);
 
+router.delete('/contacts/:id', adminController.deleteContact);
+
+router.patch('/contacts/:id', adminController.updateReadStatus);
+
 module.exports = router;
