@@ -48,6 +48,76 @@ exports.getAdmin = async (req, res) => {
     }
 };
 
+//register new admin
+exports.registerAdmin = async (req, res) => {
+    try {
+        const { firstname, lastname, email, password, confirmPassword, gender, birthdate, address, phone } = req.body;
+
+        const existingAdmin = await Admin.findOne({ $or: [{ email }, { phone }] });
+        if (existingAdmin) {
+            return res.status(400).json({ message: "Admin with this email or phone number already exists" });
+        }
+
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: "Passwords do not match" });
+        }
+
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create new admin
+        const newAdmin = new Admin({
+            firstname,
+            lastname,
+            email,
+            password: hashedPassword,
+            gender,
+            birthdate,
+            address,
+            phone,
+        });
+
+        await newAdmin.save();
+        res.status(201).json({ message: "Admin created successfully", admin: newAdmin });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+//update admin
+exports.updateAdmin = async (req, res) => {
+    try {
+        const { firstname, lastname, email, password, confirmPassword, gender, birthdate, address, phone } = req.body;
+
+        if (password && password !== confirmPassword) {
+            return res.status(400).json({ message: "Passwords do not match" });
+        }
+
+        const admin = await Admin.findByIdAndUpdate(req.params.id, { firstname, lastname, email, password, confirmPassword, gender, birthdate, address, phone }, { new: true });
+        if (!admin) {
+            return res.status(404).json({ message: "Admin not found" });
+        }
+
+        res.status(200).json({ message: "Admin updated successfully", admin });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// delete admin
+exports.deleteAdmin = async (req, res) => {
+    try {
+        const admin = await Admin.findByIdAndDelete(req.params.id);
+        if (!admin) {
+            return res.status(404).json({ message: "Admin not found" });
+        }
+        res.status(200).json({ message: "Admin deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 //save contact details
 exports.submitContactForm = async (req, res) => {
     const { email, subject, message } = req.body;
@@ -105,7 +175,6 @@ exports.deleteContact = async (req, res) => {
 };
 
 //mark as read
-
 exports.updateReadStatus = async (req, res) => {
     try {
         const { id } = req.params;
