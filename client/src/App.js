@@ -19,7 +19,6 @@ import Admindashboard from "./pages/adminPages/Admindashboard";
 import Inbox from "./pages/adminPages/Inbox";
 import AdminSideBar from "./pages/adminPages/AdminSideBar";
 import AdminRegister from "./pages/adminPages/AdminRegister";
-import AllAdmins from "./pages/adminPages/AllAdmins";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -85,16 +84,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          <Route
-            path="/admin/allUsers"
-            element={
-              <ProtectedRoute>
-                <AllAdmins />
-              </ProtectedRoute>
-            }
-          />
-
         </Routes>
       </Layout>
     </BrowserRouter>
