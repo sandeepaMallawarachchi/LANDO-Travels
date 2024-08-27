@@ -19,7 +19,7 @@ import Admindashboard from "./pages/adminPages/Admindashboard";
 import Inbox from "./pages/adminPages/Inbox";
 import AdminSideBar from "./pages/adminPages/AdminSideBar";
 import AdminRegister from "./pages/adminPages/AdminRegister";
-//import Workflow from "./pages/adminpages/Workflow";
+//import Workflow from "./pages/adminPages/Workflow";
 
 function Layout({ children }) {
   const location = useLocation();
