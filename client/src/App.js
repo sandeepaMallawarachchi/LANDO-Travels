@@ -55,7 +55,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/inboundTours" element={<InboundTours />} />
           <Route path="/outboundTours" element={<OutboundTours />} />
-          <Route path="/corporateTravelServices" element={<CorporateTravelServices />} />
+          <Route
+            path="/corporateTravelServices"
+            element={<CorporateTravelServices />}
+          />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route
@@ -79,15 +82,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminRegister />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/admin/allUsers"
-            element={
-              <ProtectedRoute>
-                <AllAdmins />
               </ProtectedRoute>
             }
           />
