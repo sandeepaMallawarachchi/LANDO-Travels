@@ -14,6 +14,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+//admin routes
 import Admindashboard from "./pages/adminPages/Admindashboard";
 import Inbox from "./pages/adminPages/Inbox";
 import AdminSideBar from "./pages/adminPages/AdminSideBar";
@@ -53,16 +54,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/inboundTours" element={<InboundTours />} />
           <Route path="/outboundTours" element={<OutboundTours />} />
-          <Route
-            path="/corporateTravelServices"
-            element={<CorporateTravelServices />}
-          />
+          <Route path="/corporateTravelServices" element={<CorporateTravelServices />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/admin/admindashboard"
             element={
-              <ProtectedRoute>{/* <Admindashboard /> */}</ProtectedRoute>
+              <ProtectedRoute>
+                <Admindashboard />
+              </ProtectedRoute>
             }
           />
           <Route
@@ -81,6 +81,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
         </Routes>
       </Layout>
     </BrowserRouter>
