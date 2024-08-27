@@ -15,7 +15,7 @@ import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 //admin routes
-// import Admindashboard from "./pages/adminPages/Admindashboard";
+import Admindashboard from "./pages/adminPages/Admindashboard";
 import Inbox from "./pages/adminPages/Inbox";
 import AdminSideBar from "./pages/adminPages/AdminSideBar";
 import AdminRegister from "./pages/adminPages/AdminRegister";
@@ -61,7 +61,7 @@ function App() {
             path="/admin/admindashboard"
             element={
               <ProtectedRoute>
-                {/* <Admindashboard /> */}
+                <Admindashboard />
               </ProtectedRoute>
             }
           />
