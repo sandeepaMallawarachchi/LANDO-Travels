@@ -22,15 +22,16 @@ const AdminSideBar = () => {
                         <Sidebar.Item as={Link} to="/admin/admindashboard" icon={HiChartPie}>
                             Dashboard
                         </Sidebar.Item>
-                        <Sidebar.Item href="#" icon={HiViewBoards}>
+                        <Sidebar.Item as={Link} to="/admin/workhistory" icon={HiViewBoards}>
                             Work History
                         </Sidebar.Item>
                         <Sidebar.Item as={Link} to='/admin/inbox' icon={HiInbox}>
                             Inbox
                         </Sidebar.Item>
-                        <Sidebar.Item href="/admin/adminregister" icon={HiUser}>
-                            Users
-                        </Sidebar.Item>
+                        <Sidebar.Collapse icon={HiUser} label="Users">
+                            <Sidebar.Item as={Link} to='/admin/adminregister'>Register a new user</Sidebar.Item>
+                            <Sidebar.Item as={Link} to='/admin/allUsers'>All users</Sidebar.Item>
+                        </Sidebar.Collapse>
                         <Sidebar.Item href="#" icon={HiShoppingBag}>
                             Blogs
                         </Sidebar.Item>
