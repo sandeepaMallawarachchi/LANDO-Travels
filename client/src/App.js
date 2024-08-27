@@ -86,6 +86,15 @@ function App() {
             }
           />
 
+          <Route
+            path="/admin/allUsers"
+            element={
+              <ProtectedRoute>
+                <AllAdmins />
+              </ProtectedRoute>
+            }
+          />
+
         </Routes>
       </Layout>
     </BrowserRouter>
