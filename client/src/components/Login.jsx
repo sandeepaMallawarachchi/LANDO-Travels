@@ -25,7 +25,7 @@ const Login = ({ isOpen, onClose }) => {
       console.log(res.data.token)
 
       alert("Login successful");
-      navigate("/admindashboard");
+      navigate("/admin/admindashboard");
     } catch (error) {
       console.error("Error:", error.message);
       alert("Login failed! Invalid email or password.");
