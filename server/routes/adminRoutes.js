@@ -14,6 +14,9 @@ router.get('/dashboard', authMiddleware, (req, res) => {
 //register route
 router.post('/register', adminController.registerAdmin);
 
+//all admin route
+router.get('/getAll', adminController.getAllAdmins);
+
 //update route
 router.post('/update', adminController.updateAdmin);
 

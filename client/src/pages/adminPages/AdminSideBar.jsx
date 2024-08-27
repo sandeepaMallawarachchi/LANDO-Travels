@@ -3,13 +3,13 @@ import axios from "axios";
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
+    HiArrowSmRight,
+    HiChartPie,
+    HiInbox,
+    HiShoppingBag,
+    HiTable,
+    HiUser,
+    HiViewBoards,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
@@ -29,9 +29,10 @@ const AdminSideBar = () => {
                         <Sidebar.Item as={Link} to='/admin/inbox' icon={HiInbox}>
                             Inbox
                         </Sidebar.Item>
-                        <Sidebar.Item href="/admin/adminregister" icon={HiUser}>
-                            Users
-                        </Sidebar.Item>
+                        <Sidebar.Collapse icon={HiUser} label="Users">
+                            <Sidebar.Item as={Link} to='/admin/allUsers'>All Users</Sidebar.Item>
+                            <Sidebar.Item as={Link} to='/admin/adminregister'>Register an Admin</Sidebar.Item>
+                        </Sidebar.Collapse>
                         <Sidebar.Item href="#" icon={HiShoppingBag}>
                             Blogs
                         </Sidebar.Item>
