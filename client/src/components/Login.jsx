@@ -19,15 +19,17 @@ const Login = ({ isOpen, onClose }) => {
       });
 
       console.log("Login successful:", res.data);
+      console.log(res.data.admin.adminID); // Use the correct path
 
       // Store the JWT token in localStorage
       localStorage.setItem("token", res.data.token);
-      console.log(res.data.token)
 
       alert("Login successful");
-      navigate("/admin/admindashboard");
+
+      // Use the correct path to navigate
+      navigate(`/admin/admindashboard/${res.data.admin.adminID}`);
     } catch (error) {
-      console.error("Error:", error.message);
+      console.error("Error:", error.response?.data?.message || error.message);
       alert("Login failed! Invalid email or password.");
     }
   };
@@ -37,12 +39,13 @@ const Login = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      {/* login form */}
+      {/* Login Form */}
       <div className="relative bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
         {/* Close Icon */}
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+          aria-label="Close"
         >
           <HiX className="w-6 h-6" />
         </button>

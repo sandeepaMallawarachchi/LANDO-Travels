@@ -10,6 +10,8 @@ import {
     HiTable,
     HiUser,
     HiViewBoards,
+    HiUserAdd,
+    HiUsers
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
@@ -29,8 +31,8 @@ const AdminSideBar = () => {
                             Inbox
                         </Sidebar.Item>
                         <Sidebar.Collapse icon={HiUser} label="Users">
-                            <Sidebar.Item as={Link} to='/admin/adminregister'>Register a new user</Sidebar.Item>
-                            <Sidebar.Item as={Link} to='/admin/allUsers'>All users</Sidebar.Item>
+                            <Sidebar.Item as={Link} to='/admin/adminregister' icon={HiUserAdd}>Register a new user</Sidebar.Item>
+                            <Sidebar.Item as={Link} to='/admin/allUsers' icon={HiUsers}>All users</Sidebar.Item>
                         </Sidebar.Collapse>
                         <Sidebar.Item href="#" icon={HiShoppingBag}>
                             Blogs
