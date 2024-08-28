@@ -19,8 +19,8 @@ const AdminSideBar = () => {
 
   const handleLogout = async () => {
     try {
-      // Call the logout endpoint meka balanna poddak
-      await axios.post("/admin/logout");
+      // Call the logout endpoint
+      await axios.post("http://localhost:4000/admin/logout");
 
       // Clear the authentication token (assuming it's stored in localStorage)
       localStorage.removeItem("token");
