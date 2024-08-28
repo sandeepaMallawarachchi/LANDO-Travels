@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import {
@@ -16,12 +17,19 @@ import { Link, useNavigate } from "react-router-dom";
 const AdminSideBar = () => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Clear the authentication token (assuming it's stored in localStorage)
-    localStorage.removeItem("token");
+  const handleLogout = async () => {
+    try {
+      // Call the logout endpoint
+      await axios.post("/admin/logout");
 
-    // Redirect to login or home page after logout
-    navigate("/AdminLogin");
+      // Clear the authentication token (assuming it's stored in localStorage)
+      localStorage.removeItem("token");
+
+      // Redirect to login or home page after logout
+      navigate("/AdminLogin");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
   };
 
   return (
