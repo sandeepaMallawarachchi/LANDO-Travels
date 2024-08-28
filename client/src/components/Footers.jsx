@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import logo from "../images/logo-white-remove-bg.png";
 import { Footer } from "flowbite-react";
 import {
@@ -18,17 +18,12 @@ const Footers = () => {
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Flowbite</Footer.Link>
-                <Footer.Link href="#">Tailwind CSS</Footer.Link>
+                <Footer.Link as={Link} to="/about">
+                  LANDO Travels
+                </Footer.Link>
               </Footer.LinkGroup>
             </div>
-            <div>
-              <Footer.Title title="Follow us" />
-              <Footer.LinkGroup col>
-                <Footer.Link href="#">Github</Footer.Link>
-                <Footer.Link href="#">Discord</Footer.Link>
-              </Footer.LinkGroup>
-            </div>
+
             <div>
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
@@ -38,17 +33,24 @@ const Footers = () => {
             </div>
           </div>
           <div className="flex justify-start items-center mt-4 sm:mt-0 mr-20">
-            <Link to='/'><img src={logo} alt="Logo" className="h-10 sm:h-12" /></Link>
+            <Link to="/">
+              <img src={logo} alt="Logo" className="h-10 sm:h-12" />
+            </Link>
           </div>
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} className="hover:text-blue-500" />
-            <Footer.Icon href="#" icon={BsInstagram} className="hover:text-blue-500" />
-            <Footer.Icon href="#" icon={BsTwitter} className="hover:text-blue-500" />
-            <Footer.Icon href="#" icon={BsGithub} className="hover:text-blue-500" />
-            <Footer.Icon href="#" icon={BsDribbble} className="hover:text-blue-500" />
+            <Footer.Icon
+              href="https://www.facebook.com/Landotravel?mibextid=ZbWKwL"
+              icon={BsFacebook}
+              className="hover:text-blue-500"
+            />
+            <Footer.Icon
+              href="https://www.instagram.com/lando_travels_?igsh=MTBxMTNvemhtcDA1"
+              icon={BsInstagram}
+              className="hover:text-blue-500"
+            />
           </div>
         </div>
         {/* Footer Section */}
@@ -58,6 +60,6 @@ const Footers = () => {
       </div>
     </Footer>
   );
-}
+};
 
 export default Footers;
