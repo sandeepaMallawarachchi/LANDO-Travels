@@ -1,58 +1,147 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../../CSS/Admin.css";
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import {
-    HiArrowSmRight,
-    HiChartPie,
-    HiInbox,
-    HiShoppingBag,
-    HiTable,
-    HiUser,
-    HiViewBoards,
+  HiChartPie,
+  HiInbox,
+  HiShoppingBag,
+  HiTable,
+  HiUser,
+  HiViewBoards,
 } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import EditProfilePopup from "../../components/EditProfilePopup";
 
 const AdminDashboard = () => {
-    const [posts, setPosts] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [adminDetails, setAdminDetails] = useState({
+    name: "Admin Name",
+    email: "admin@example.com",
+    role: "Administrator",
+    joined: "January 1, 2022",
+    totalPosts: 0,
+    profilePicture: "https://via.placeholder.com/150",
+    aboutMe: "This is a short bio about the admin.",
+    socialLinks: {
+      facebook: "https://facebook.com/admin",
+      twitter: "https://twitter.com/admin",
+      linkedin: "https://linkedin.com/in/admin",
+      instagram: "https://instagram.com/admin",
+    },
+  });
+  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
 
-    useEffect(() => {
-        // Fetch all posts
-        axios
-            .get("/api/posts")
-            .then((response) => setPosts(response.data))
-            .catch((error) => console.log(error));
+  useEffect(() => {
+    // Fetch admin details from the backend and update the state
+    // Example: fetchAdminDetails();
+  }, []);
 
-        // Close modal when entering AdminDashboard
-        setIsModalOpen(false);
-    }, []);
+  const handleEditProfile = () => {
+    setIsEditPopupOpen(true);
+  };
 
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
+  const handleClosePopup = () => {
+    setIsEditPopupOpen(false);
+  };
 
-    return (
-        <div className="flex">
-            <div className="p-4 flex-1">
-                <h2>Admin Dashboard</h2>
-                <div>
-                    <h3>Manage Posts</h3>
-                    {posts.map((post) => (
-                        <div key={post._id} className="mb-4">
-                            <h4>{post.title}</h4>
-                            <button className="mr-2 bg-blue-500 text-white px-4 py-2 rounded">
-                                Edit
-                            </button>
-                            <button className="bg-red-500 text-white px-4 py-2 rounded">
-                                Delete
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            </div>
+  const handleSaveProfile = (updatedDetails) => {
+    setAdminDetails(updatedDetails);
+    // Optionally, you could also save the updated profile to the backend here.
+  };
+
+  return (
+    <div className="flex">
+      <div className="admin-content-container">
+        <div className="left-section">
+          <div className="admin-social-links">
+            <h2>Social Media Links</h2>
+            <ul>
+              <li>
+                <a
+                  href={adminDetails.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook /> Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href={adminDetails.socialLinks.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaTwitter /> Twitter
+                </a>
+              </li>
+              <li>
+                <a
+                  href={adminDetails.socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin /> LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href={adminDetails.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram /> Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="admin-about-me">
+            <h2>About Me</h2>
+            <p>{adminDetails.aboutMe}</p>
+          </div>
         </div>
-    );
+        <div className="right-section">
+          <div className="admin-profile-card">
+            <div className="admin-profile-header">
+              <img
+                src={adminDetails.profilePicture}
+                alt="Admin"
+                className="admin-profile-picture"
+              />
+              <h1>{adminDetails.name}</h1>
+              <p>{adminDetails.email}</p>
+            </div>
+            <div className="admin-profile-details">
+              <h2>Profile Details</h2>
+              <p>
+                <strong>Role:</strong> {adminDetails.role}
+              </p>
+              <p>
+                <strong>Joined:</strong> {adminDetails.joined}
+              </p>
+              <p>
+                <strong>Total Posts:</strong> {adminDetails.totalPosts}
+              </p>
+            </div>
+            <div className="admin-profile-actions">
+              <button
+                className="edit-profile-button"
+                onClick={handleEditProfile}
+              >
+                Edit Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <EditProfilePopup
+        isOpen={isEditPopupOpen}
+        onClose={handleClosePopup}
+        adminDetails={adminDetails}
+        onSave={handleSaveProfile}
+      />
+    </div>
+  );
 };
 
 export default AdminDashboard;
