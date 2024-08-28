@@ -8,32 +8,35 @@ import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
 const CorporateTravelServices = () => {
-
   const corporateRef = useRef(null);
 
   const handleScrollToCorporateServices = () => {
-    corporateRef.current.scrollIntoView({ behavior: 'smooth' });
+    corporateRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const cardsData = [
     {
       imgSrc: airTicketing,
-      description: "As an IATA-accredited travel agency, Lando Travels offers seamless ticketing and reservations with all major airlines, both online and offline. We provide competitive fares and ensure that your corporate travel is hassle-free, efficient, and cost-effective.",
+      description:
+        "As an IATA-accredited travel agency, Lando Travels offers seamless ticketing and reservations with all major airlines, both online and offline. We provide competitive fares and ensure that your corporate travel is hassle-free, efficient, and cost-effective.",
       title: "Air Ticketing",
     },
     {
       imgSrc: visaProcessing,
-      description: "Navigating visa requirements can be challenging, but Lando Travels simplifies the process for you. Our expert team handles visa applications for all countries, ensuring that your documents are processed quickly and efficiently, allowing you to focus on your business.",
+      description:
+        "Navigating visa requirements can be challenging, but Lando Travels simplifies the process for you. Our expert team handles visa applications for all countries, ensuring that your documents are processed quickly and efficiently, allowing you to focus on your business.",
       title: "Visa Processing",
     },
     {
       imgSrc: travelInsurance,
-      description: "Protect your corporate travelers with comprehensive travel insurance. We offer tailored insurance packages that cover all aspects of your journey, giving you peace of mind as you travel the world for business.",
+      description:
+        "Protect your corporate travelers with comprehensive travel insurance. We offer tailored insurance packages that cover all aspects of your journey, giving you peace of mind as you travel the world for business.",
       title: "Travel Insurance",
     },
     {
       imgSrc: travelConsultation,
-      description: "Planning your business trips with us is easy. We offer free travel consultations to help you plan and execute your corporate travel with minimal hassle. Whether it's a simple ticket booking or a complex itinerary, we're here to assist.",
+      description:
+        "Planning your business trips with us is easy. We offer free travel consultations to help you plan and execute your corporate travel with minimal hassle. Whether it's a simple ticket booking or a complex itinerary, we're here to assist.",
       title: "Travel Consultation",
     },
   ];
@@ -53,7 +56,8 @@ const CorporateTravelServices = () => {
           <h1 className="h1">Services</h1>
           <button
             onClick={handleScrollToCorporateServices}
-            className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+            className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+          >
             Explore Now
           </button>
         </div>
@@ -70,9 +74,6 @@ const CorporateTravelServices = () => {
               <div className="card__data">
                 <span className="card__description">{card.description}</span>
                 <h2 className="card__title">{card.title}</h2>
-                <a href="#" className="card__button">
-                  Read More
-                </a>
               </div>
             </article>
           ))}

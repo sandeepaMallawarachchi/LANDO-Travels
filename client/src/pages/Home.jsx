@@ -8,6 +8,7 @@ import {
   Textarea,
   TextInput,
 } from "flowbite-react";
+import { Link } from "react-router-dom";
 import { HiEnvelope } from "react-icons/hi2";
 import "../CSS/logoScrolling.css";
 
@@ -263,14 +264,16 @@ const Home = () => {
 
             <div className="flex space-x-4">
               <Button
-                className="mt-8 px-4 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
+                className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
                 onClick={() => setIsOpen(true)}
               >
                 Contact
               </Button>
-              <button className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
-                See More
-              </button>
+              <Link to="/about">
+                <button className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
+                  See More
+                </button>
+              </Link>
             </div>
           </div>
 
