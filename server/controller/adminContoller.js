@@ -85,6 +85,16 @@ exports.registerAdmin = async (req, res) => {
     }
 };
 
+// Get all admins
+exports.getAllAdmins = async (req, res) => {
+    try {
+        const admins = await Admin.find();
+        res.status(200).json(admins);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 //update admin
 exports.updateAdmin = async (req, res) => {
     try {

@@ -13,8 +13,95 @@ const AdminRegister = () => {
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
 
+    // Error state for each input field
+    const [errors, setErrors] = useState({});
+
+    // Regular expressions for validations
+    const nameRegex = /^[A-Za-z]+$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const phoneRegex = /^\d{10}$/;
+
+    const validateField = (name, value) => {
+        const newErrors = { ...errors };
+
+        switch (name) {
+            case 'firstname':
+                newErrors.firstname = nameRegex.test(value) ? '' : 'First name should contain only letters.';
+                break;
+            case 'lastname':
+                newErrors.lastname = nameRegex.test(value) ? '' : 'Last name should contain only letters.';
+                break;
+            case 'email':
+                newErrors.email = value.includes('@') ? '' : 'Invalid email format.';
+                break;
+            case 'password':
+                newErrors.password = passwordRegex.test(value)
+                    ? ''
+                    : 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.';
+                break;
+            case 'confirmPassword':
+                newErrors.confirmPassword = value === password ? '' : 'Passwords do not match.';
+                break;
+            case 'phone':
+                newErrors.phone = phoneRegex.test(value) ? '' : 'Phone number must be exactly 10 digits.';
+                break;
+            case 'birthdate':
+                const selectedDate = new Date(value);
+                const currentDate = new Date();
+                newErrors.birthdate = selectedDate <= currentDate ? '' : 'Birthdate cannot be in the future.';
+                break;
+            default:
+                break;
+        }
+
+        setErrors(newErrors);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        // Update state
+        switch (name) {
+            case 'firstname':
+                setFirstname(value);
+                break;
+            case 'lastname':
+                setLastname(value);
+                break;
+            case 'email':
+                setEmail(value);
+                break;
+            case 'password':
+                setPassword(value);
+                break;
+            case 'confirmPassword':
+                setConfirmPassword(value);
+                break;
+            case 'gender':
+                setGender(value);
+                break;
+            case 'birthdate':
+                setBirthdate(value);
+                break;
+            case 'address':
+                setAddress(value);
+                break;
+            case 'phone':
+                setPhone(value);
+                break;
+            default:
+                break;
+        }
+
+        // Validate field
+        validateField(name, value);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Perform final validation before submission
+        if (Object.values(errors).some((error) => error)) return;
 
         try {
             const response = await axios.post('http://localhost:4000/admin/register', {
@@ -33,6 +120,7 @@ const AdminRegister = () => {
                 alert('Admin created successfully');
                 console.log('Admin added successfully');
 
+                // Clear form and errors
                 setFirstname('');
                 setLastname('');
                 setEmail('');
@@ -42,6 +130,7 @@ const AdminRegister = () => {
                 setBirthdate('');
                 setAddress('');
                 setPhone('');
+                setErrors({});
             }
         } catch (error) {
             console.error(error.response?.data?.message || 'An error occurred');
@@ -61,10 +150,13 @@ const AdminRegister = () => {
                             id="firstname"
                             name="firstname"
                             placeholder="Someone"
+                            required
                             type="text"
                             value={firstname}
-                            onChange={(e) => setFirstname(e.target.value)}
+                            onChange={handleChange}
+                            className={errors.firstname ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.firstname && <p className="text-red-500 text-sm">{errors.firstname}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="lastname" className="mb-2 block">
@@ -74,10 +166,13 @@ const AdminRegister = () => {
                             id="lastname"
                             name="lastname"
                             placeholder="Someone's Last Name"
+                            required
                             type="text"
                             value={lastname}
-                            onChange={(e) => setLastname(e.target.value)}
+                            onChange={handleChange}
+                            className={errors.lastname ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.lastname && <p className="text-red-500 text-sm">{errors.lastname}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="email" className="mb-2 block">
@@ -88,9 +183,12 @@ const AdminRegister = () => {
                             name="email"
                             placeholder="example@gmail.com"
                             type="email"
+                            required
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={handleChange}
+                            className={errors.email ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="phone" className="mb-2 block">
@@ -101,9 +199,12 @@ const AdminRegister = () => {
                             name="phone"
                             placeholder="+94 xxxxxxxx"
                             type="text"
+                            required
                             value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            onChange={handleChange}
+                            className={errors.phone ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="password" className="mb-2 block">
@@ -114,9 +215,12 @@ const AdminRegister = () => {
                             name="password"
                             placeholder="Password"
                             type="password"
+                            required
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={handleChange}
+                            className={errors.password ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="confirmPassword" className="mb-2 block">
@@ -127,9 +231,12 @@ const AdminRegister = () => {
                             name="confirmPassword"
                             placeholder="Confirm Password"
                             type="password"
+                            required
                             value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            onChange={handleChange}
+                            className={errors.confirmPassword ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="gender" className="mb-2 block">
@@ -137,7 +244,7 @@ const AdminRegister = () => {
                         </Label>
                         <div className="flex items-center">
                             <Radio id="male" name="gender" value="male" checked={gender === 'male'}
-                                onChange={(e) => setGender(e.target.value)}
+                                onChange={handleChange}
                                 className="mr-2"
                             />
                             <Label htmlFor="male" className="mr-4">
@@ -145,13 +252,14 @@ const AdminRegister = () => {
                             </Label>
 
                             <Radio id="female" name="gender" value="female" checked={gender === 'female'}
-                                onChange={(e) => setGender(e.target.value)}
+                                onChange={handleChange}
                                 className="mr-2"
                             />
                             <Label htmlFor="female">
                                 Female
                             </Label>
                         </div>
+                        {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="birthdate" className="mb-2 block">
@@ -161,10 +269,15 @@ const AdminRegister = () => {
                             id="birthdate"
                             name="birthdate"
                             placeholder="08-04-2002"
+                            required
                             type="date"
                             value={birthdate}
-                            onChange={(e) => setBirthdate(e.target.value)}
+                            onChange={handleChange}
+                            min="1900-01-01"
+                            max={new Date().toISOString().split('T')[0]}
+                            className={errors.birthdate ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.birthdate && <p className="text-red-500 text-sm">{errors.birthdate}</p>}
                     </div>
                     <div className="mb-6">
                         <Label htmlFor="address" className="mb-2 block">
@@ -174,10 +287,13 @@ const AdminRegister = () => {
                             id="address"
                             name="address"
                             placeholder="Colombo, Sri Lanka"
+                            required
                             rows={3}
                             value={address}
-                            onChange={(e) => setAddress(e.target.value)}
+                            onChange={handleChange}
+                            className={errors.address ? 'border-red-500 outline-red-500' : ''}
                         />
+                        {errors.address && <p className="text-red-500 text-sm">{errors.address}</p>}
                     </div>
                     <div className="mt-4 w-full">
                         <Button type="submit" className="w-full text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700">

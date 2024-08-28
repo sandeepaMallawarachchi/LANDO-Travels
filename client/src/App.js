@@ -15,12 +15,11 @@ import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 //admin routes
-import Admindashboard from "./pages/adminPages/Admindashboard";
-import Inbox from "./pages/adminPages/Inbox";
-import AdminSideBar from "./pages/adminPages/AdminSideBar";
-import AdminRegister from "./pages/adminPages/AdminRegister";
-import Workflow from "./pages/adminPages/Workflow";
-import Helps from "./pages/adminPages/Helps";
+import Admindashboard from "./pages/adminpages/Admindashboard";
+import Inbox from "./pages/adminpages/Inbox";
+import AdminSideBar from "./pages/adminpages/AdminSideBar";
+import AdminRegister from "./pages/adminpages/AdminRegister";
+import Workflow from "./pages/adminpages/Workflow";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -91,14 +90,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <Workflow />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/helps"
-            element={
-              <ProtectedRoute>
-                <Helps />
               </ProtectedRoute>
             }
           />
