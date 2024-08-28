@@ -5,39 +5,19 @@ import { Link } from "react-router-dom";
 import Login from "./Login";
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <div className="sticky top-0 z-50 bg-white shadow-lg lg:pl-10 lg:pr-10">
       <Navbar fluid rounded>
         <Navbar.Brand as={Link} to="/">
-          <img
-            src={logo}
-            className="mr-3 h-6 sm:h-9"
-            alt="Logo"
-          />
+          <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
         </Navbar.Brand>
         <div className="flex md:order-2">
-          <Button
-            onClick={handleOpenModal}
-            className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700"
-          >
-            Login
-          </Button>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
           <Navbar.Link
             as={Link}
-            to='/'
+            to="/"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             Home
@@ -72,16 +52,13 @@ const Header = () => {
           </Navbar.Link>
           <Navbar.Link
             as={Link}
-            to='/contact'
+            to="/contact"
             className="hover:text-blue-500 text-sm sm:text-base"
           >
             Contact
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
-
-      <Login isOpen={isModalOpen} onClose={handleCloseModal} />
-
     </div>
   );
 };
