@@ -15,11 +15,10 @@ import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 //admin routes
-import Admindashboard from "./pages/adminpages/Admindashboard";
-import Inbox from "./pages/adminpages/Inbox";
-import AdminSideBar from "./pages/adminpages/AdminSideBar";
-import AdminRegister from "./pages/adminpages/AdminRegister";
-import Workflow from "./pages/adminpages/Workflow";
+import Admindashboard from "./pages/adminPages/Admindashboard";
+import Inbox from "./pages/adminPages/Inbox";
+import AdminSideBar from "./pages/adminPages/AdminSideBar";
+import AdminRegister from "./pages/adminPages/AdminRegister";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -62,7 +61,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route
-            path="/admin/admindashboard"
+            path="/admin/admindashboard/:adminID"
             element={
               <ProtectedRoute>
                 <Admindashboard />
@@ -82,6 +81,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminRegister />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/allUsers"
+            element={
+              <ProtectedRoute>
+                <AllAdmins />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/workhistory"
+            element={
+              <ProtectedRoute>
+                <Workflow />
               </ProtectedRoute>
             }
           />

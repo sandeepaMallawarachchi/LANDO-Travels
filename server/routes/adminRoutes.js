@@ -17,6 +17,9 @@ router.post('/register', adminController.registerAdmin);
 //all admin route
 router.get('/getAll', adminController.getAllAdmins);
 
+//admin route
+router.get('/getAdmin/:adminID', adminController.getAdminById);
+
 //update route
 router.post('/update', adminController.updateAdmin);
 
