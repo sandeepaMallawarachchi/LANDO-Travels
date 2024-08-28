@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Avatar, Button, TextInput } from "flowbite-react";
 import logo from "../images/logo-white-remove-bg.png";
 import user from "../images/user.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from 'axios';
 
 const AdminHeader = () => {
+    const { adminID } = useParams();
+    const [admin, setAdmin] = useState({});
+
+    useEffect(() => {
+        const fetchAdmin = async () => {
+            try {
+                const response = await axios.get(`http://localhost:4000/admin/getAdmin/${adminID}`);
+                setAdmin(response.data);
+            } catch (err) {
+                alert('Failed to fetch admin details!');
+                console.log('Error fetching admin:', err);
+            }
+        };
+
+        fetchAdmin();
+    }, [adminID]);
 
     return (
         <div className="sticky top-0 z-50 bg-white shadow-lg lg:pl-10 lg:pr-10">
@@ -31,8 +48,8 @@ const AdminHeader = () => {
                 </div>
                 <Avatar img={user}>
                     <div className="space-y-1 font-medium dark:text-white">
-                        <div>Jese Leos</div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+                        <div>{admin.firstname} {admin.lastname}</div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400">{admin.email}</div>
                     </div>
                 </Avatar>
             </Navbar>
