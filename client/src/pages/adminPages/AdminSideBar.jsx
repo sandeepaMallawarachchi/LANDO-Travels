@@ -26,7 +26,7 @@ const AdminSideBar = () => {
             >
               Dashboard
             </Sidebar.Item>
-            <Sidebar.Item href="/admin/workflow" icon={HiViewBoards}>
+            <Sidebar.Item as={Link} to="/admin/workflow" icon={HiViewBoards}>
               Work History
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/inbox" icon={HiInbox}>
@@ -49,7 +49,7 @@ const AdminSideBar = () => {
             <Sidebar.Item href="#" icon={HiViewBoards}>
               Documentation
             </Sidebar.Item>
-            <Sidebar.Item href="#" icon={BiBuoy}>
+            <Sidebar.Item as={Link} to="/admin/helps" icon={BiBuoy}>
               Help
             </Sidebar.Item>
           </Sidebar.ItemGroup>
