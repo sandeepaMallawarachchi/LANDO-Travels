@@ -85,14 +85,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/admin/workflow"
-            element={
-              <ProtectedRoute>
-                <Workflow />
-              </ProtectedRoute>
-            }
-          />
         </Routes>
       </Layout>
     </BrowserRouter>
