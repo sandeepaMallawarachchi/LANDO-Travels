@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import {
-  HiArrowSmRight,
   HiChartPie,
   HiInbox,
   HiShoppingBag,
@@ -13,12 +11,22 @@ import {
   HiUserAdd,
   HiUsers,
 } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminSideBar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear the authentication token (assuming it's stored in localStorage)
+    localStorage.removeItem("token");
+
+    // Redirect to login or home page after logout
+    navigate("/AdminLogin");
+  };
+
   return (
     <div className="h-screen">
-      <Sidebar aria-label="Sidebar with content separator example h-screen fixed">
+      <Sidebar aria-label="Sidebar with content separator example">
         <Sidebar.Items>
           <Sidebar.ItemGroup>
             <Sidebar.Item
@@ -28,9 +36,7 @@ const AdminSideBar = () => {
             >
               Dashboard
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/workhistory" icon={HiViewBoards}>
-              Work History
-            </Sidebar.Item>
+
             <Sidebar.Item as={Link} to="/admin/inbox" icon={HiInbox}>
               Inbox
             </Sidebar.Item>
@@ -46,21 +52,24 @@ const AdminSideBar = () => {
                 All users
               </Sidebar.Item>
             </Sidebar.Collapse>
-            <Sidebar.Item href="#" icon={HiShoppingBag}>
+            <Sidebar.Item as={Link} to="/admin/blogs" icon={HiShoppingBag}>
               Blogs
             </Sidebar.Item>
-            <Sidebar.Item href="#" icon={HiArrowSmRight}>
-              Sign In
-            </Sidebar.Item>
-            <Sidebar.Item href="#" icon={HiTable}>
+
+            {/* Logout Button */}
+            <Sidebar.Item as="button" onClick={handleLogout} icon={HiTable}>
               Log Out
             </Sidebar.Item>
           </Sidebar.ItemGroup>
           <Sidebar.ItemGroup>
-            <Sidebar.Item href="#" icon={HiViewBoards}>
+            <Sidebar.Item
+              as={Link}
+              to="/admin/documentation"
+              icon={HiViewBoards}
+            >
               Documentation
             </Sidebar.Item>
-            <Sidebar.Item href="#" icon={BiBuoy}>
+            <Sidebar.Item as={Link} to="/admin/help" icon={BiBuoy}>
               Help
             </Sidebar.Item>
           </Sidebar.ItemGroup>
