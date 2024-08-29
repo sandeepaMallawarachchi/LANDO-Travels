@@ -93,45 +93,38 @@ const AdminDashboard = () => {
   };
 
   const handleNavigateNews = () => {
-    navigate("/admin/adminCards");
-  };
+    navigate('/admin/adminCards')
+  }
 
   // const handleNavigateAddUser = () => {
   //   navigate('/admin/adminregister')
   // }
 
   return (
-    <div className="flex p-10">
-      <Card className="max-w-sm p-5">
-        <div className="flex flex-col items-center pb-10">
+    <div className="p-4 flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0 pt-10">
+      {/* Profile Card */}
+      <Card className="w-full lg:w-72 p-5">
+        <div className="flex flex-col items-center pb-4">
           <img
             alt="Profile"
-            height="96"
             src={profile}
-            width="96"
-            className="mb-3 rounded-full shadow-lg"
+            className="mb-3 w-24 h-24 rounded-full shadow-lg"
           />
-          <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+          <h5 className="mb-1 text-lg font-medium text-gray-900 dark:text-white">
             {adminDetails.firstname} {adminDetails.lastname}
           </h5>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            {adminDetails.email}
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            {adminDetails.phone}
-          </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            {adminDetails.address}
-          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.email}</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.phone}</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.address}</span>
           <div className="mt-4 lg:mt-6 flex flex-col items-center space-y-4">
             <Button
-              className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700"
+              className="w-full text-sm bg-blue-500 hover:bg-blue-700"
               onClick={handleEditProfileClick}
             >
               Edit Profile
             </Button>
             <Button
-              className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-red-500 hover:bg-red-700"
+              className="w-full text-sm bg-red-500 hover:bg-red-700"
               onClick={handlePasswordResetClick}
             >
               Reset Password
@@ -141,53 +134,44 @@ const AdminDashboard = () => {
       </Card>
 
       {/* Quick Access Icons */}
-      <div className="ml-20 w-64">
-        <h1 className="text-center text-2xl mb-4">Quick Access</h1>
-        <div className="grid grid-cols-2 gap-4">
+      <div className="w-full lg:w-64 flex flex-col items-center lg:items-start">
+        <h1 className="text-2xl mb-4 text-center lg:text-left">Quick Access</h1>
+        <div className="grid grid-cols-3 gap-4">
           <Button
-            className="flex justify-center items-center bg-gray-200 p-4 rounded-full"
+            className="flex justify-center items-center bg-gray-200 p-4 rounded-full hover:bg-gray-300 transition-colors duration-300"
             onClick={handleNavigateAddUser}
           >
             <FaUserPlus className="w-6 h-6 text-gray-600" />
           </Button>
           <Button
-            className="flex justify-center items-center bg-gray-200 p-4 rounded-full"
+            className="flex justify-center items-center bg-gray-200 p-4 rounded-full hover:bg-gray-300 transition-colors duration-300"
             onClick={handleNavigateAllUser}
           >
             <FaUsers className="w-6 h-6 text-gray-600" />
           </Button>
           <Button
-            className="flex justify-center items-center bg-gray-200 p-4 rounded-full"
+            className="flex justify-center items-center bg-gray-200 p-4 rounded-full hover:bg-gray-300 transition-colors duration-300"
             onClick={handleNavigateNews}
           >
             <FaNewspaper className="w-6 h-6 text-gray-600" />
           </Button>
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
-              <FaFacebook className="w-6 h-6 text-blue-600" />
-            </Button>
-          </a>
+          <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
+            <FaHotel className="w-6 h-6 text-gray-600" />
+          </Button>
         </div>
       </div>
 
-      <div className="ml-20">
-        <h1 className="text-center text-2xl mb-4">Summary</h1>
-        <div className="grid grid-cols-3 gap-6 text-center">
-          <Card className="p-3 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
+      {/* Summary Section */}
+      <div className="w-full lg:w-64">
+        <h1 className="text-2xl mb-4 text-center lg:text-left">Summary</h1>
+        <div className="grid grid-cols-2 gap-4 text-center">
+          <Card className="p-4 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
             <h3 className="text-md font-semibold">Total Users</h3>
             <p className="text-2xl font-bold">{totalUsers}</p>
           </Card>
-          <Card className="p-3 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
+          <Card className="p-4 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
             <h3 className="text-md font-semibold">News Blogs</h3>
             <p className="text-2xl font-bold">{totalPosts}</p>
-          </Card>
-          <Card className="p-3 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
-            <h3 className="text-md font-semibold">Hotel Reservations</h3>
-            <p className="text-2xl font-bold">1</p>
           </Card>
         </div>
       </div>
