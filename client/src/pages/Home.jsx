@@ -65,7 +65,7 @@ const Home = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/admin/cards");
+        const response = await axios.get("http://localhost:4000/admin/card");
         setCards(response.data); // Store fetched data in state
       } catch (error) {
         console.error("Error fetching cards:", error);
