@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const { validationResult } = require("express-validator");
 const Admin = require("../models/adminDetails");
 const Contact = require("../models/contactDetails");
+const Card = require("../models/Card");
 
 //admin login
 exports.getAdmin = async (req, res) => {
@@ -82,11 +83,9 @@ exports.registerAdmin = async (req, res) => {
 
     const existingAdmin = await Admin.findOne({ $or: [{ email }, { phone }] });
     if (existingAdmin) {
-      return res
-        .status(400)
-        .json({
-          message: "Admin with this email or phone number already exists",
-        });
+      return res.status(400).json({
+        message: "Admin with this email or phone number already exists",
+      });
     }
 
     if (password !== confirmPassword) {
@@ -267,4 +266,48 @@ exports.updateReadStatus = async (req, res) => {
 exports.logout = (req, res) => {
   // Assuming no session or token invalidation on server-side
   return res.status(200).json({ message: "Logout successful" });
+};
+
+// Get all cards
+exports.getAllCards = async (req, res) => {
+  try {
+    const cards = await Card.find();
+    res.json(cards);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Create a new card
+exports.createCard = async (req, res) => {
+  const { src, title, description } = req.body;
+  try {
+    const newCard = new Card({ src, title, description });
+    await newCard.save();
+    res.status(201).json(newCard);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+// Update a card
+exports.updateCard = async (req, res) => {
+  try {
+    const card = await Card.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.json(card);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+// Delete a card
+exports.deleteCard = async (req, res) => {
+  try {
+    await Card.findByIdAndDelete(req.params.id);
+    res.status(204).end();
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 };

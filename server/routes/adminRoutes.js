@@ -46,4 +46,16 @@ router.patch("/contacts/:id", adminController.updateReadStatus);
 // Logout route
 router.post("/logout", adminController.logout);
 
+// Get all cards
+router.get("/cards", adminController.getAllCards);
+
+// Create a new card
+router.post("/cards", adminController.createCard);
+
+// Update a card
+router.put("/cards/:id", adminController.updateCard);
+
+// Delete a card
+router.delete("/cards/:id", adminController.deleteCard);
+
 module.exports = router;
