@@ -46,11 +46,11 @@ router.patch("/contacts/:id", adminController.updateReadStatus);
 // Logout route
 router.post("/logout", adminController.logout);
 
-// Get all cards route
-router.get("/cards", adminController.getAllCards);
+// Get all cards
+router.get("/getcards", adminController.getAllCards);
 
-// Create a new card route
-router.post("/cards", adminController.createCard);
+// Create a new card
+router.post("/createCard", adminController.createCard);
 
 // Update a card route
 router.put("/cards/:id", adminController.updateCard);
