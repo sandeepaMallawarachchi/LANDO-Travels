@@ -10,7 +10,8 @@ import {
   FaUsers,
   FaNewspaper,
   FaFacebook,
-  FaHotel,
+  FaInstagram,
+  FaTwitter,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -167,9 +168,33 @@ const AdminDashboard = () => {
           >
             <FaNewspaper className="w-6 h-6 text-gray-600" />
           </Button>
-          <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
-            <FaHotel className="w-6 h-6 text-gray-600" />
-          </Button>
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
+              <FaFacebook className="w-6 h-6 text-blue-600" />
+            </Button>
+          </a>
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
+              <FaInstagram className="w-6 h-6 text-pink-600" />
+            </Button>
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
+              <FaTwitter className="w-6 h-6 text-blue-400" />
+            </Button>
+          </a>
         </div>
       </div>
 
