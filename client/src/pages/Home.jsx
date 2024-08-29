@@ -67,9 +67,26 @@ const Home = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
-    autoplay: true, // Automatically slide
-    autoplaySpeed: 4000, // Speed of auto slide (in milliseconds)
+    autoplay: true,
+    autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 394,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -157,7 +174,7 @@ const Home = () => {
     <div>
       {/* Carousel Section */}
       <div className="relative">
-        <div className="h-[200px] sm:h-[200px] md:h-[400px] lg:h-[665px]">
+        <div className="h-[200px] sm:h-[200px] md:h-[400px] lg:h-[95vh]">
           <Carousel slideInterval={5000} className="rounded-none">
             <img
               src={flight1}
@@ -192,21 +209,25 @@ const Home = () => {
           </Carousel>
 
           {/* Overlay Text and Button */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
-            <div className="flex items-center justify-center">
-              <h1 className="h1 mr-2">Welcome to</h1>
-              <h1 className="text-white text-8xl font-extrabold leading-none mr-2">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4">
+            <div className="flex flex-wrap items-center justify-center space-x-2">
+              <h1 className="sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
+                Welcome to
+              </h1>
+              <h1 className="text-whitesm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
                 LANDO
               </h1>
-              <h1 className="h1">Travels</h1>
+              <h1 className="sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
+                Travels
+              </h1>
             </div>
 
-            <h4 className="mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl">
+            <h4 className="mt-4 text-sm sm:text-base md:text-lg lg:text-2xl xl:text-2xl">
               Your journey starts here
             </h4>
             <button
               onClick={handleScrollToServices}
-              className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+              className="mt-8 px-6 py-3 md:px-8 md:py-4 border-2 border-white text-white text-lg md:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
             >
               Get Started
             </button>
@@ -216,20 +237,20 @@ const Home = () => {
 
       {/* Card Section */}
       <div className="my-10" ref={getStartedRef}>
-        <div className="p-10">
+        <div className="p-5 lg:p-10">
           <Slider {...settings}>
             {cards.map((card, index) => (
-              <div key={index} className="px-5">
-                <Card className="flex-shrink-0 w-full h-[500px]">
+              <div key={index} className="px-2 lg:px-5">
+                <Card className="flex-shrink-0 w-full lg:h-[500px]">
                   <img
                     src={card.src}
                     alt={card.title}
                     className="w-full h-64 object-cover rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
                   />
-                  <h5 className="text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white mt-4">
+                  <h5 className="text-lg lg:text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white mt-2 lg:mt-4">
                     {card.title}
                   </h5>
-                  <p className="font-normal text-gray-700 text-center dark:text-gray-400">
+                  <p className="text-sm lg:text-base font-normal text-gray-700 text-center dark:text-gray-400">
                     {card.description}
                   </p>
                 </Card>
@@ -241,10 +262,10 @@ const Home = () => {
 
       {/* about section */}
       <div className="flex justify-center items-center mt-12 mb-12">
-        <section className="flex flex-col lg:flex-row items-center justify-center my-12 px-10">
+        <section className="flex flex-col lg:flex-row items-center justify-center my-12 sm:px-10">
           {/* Text Section */}
           <div className="lg:w-1/2 p-6">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">About Us</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4 sm:text-center">About Us</h2>
             <p className="text-gray-600 text-lg mb-6">
               At Lando Travels, we take pride in being one of Sri Lanka's
               premier travel agencies, specializing in corporate travel
@@ -266,25 +287,26 @@ const Home = () => {
             </h4>
             <br></br>
 
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Button
-                className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
+                className="mt-4 px-6 py-3 border-2 border-blue-500 text-blue-500 text-lg font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
                 onClick={() => setIsOpen(true)}
               >
                 Contact
               </Button>
               <Link to="/about">
-                <button className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
+                <button className="mt-4 px-6 py-3 border-2 border-blue-500 text-blue-500 text-lg font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
                   See More
                 </button>
               </Link>
             </div>
+
           </div>
 
           {/* Image Section */}
-          <div className="lg:w-1/2 p-6">
+          <div className="lg:w-1/2 p-6 ">
             <img
-              src={aboutushome} // Replace this with your image URL
+              src={aboutushome}
               alt="About Us"
               className="rounded-lg shadow-lg w-full"
             />
@@ -375,10 +397,12 @@ const Home = () => {
           </Drawer.Items>
         </Drawer>
       </div>
+
+      {/* partners logos */}
       <h2 className="text-4xl font-bold text-gray-800 mb-4 text-center">
         Partnerships
       </h2>
-      {/* partners logos */}
+
       <div className="overflow-hidden py-20">
         <div className="flex items-center animate-scroll">
           {logos.concat(logos).map((logo, index) => (

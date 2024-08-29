@@ -38,7 +38,7 @@ const AdminHeader = () => {
         <Navbar.Brand as={Link} to="/">
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
         </Navbar.Brand>
-        <div></div>
+        
         <Avatar img={user}>
           <div className="space-y-1 font-medium dark:text-white">
             {admin ? (
