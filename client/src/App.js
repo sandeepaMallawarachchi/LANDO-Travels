@@ -97,6 +97,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/admin/adminCards"
+            element={
+              <ProtectedRoute>
+                <AdminCards />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Layout>
     </BrowserRouter>
