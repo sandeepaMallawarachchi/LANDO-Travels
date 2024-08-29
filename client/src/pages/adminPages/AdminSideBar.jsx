@@ -6,7 +6,6 @@ import {
   HiChartPie,
   HiInbox,
   HiClipboardList,
-  HiTable,
   HiUser,
   HiViewBoards,
   HiUserAdd,
