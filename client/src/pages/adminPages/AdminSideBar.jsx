@@ -60,10 +60,19 @@ const AdminSideBar = () => {
                 All users
               </Sidebar.Item>
             </Sidebar.Collapse>
-            <Sidebar.Item as={Link} to="/admin/blogs" icon={HiShoppingBag}>
-              Blogs
-            </Sidebar.Item>
 
+            <Sidebar.Collapse icon={HiShoppingBag} label="Blogs">
+              <Sidebar.Item
+                as={Link}
+                to="/admin/adminCards"
+                icon={HiShoppingBag}
+              >
+                Cards For News
+              </Sidebar.Item>
+              <Sidebar.Item as={Link} to="/admin/allUsers" icon={HiTable}>
+                Hotel reservations
+              </Sidebar.Item>
+            </Sidebar.Collapse>
             {/* Logout Button */}
             <Sidebar.Item as="button" onClick={handleLogout} icon={HiTable}>
               Log Out
