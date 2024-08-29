@@ -43,6 +43,15 @@ const adminSchema = new Schema({
         required: true,
         unique: true,
     },
+
+    resetCode: {
+        type: Number,
+        required: false
+    },
+    resetCodeExpires: {
+        type: Date,
+        required: false
+    },
 });
 
 const Admin = mongoose.model("Admin", adminSchema);

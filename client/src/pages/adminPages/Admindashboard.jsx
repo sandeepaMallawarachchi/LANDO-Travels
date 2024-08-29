@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../CSS/Admin.css";
 import EditProfilePopup from "./EditProfilePopup";
+import AdminPasswordReset from "./AdminPasswordReset";
 import { useParams } from "react-router-dom";
 import { Button, Card } from "flowbite-react";
 import profile from "../../images/user.svg";
@@ -12,9 +13,11 @@ const AdminDashboard = () => {
     lastname: "",
     email: "",
     phone: "",
+    address: "",
   });
 
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+  const [isPasswordResetOpen, setIsPasswordResetOpen] = useState(false); 
 
   const { adminID } = useParams();
 
@@ -35,8 +38,13 @@ const AdminDashboard = () => {
     setIsEditProfileOpen(true);
   };
 
+  const handlePasswordResetClick = () => {
+    setIsPasswordResetOpen(true);
+  };
+
   const handleClosePopup = () => {
     setIsEditProfileOpen(false);
+    setIsPasswordResetOpen(false);
   };
 
   const handleSaveProfile = (updatedData) => {
@@ -44,12 +52,11 @@ const AdminDashboard = () => {
       ...prevDetails,
       ...updatedData,
     }));
-
   };
 
   return (
     <div className="flex p-10">
-      <Card className="max-w-sm">
+      <Card className="max-w-sm p-5">
         <div className="flex flex-col items-center pb-10">
           <img
             alt="Profile"
@@ -62,12 +69,20 @@ const AdminDashboard = () => {
             {adminDetails.firstname} {adminDetails.lastname}
           </h5>
           <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.email}</span>
-          <div className="mt-4 flex space-x-3 lg:mt-6">
+          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.phone}</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.address}</span>
+          <div className="mt-4 lg:mt-6 flex flex-col items-center space-y-4">
             <Button
               className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700"
               onClick={handleEditProfileClick}
             >
               Edit Profile
+            </Button>
+            <Button
+              className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-red-500 hover:bg-red-700"
+              onClick={handlePasswordResetClick}
+            >
+              Reset Password
             </Button>
           </div>
         </div>
@@ -79,6 +94,12 @@ const AdminDashboard = () => {
         onClose={handleClosePopup}
         adminDetails={adminDetails}
         onSave={handleSaveProfile}
+      />
+
+      {/* Password Reset Popup */}
+      <AdminPasswordReset
+        isOpen={isPasswordResetOpen}
+        onClose={handleClosePopup}
       />
     </div>
   );
