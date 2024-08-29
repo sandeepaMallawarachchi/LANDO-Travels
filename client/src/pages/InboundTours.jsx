@@ -39,25 +39,29 @@ const InboundTours = () => {
 
   return (
     <div>
-      <img
-        src={inboundcover}
-        alt="Inbound Tour"
-        style={{ width: "1920px", height: "920px" }}
-      />
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <h1 className="text-white text-8xl font-extrabold drop-shadow-lg leading-none">
-          Inbound
-        </h1>
-        <h1 className="h1">Tours</h1>
-        <button
-          onClick={handleScrollToInboundServices}
-          className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
-        >
-          Explore Now
-        </button>
+      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]">
+        <img
+          src={inboundcover}
+          alt="Inbound Tour"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+          <h1 className="text-white text-6xl sm:text-6xl lg:text-8xl font-extrabold drop-shadow-lg leading-none text-center">
+            Inbound
+          </h1>
+          <h2 className="h1 sm:text-4xl lg:text-5xl mt-2">
+            Tours
+          </h2>
+          <button
+            onClick={handleScrollToInboundServices}
+            className="mt-8 px-6 py-3 border-2 border-white text-white text-lg sm:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+          >
+            Explore Now
+          </button>
+        </div>
       </div>
 
-      <div className="container mt-12 mb-24 px-10" ref={inboundRef}>
+      <div className="container my-12 px-10" ref={inboundRef}>
         <h2 className="text-4xl font-bold text-gray-800 mb-4">
           Explore Sri Lanka with Lando Travels
         </h2>
@@ -67,9 +71,9 @@ const InboundTours = () => {
           packages. <br />
           Our itineraries include:
         </p>
-        <div className="card__container mt-6">
+        <div className="card__container">
           {cardsData.map((card, index) => (
-            <article className="card__article" key={index}>
+            <article className="card__article">
               <img src={card.imgSrc} alt={card.title} className="card__img" />
               <div className="card__data">
                 <span className="card__description">{card.description}</span>
@@ -79,6 +83,7 @@ const InboundTours = () => {
             </article>
           ))}
         </div>
+
         <div className="flex justify-center items-center my-12">
           <p>
             Our tours are led by experienced guides who speak your language,

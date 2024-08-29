@@ -55,7 +55,7 @@ const Home = () => {
     slidesToScroll: 1,
     arrows: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 5000,
     responsive: [
       {
         breakpoint: 1024,
@@ -105,7 +105,6 @@ const Home = () => {
     logo1,
     logo11,
     logo2,
-    ,
     logo4,
     logo5,
     logo6,

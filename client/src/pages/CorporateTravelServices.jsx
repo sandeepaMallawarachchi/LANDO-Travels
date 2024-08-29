@@ -43,17 +43,18 @@ const CorporateTravelServices = () => {
 
   return (
     <div>
-      <div>
+      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]">
         <img
           src={corparateServices}
           alt="corparate Services"
-          style={{ width: "1920px", height: "920px" }}
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-white text-8xl font-extrabold drop-shadow-lg leading-none">
+          <h1
+            className="text-white text-6xl sm:text-6xl lg:text-8xl font-extrabold drop-shadow-lg leading-none text-center">
             Corporate Travel
           </h1>
-          <h1 className="h1">Services</h1>
+          <h1 className="h1 sm:text-4xl lg:text-5xl mt-2">Services</h1>
           <button
             onClick={handleScrollToCorporateServices}
             className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
