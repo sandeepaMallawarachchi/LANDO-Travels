@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Carousel,
   Button,
@@ -46,40 +46,7 @@ import logo17 from "../images/partners/logo17.png";
 import axios from "axios";
 
 const Home = () => {
-  const cards = [
-    {
-      src: quatar,
-      title:
-        "Airlines Qatar Airways takes minority stake in South Africa’s Airlink",
-      description:
-        "Qatar Airways is taking a 25% shareholding in South African regional carrier Airlink, having previously teased that it was intending to invest in an airline in the region.",
-    },
-    {
-      src: singaporeairlines,
-      title: "The world’s best airlines for 2023, according to Skytrax",
-      description:
-        " Singapore Airlines: The Singapore flag-carrier has been named Airline of the Year at the Skytrax World Airline Awards 2023 in Paris. Click through the gallery to see the best of the rest.",
-    },
-    {
-      src: male,
-      title: "Maldives Weather: When to Visit and What to Expect",
-      description:
-        "Discover the Maldives weather and the best time to visit this tropical paradise. Learn about the average temperatures, rainfall, and what to pack for your trip..",
-    },
-    {
-      src: srilankanairlines,
-      title: "Srilankan airlines customer services",
-      description:
-        "SriLankan Airlines is renowned for its warm, hospitable service, rooted in Sri Lankan culture. Their staff is trained to offer personalized care, ensuring passengers feel valued and comfortable throughout their journey.",
-    },
-    {
-      src: hotelReservationCard,
-      title: "Worldwide Hotel Reservations",
-      description:
-        "Reservations of hotel accommodation most of the major cities throughout Europe, India, Middle East and far east Representations.",
-    },
-  ];
-
+  const [cards, setCards] = useState([]);
   const settings = {
     dots: true,
     infinite: true,
@@ -94,6 +61,18 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => setIsOpen(false);
+  // Fetch cards from server when component mounts
+  useEffect(() => {
+    const fetchCards = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/admin/card");
+        setCards(response.data); // Store fetched data in state
+      } catch (error) {
+        console.error("Error fetching cards:", error);
+      }
+    };
+    fetchCards();
+  }, []); // Empty dependency array means this effect runs once when the component mounts
 
   const logos = [
     logo10,
@@ -214,14 +193,11 @@ const Home = () => {
             {cards.map((card, index) => (
               <div key={index} className="px-5">
                 <Card className="flex-shrink-0 w-full h-[500px]">
-                  {" "}
-                  {/* Fixed height */}
                   <img
                     src={card.src}
                     alt={card.title}
                     className="w-full h-64 object-cover rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
-                  />{" "}
-                  {/* Object-cover to fit image */}
+                  />
                   <h5 className="text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white mt-4">
                     {card.title}
                   </h5>
