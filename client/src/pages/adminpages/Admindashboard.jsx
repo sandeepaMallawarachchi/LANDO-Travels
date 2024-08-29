@@ -3,9 +3,10 @@ import axios from "axios";
 import "../../CSS/Admin.css";
 import EditProfilePopup from "./EditProfilePopup";
 import AdminPasswordReset from "./AdminPasswordReset";
-import { useParams } from "react-router-dom";
 import { Button, Card } from "flowbite-react";
 import profile from "../../images/user.svg";
+import { FaUserPlus, FaUsers, FaNewspaper, FaHotel } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [adminDetails, setAdminDetails] = useState({
@@ -17,8 +18,9 @@ const AdminDashboard = () => {
   });
 
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
-  const [isPasswordResetOpen, setIsPasswordResetOpen] = useState(false); 
-
+  const [isPasswordResetOpen, setIsPasswordResetOpen] = useState(false);
+  const [totalUsers, setTotalUsers] = useState(0);
+  const [totalPosts, setTotalPosts] = useState(0);
   const adminID = localStorage.getItem("adminID");
 
   useEffect(() => {
@@ -32,6 +34,29 @@ const AdminDashboard = () => {
     };
 
     fetchAdminDetails();
+
+    const fetchTotalUsers = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/admin/getAll");
+        setTotalUsers(response.data.length);
+      } catch (error) {
+        console.error("Error fetching total users:", error.message);
+      }
+    };
+
+    fetchTotalUsers();
+
+    const fetchTotalPosts = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/admin/getcards");
+        setTotalPosts(response.data.length);
+      } catch (error) {
+        console.error("Error fetching total posts:", error.message);
+      }
+    };
+
+    fetchTotalPosts();
+
   }, [adminID]);
 
   const handleEditProfileClick = () => {
@@ -53,6 +78,24 @@ const AdminDashboard = () => {
       ...updatedData,
     }));
   };
+
+  const navigate = useNavigate();
+
+  const handleNavigateAddUser = () => {
+    navigate('/admin/adminregister')
+  }
+
+  const handleNavigateAllUser = () => {
+    navigate('/admin/allUsers')
+  }
+
+  const handleNavigateNews = () => {
+    navigate('/admin/adminCards')
+  }
+
+  // const handleNavigateAddUser = () => {
+  //   navigate('/admin/adminregister')
+  // }
 
   return (
     <div className="flex p-10">
@@ -87,6 +130,53 @@ const AdminDashboard = () => {
           </div>
         </div>
       </Card>
+
+      {/* Quick Access Icons */}
+      <div className="ml-20 w-64">
+        <h1 className="text-center text-2xl mb-4">Quick Access</h1>
+        <div className="grid grid-cols-2 gap-4">
+          <Button
+            className="flex justify-center items-center bg-gray-200 p-4 rounded-full"
+            onClick={handleNavigateAddUser}
+          >
+            <FaUserPlus className="w-6 h-6 text-gray-600" />
+          </Button>
+          <Button
+            className="flex justify-center items-center bg-gray-200 p-4 rounded-full"
+            onClick={handleNavigateAllUser}
+          >
+            <FaUsers className="w-6 h-6 text-gray-600" />
+          </Button>
+          <Button
+            className="flex justify-center items-center bg-gray-200 p-4 rounded-full"
+            onClick={handleNavigateNews}
+          >
+            <FaNewspaper className="w-6 h-6 text-gray-600" />
+          </Button>
+          <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
+            <FaHotel className="w-6 h-6 text-gray-600" />
+          </Button>
+        </div>
+      </div>
+
+      <div className="ml-20">
+        <h1 className="text-center text-2xl mb-4">Summary</h1>
+        <div className="grid grid-cols-3 gap-6 text-center">
+          <Card className="p-3 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
+            <h3 className="text-md font-semibold">Total Users</h3>
+            <p className="text-2xl font-bold">{totalUsers}</p>
+          </Card>
+          <Card className="p-3 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
+            <h3 className="text-md font-semibold">News Blogs</h3>
+            <p className="text-2xl font-bold">{totalPosts}</p>
+          </Card>
+          <Card className="p-3 bg-green-500 text-white hover:bg-green-600 hover:text-white transition-colors duration-300">
+            <h3 className="text-md font-semibold">Hotel Reservations</h3>
+            <p className="text-2xl font-bold">1</p>
+          </Card>
+        </div>
+
+      </div>
 
       {/* Edit Profile Popup */}
       <EditProfilePopup
