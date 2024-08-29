@@ -5,7 +5,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import AdminPasswordReset from "./AdminPasswordReset";
 import { Button, Card } from "flowbite-react";
 import profile from "../../images/user.svg";
-import { FaUserPlus, FaUsers, FaNewspaper, FaFacebook } from "react-icons/fa";
+import { FaUserPlus, FaUsers, FaNewspaper, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
