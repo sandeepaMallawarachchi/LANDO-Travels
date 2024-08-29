@@ -21,7 +21,7 @@ router.get("/getAll", adminController.getAllAdmins);
 router.get("/getAdmin/:adminID", adminController.getAdminById);
 
 //update route
-router.post("/update", adminController.updateAdmin);
+router.put("/update/:adminID", adminController.updateAdmin);
 
 //delete route
 router.post("/delete", adminController.deleteAdmin);
@@ -46,16 +46,22 @@ router.patch("/contacts/:id", adminController.updateReadStatus);
 // Logout route
 router.post("/logout", adminController.logout);
 
-// Get all cards
+// Get all cards route
 router.get("/cards", adminController.getAllCards);
 
-// Create a new card
+// Create a new card route
 router.post("/cards", adminController.createCard);
 
-// Update a card
+// Update a card route
 router.put("/cards/:id", adminController.updateCard);
 
-// Delete a card
+// Delete a card route
 router.delete("/cards/:id", adminController.deleteCard);
+
+//send password reset email route
+router.post('/passwordEmail', adminController.requestPasswordReset);
+
+//reset the password route
+router.post('/passwordReset', adminController.resetPassword);
 
 module.exports = router;
