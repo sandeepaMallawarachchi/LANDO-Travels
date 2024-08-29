@@ -19,7 +19,8 @@ const Login = ({ isOpen, onClose }) => {
       });
 
       console.log("Login successful:", res.data);
-      console.log(res.data.admin.adminID); // Use the correct path
+      console.log(res.data.admin.adminID);
+      const adminID = res.data.admin.adminID;
 
       // Store the JWT token in localStorage
       localStorage.setItem("token", res.data.token);
@@ -27,7 +28,7 @@ const Login = ({ isOpen, onClose }) => {
       alert("Login successful");
 
       // Use the correct path to navigate
-      navigate(`/admin/admindashboard/${res.data.admin.adminID}`);
+      navigate(`/admin/admindashboard/${adminID}`);
     } catch (error) {
       console.error("Error:", error.response?.data?.message || error.message);
       alert("Login failed! Invalid email or password.");
