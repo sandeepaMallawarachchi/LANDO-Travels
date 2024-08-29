@@ -10,7 +10,9 @@ const ManageCards = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/admin/card");
+        const response = await axios.get(
+          "http://localhost:4000/admin/getcards"
+        );
         setCards(response.data); // Store fetched data in state
       } catch (error) {
         console.error("Error fetching cards:", error);
@@ -23,7 +25,7 @@ const ManageCards = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:4000/admin/card/${editingCard._id}`,
+        `http://localhost:4000/admin/cards/${editingCard._id}`,
         editingCard
       );
       setCards(
