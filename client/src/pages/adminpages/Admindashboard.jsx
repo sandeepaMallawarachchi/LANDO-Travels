@@ -19,7 +19,7 @@ const AdminDashboard = () => {
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
   const [isPasswordResetOpen, setIsPasswordResetOpen] = useState(false); 
 
-  const { adminID } = useParams();
+  const adminID = localStorage.getItem("adminID");
 
   useEffect(() => {
     const fetchAdminDetails = async () => {

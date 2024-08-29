@@ -65,7 +65,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/adminLogin" element={<AdminLogin />} />
           <Route
-            path="/admin/admindashboard/:adminID"
+            path="/admin/admindashboard"
             element={
               <ProtectedRoute>
                 <Admindashboard />

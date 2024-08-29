@@ -5,12 +5,15 @@ import { BiBuoy } from "react-icons/bi";
 import {
   HiChartPie,
   HiInbox,
-  HiShoppingBag,
+  HiClipboardList,
   HiTable,
   HiUser,
   HiViewBoards,
   HiUserAdd,
   HiUsers,
+  HiHome,
+  HiLogout,
+  HiNewspaper
 } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -61,20 +64,20 @@ const AdminSideBar = () => {
               </Sidebar.Item>
             </Sidebar.Collapse>
 
-            <Sidebar.Collapse icon={HiShoppingBag} label="Blogs">
+            <Sidebar.Collapse icon={HiClipboardList} label="Blogs">
               <Sidebar.Item
                 as={Link}
                 to="/admin/adminCards"
-                icon={HiShoppingBag}
+                icon={HiNewspaper}
               >
                 Cards For News
               </Sidebar.Item>
-              <Sidebar.Item as={Link} to="/admin/allUsers" icon={HiTable}>
+              <Sidebar.Item as={Link} to="/admin/allUsers" icon={HiHome}>
                 Hotel reservations
               </Sidebar.Item>
             </Sidebar.Collapse>
             {/* Logout Button */}
-            <Sidebar.Item as="button" onClick={handleLogout} icon={HiTable}>
+            <Sidebar.Item as="button" onClick={handleLogout} icon={HiLogout}>
               Log Out
             </Sidebar.Item>
           </Sidebar.ItemGroup>
