@@ -3,20 +3,20 @@ import { Navbar, Avatar, Button, TextInput } from "flowbite-react";
 import logo from "../images/logo-white-remove-bg.png";
 import user from "../images/user.svg";
 import { Link, useParams } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 const AdminHeader = () => {
     const { adminID } = useParams();
-    const [admin, setAdmin] = useState({});
+    const [admin, setAdmin] = useState(null);
 
     useEffect(() => {
         const fetchAdmin = async () => {
             try {
                 const response = await axios.get(`http://localhost:4000/admin/getAdmin/${adminID}`);
                 setAdmin(response.data);
+                console.log(response.data);
             } catch (err) {
-                alert('Failed to fetch admin details!');
-                console.log('Error fetching admin:', err);
+                console.log("Error fetching admin:", err);
             }
         };
 
@@ -27,11 +27,7 @@ const AdminHeader = () => {
         <div className="sticky top-0 z-50 bg-white shadow-lg lg:pl-10 lg:pr-10">
             <Navbar fluid rounded>
                 <Navbar.Brand as={Link} to="/">
-                    <img
-                        src={logo}
-                        className="mr-3 h-6 sm:h-9"
-                        alt="Logo"
-                    />
+                    <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
                 </Navbar.Brand>
                 <div>
                     <form className="flex max-w-full flex-row gap-4">
@@ -48,8 +44,18 @@ const AdminHeader = () => {
                 </div>
                 <Avatar img={user}>
                     <div className="space-y-1 font-medium dark:text-white">
-                        <div>{admin.firstname} {admin.lastname}</div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">{admin.email}</div>
+                        {admin ? (
+                            <>
+                                <div>
+                                    {admin.firstname} {admin.lastname}
+                                </div>
+                                <div className="text-sm text-gray-500 dark:text-gray-400">
+                                    {admin.email}
+                                </div>
+                            </>
+                        ) : (
+                            <div className="text-red-600">Failed to fetch data</div> 
+                        )}
                     </div>
                 </Avatar>
             </Navbar>

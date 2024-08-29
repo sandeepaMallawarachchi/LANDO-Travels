@@ -72,6 +72,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+
           <Route
             path="/admin/inbox"
             element={
@@ -93,14 +94,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <AllAdmins />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/adminCards"
-            element={
-              <ProtectedRoute>
-                <AdminCards />
               </ProtectedRoute>
             }
           />
