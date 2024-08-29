@@ -43,6 +43,19 @@ import logo14 from "../images/partners/logo14.png";
 import logo15 from "../images/partners/logo15.png";
 import logo16 from "../images/partners/logo16.svg";
 import logo17 from "../images/partners/logo17.png";
+import logo18 from "../images/partners/logo18.jpg";
+import logo19 from "../images/partners/logo19.jpg";
+import logo20 from "../images/partners/logo20.png";
+import logo21 from "../images/partners/logo21.png";
+import logo22 from "../images/partners/logo22.png";
+import logo23 from "../images/partners/logo23.png";
+import logo24 from "../images/partners/logo24.jpeg";
+import logo25 from "../images/partners/logo25.png";
+import logo26 from "../images/partners/logo26.jpeg";
+import logo27 from "../images/partners/logo27.png";
+import logo29 from "../images/partners/logo29.png";
+import logo30 from "../images/partners/logo30.png";
+import logo31 from "../images/partners/logo31.png";
 import axios from "axios";
 
 const Home = () => {
@@ -111,6 +124,19 @@ const Home = () => {
     logo6,
     logo16,
     logo17,
+    logo18,
+    logo19,
+    logo20,
+    logo21,
+    logo22,
+    logo23,
+    logo24,
+    logo25,
+    logo26,
+    logo27,
+    logo29,
+    logo30,
+    logo31,
   ];
 
   const getStartedRef = useRef(null);
