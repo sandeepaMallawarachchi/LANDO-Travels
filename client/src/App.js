@@ -97,14 +97,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/admin/workhistory"
-            element={
-              <ProtectedRoute>
-                <Workflow />
-              </ProtectedRoute>
-            }
-          />
         </Routes>
       </Layout>
     </BrowserRouter>
