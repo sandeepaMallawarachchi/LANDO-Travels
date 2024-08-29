@@ -79,9 +79,7 @@ const OutboundTours = () => {
               <div className="card__data">
                 <span className="card__description">{card.description}</span>
                 <h2 className="card__title">{card.title}</h2>
-                <a href="#" className="card__button">
-                  Read More
-                </a>
+                <h3>And More</h3>
               </div>
             </article>
           ))}

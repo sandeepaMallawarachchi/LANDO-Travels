@@ -20,6 +20,8 @@ import Inbox from "./pages/adminPages/Inbox";
 import AdminSideBar from "./pages/adminPages/AdminSideBar";
 import AdminRegister from "./pages/adminPages/AdminRegister";
 import AllAdmins from "./pages/adminPages/AllAdmins";
+import AdminLogin from "./pages/adminPages/AdminLogin";
+import AdminCards from "./pages/adminPages/AdminCards";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -61,6 +63,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/adminLogin" element={<AdminLogin />} />
           <Route
             path="/admin/admindashboard/:adminID"
             element={
@@ -91,6 +94,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AllAdmins />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/workhistory"
+            element={
+              <ProtectedRoute>
+                <Workflow />
               </ProtectedRoute>
             }
           />

@@ -8,6 +8,7 @@ import {
   Textarea,
   TextInput,
 } from "flowbite-react";
+import { Link } from "react-router-dom";
 import { HiEnvelope } from "react-icons/hi2";
 import "../CSS/logoScrolling.css";
 
@@ -117,7 +118,7 @@ const Home = () => {
   const getStartedRef = useRef(null);
 
   const handleScrollToServices = () => {
-    getStartedRef.current.scrollIntoView({ behavior: 'smooth' });
+    getStartedRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const [email, setEmail] = useState("");
@@ -131,20 +132,19 @@ const Home = () => {
       const res = await axios.post(`http://localhost:4000/admin/contact`, {
         email,
         subject,
-        message
+        message,
       });
       console.log(res.data);
-      alert('Message sent successfully')
+      alert("Message sent successfully");
 
       setEmail("");
       setSubject("");
       setMessage("");
-
     } catch (error) {
       console.log(error.message);
-      alert('Error sending message!')
+      alert("Error sending message!");
     }
-  }
+  };
 
   return (
     <div>
@@ -199,7 +199,8 @@ const Home = () => {
             </h4>
             <button
               onClick={handleScrollToServices}
-              className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300">
+              className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+            >
               Get Started
             </button>
           </div>
@@ -263,14 +264,16 @@ const Home = () => {
 
             <div className="flex space-x-4">
               <Button
-                className="mt-8 px-4 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
+                className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300"
                 onClick={() => setIsOpen(true)}
               >
                 Contact
               </Button>
-              <button className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
-                See More
-              </button>
+              <Link to="/about">
+                <button className="mt-8 px-8 py-4 border-2 border-blue-500 text-blue-500 text-xl font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
+                  See More
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -351,7 +354,10 @@ const Home = () => {
                 {" "}
                 {/* Added margin-top for contact info */}
                 <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                  <a href="mailto:lawrence@landotravel.com" className="hover:underline">
+                  <a
+                    href="mailto:lawrence@landotravel.com"
+                    className="hover:underline"
+                  >
                     lawrence@landotravel.com
                   </a>
                 </p>

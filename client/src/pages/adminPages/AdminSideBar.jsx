@@ -1,61 +1,99 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import {
-    HiArrowSmRight,
-    HiChartPie,
-    HiInbox,
-    HiShoppingBag,
-    HiTable,
-    HiUser,
-    HiViewBoards,
-    HiUserAdd,
-    HiUsers
+  HiChartPie,
+  HiInbox,
+  HiShoppingBag,
+  HiTable,
+  HiUser,
+  HiViewBoards,
+  HiUserAdd,
+  HiUsers,
 } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminSideBar = () => {
-    return (
-        <div className="h-screen">
-            <Sidebar aria-label="Sidebar with content separator example h-screen fixed">
-                <Sidebar.Items>
-                    <Sidebar.ItemGroup>
-                        <Sidebar.Item as={Link} to="/admin/admindashboard" icon={HiChartPie}>
-                            Dashboard
-                        </Sidebar.Item>
-                        <Sidebar.Item as={Link} to="/admin/workhistory" icon={HiViewBoards}>
-                            Work History
-                        </Sidebar.Item>
-                        <Sidebar.Item as={Link} to='/admin/inbox' icon={HiInbox}>
-                            Inbox
-                        </Sidebar.Item>
-                        <Sidebar.Collapse icon={HiUser} label="Users">
-                            <Sidebar.Item as={Link} to='/admin/adminregister' icon={HiUserAdd}>Register a new user</Sidebar.Item>
-                            <Sidebar.Item as={Link} to='/admin/allUsers' icon={HiUsers}>All users</Sidebar.Item>
-                        </Sidebar.Collapse>
-                        <Sidebar.Item href="#" icon={HiShoppingBag}>
-                            Blogs
-                        </Sidebar.Item>
-                        <Sidebar.Item href="#" icon={HiArrowSmRight}>
-                            Sign In
-                        </Sidebar.Item>
-                        <Sidebar.Item href="#" icon={HiTable}>
-                            Log Out
-                        </Sidebar.Item>
-                    </Sidebar.ItemGroup>
-                    <Sidebar.ItemGroup>
-                        <Sidebar.Item href="#" icon={HiViewBoards}>
-                            Documentation
-                        </Sidebar.Item>
-                        <Sidebar.Item href="#" icon={BiBuoy}>
-                            Help
-                        </Sidebar.Item>
-                    </Sidebar.ItemGroup>
-                </Sidebar.Items>
-            </Sidebar>
-        </div>
-    )
-}
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      // Call the logout endpoint
+      await axios.post("http://localhost:4000/admin/logout");
+
+      // Clear the authentication token (assuming it's stored in localStorage)
+      localStorage.removeItem("token");
+
+      // Redirect to login or home page after logout
+      navigate("/AdminLogin");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
+  return (
+    <div className="h-screen">
+      <Sidebar aria-label="Sidebar with content separator example">
+        <Sidebar.Items>
+          <Sidebar.ItemGroup>
+            <Sidebar.Item
+              as={Link}
+              to="/admin/admindashboard"
+              icon={HiChartPie}
+            >
+              Dashboard
+            </Sidebar.Item>
+
+            <Sidebar.Item as={Link} to="/admin/inbox" icon={HiInbox}>
+              Inbox
+            </Sidebar.Item>
+            <Sidebar.Collapse icon={HiUser} label="Users">
+              <Sidebar.Item
+                as={Link}
+                to="/admin/adminregister"
+                icon={HiUserAdd}
+              >
+                Register a new user
+              </Sidebar.Item>
+              <Sidebar.Item as={Link} to="/admin/allUsers" icon={HiUsers}>
+                All users
+              </Sidebar.Item>
+            </Sidebar.Collapse>
+
+            <Sidebar.Collapse icon={HiShoppingBag} label="Blogs">
+              <Sidebar.Item
+                as={Link}
+                to="/admin/adminCards"
+                icon={HiShoppingBag}
+              >
+                Cards For News
+              </Sidebar.Item>
+              <Sidebar.Item as={Link} to="/admin/allUsers" icon={HiTable}>
+                Hotel reservations
+              </Sidebar.Item>
+            </Sidebar.Collapse>
+            {/* Logout Button */}
+            <Sidebar.Item as="button" onClick={handleLogout} icon={HiTable}>
+              Log Out
+            </Sidebar.Item>
+          </Sidebar.ItemGroup>
+          <Sidebar.ItemGroup>
+            <Sidebar.Item
+              as={Link}
+              to="/admin/documentation"
+              icon={HiViewBoards}
+            >
+              Documentation
+            </Sidebar.Item>
+            <Sidebar.Item as={Link} to="/admin/help" icon={BiBuoy}>
+              Help
+            </Sidebar.Item>
+          </Sidebar.ItemGroup>
+        </Sidebar.Items>
+      </Sidebar>
+    </div>
+  );
+};
 
 export default AdminSideBar;
