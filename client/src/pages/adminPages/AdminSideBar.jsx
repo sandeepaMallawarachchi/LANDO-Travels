@@ -13,7 +13,7 @@ import {
   HiUsers,
   HiHome,
   HiLogout,
-  HiNewspaper
+  HiNewspaper,
 } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -65,15 +65,8 @@ const AdminSideBar = () => {
             </Sidebar.Collapse>
 
             <Sidebar.Collapse icon={HiClipboardList} label="Blogs">
-              <Sidebar.Item
-                as={Link}
-                to="/admin/adminCards"
-                icon={HiNewspaper}
-              >
+              <Sidebar.Item as={Link} to="/admin/adminCards" icon={HiNewspaper}>
                 Cards For News
-              </Sidebar.Item>
-              <Sidebar.Item as={Link} to="/admin/allUsers" icon={HiHome}>
-                Hotel reservations
               </Sidebar.Item>
             </Sidebar.Collapse>
             {/* Logout Button */}
