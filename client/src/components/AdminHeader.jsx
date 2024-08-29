@@ -19,7 +19,9 @@ const AdminHeader = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:4000/admin/getAdmin/${adminID}`);
+        const response = await axios.get(
+          `http://localhost:4000/admin/getAdmin/${adminID}`
+        );
         setAdmin(response.data);
         console.log(response.data);
       } catch (err) {
@@ -36,28 +38,14 @@ const AdminHeader = () => {
         <Navbar.Brand as={Link} to="/">
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
         </Navbar.Brand>
-        <div>
-          <form className="flex max-w-full flex-row gap-4">
-            <div>
-              <TextInput id="search" type="text" placeholder="search..." required />
-            </div>
-            <Button
-              type="submit"
-              className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700"
-            >
-              Search
-            </Button>
-          </form>
-        </div>
+        <div></div>
         <Avatar img={user}>
           <div className="space-y-1 font-medium dark:text-white">
             {admin ? (
               <>
-                <div className="text-blue-600">
-                  Welcome,
-                </div>
+                <div className="text-blue-600">Welcome,</div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
-                {admin.firstname} {admin.lastname}
+                  {admin.firstname} {admin.lastname}
                 </div>
               </>
             ) : (
