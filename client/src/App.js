@@ -22,6 +22,7 @@ import AdminRegister from "./pages/adminPages/AdminRegister";
 import AllAdmins from "./pages/adminPages/AllAdmins";
 import AdminLogin from "./pages/adminPages/AdminLogin";
 import AdminCards from "./pages/adminPages/AdminCards";
+import Helps from "./pages/adminPages/Helps";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -102,6 +103,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminCards />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/helps"
+            element={
+              <ProtectedRoute>
+                <Helps />
               </ProtectedRoute>
             }
           />

@@ -5,7 +5,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import AdminPasswordReset from "./AdminPasswordReset";
 import { Button, Card } from "flowbite-react";
 import profile from "../../images/user.svg";
-import { FaUserPlus, FaUsers, FaNewspaper, FaHotel } from "react-icons/fa";
+import { FaUserPlus, FaUsers, FaNewspaper, FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
@@ -26,7 +26,9 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchAdminDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/admin/getAdmin/${adminID}`);
+        const response = await axios.get(
+          `http://localhost:4000/admin/getAdmin/${adminID}`
+        );
         setAdminDetails(response.data);
       } catch (error) {
         console.error("Error fetching admin details:", error.message);
@@ -48,7 +50,9 @@ const AdminDashboard = () => {
 
     const fetchTotalPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/admin/getcards");
+        const response = await axios.get(
+          "http://localhost:4000/admin/getcards"
+        );
         setTotalPosts(response.data.length);
       } catch (error) {
         console.error("Error fetching total posts:", error.message);
@@ -56,7 +60,6 @@ const AdminDashboard = () => {
     };
 
     fetchTotalPosts();
-
   }, [adminID]);
 
   const handleEditProfileClick = () => {
@@ -82,16 +85,16 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const handleNavigateAddUser = () => {
-    navigate('/admin/adminregister')
-  }
+    navigate("/admin/adminregister");
+  };
 
   const handleNavigateAllUser = () => {
-    navigate('/admin/allUsers')
-  }
+    navigate("/admin/allUsers");
+  };
 
   const handleNavigateNews = () => {
-    navigate('/admin/adminCards')
-  }
+    navigate("/admin/adminCards");
+  };
 
   // const handleNavigateAddUser = () => {
   //   navigate('/admin/adminregister')
@@ -111,9 +114,15 @@ const AdminDashboard = () => {
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
             {adminDetails.firstname} {adminDetails.lastname}
           </h5>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.email}</span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.phone}</span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.address}</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
+            {adminDetails.email}
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
+            {adminDetails.phone}
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
+            {adminDetails.address}
+          </span>
           <div className="mt-4 lg:mt-6 flex flex-col items-center space-y-4">
             <Button
               className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700"
@@ -153,9 +162,15 @@ const AdminDashboard = () => {
           >
             <FaNewspaper className="w-6 h-6 text-gray-600" />
           </Button>
-          <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
-            <FaHotel className="w-6 h-6 text-gray-600" />
-          </Button>
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
+              <FaFacebook className="w-6 h-6 text-blue-600" />
+            </Button>
+          </a>
         </div>
       </div>
 
@@ -175,7 +190,6 @@ const AdminDashboard = () => {
             <p className="text-2xl font-bold">1</p>
           </Card>
         </div>
-
       </div>
 
       {/* Edit Profile Popup */}

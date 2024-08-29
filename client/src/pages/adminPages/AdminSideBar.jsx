@@ -80,9 +80,9 @@ const AdminSideBar = () => {
               to="/admin/documentation"
               icon={HiViewBoards}
             >
-              Documentation
+              Documentations
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/help" icon={BiBuoy}>
+            <Sidebar.Item as={Link} to="/admin/helps" icon={BiBuoy}>
               Help
             </Sidebar.Item>
           </Sidebar.ItemGroup>
