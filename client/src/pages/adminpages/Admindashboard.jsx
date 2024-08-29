@@ -5,7 +5,13 @@ import EditProfilePopup from "./EditProfilePopup";
 import AdminPasswordReset from "./AdminPasswordReset";
 import { Button, Card } from "flowbite-react";
 import profile from "../../images/user.svg";
-import { FaUserPlus, FaUsers, FaNewspaper, FaFacebook } from "react-icons/fa";
+import {
+  FaUserPlus,
+  FaUsers,
+  FaNewspaper,
+  FaFacebook,
+  FaHotel,
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
@@ -93,8 +99,8 @@ const AdminDashboard = () => {
   };
 
   const handleNavigateNews = () => {
-    navigate('/admin/adminCards')
-  }
+    navigate("/admin/adminCards");
+  };
 
   // const handleNavigateAddUser = () => {
   //   navigate('/admin/adminregister')
@@ -113,9 +119,15 @@ const AdminDashboard = () => {
           <h5 className="mb-1 text-lg font-medium text-gray-900 dark:text-white">
             {adminDetails.firstname} {adminDetails.lastname}
           </h5>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.email}</span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.phone}</span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.address}</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
+            {adminDetails.email}
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
+            {adminDetails.phone}
+          </span>
+          <span className="text-sm text-gray-500 dark:text-gray-400">
+            {adminDetails.address}
+          </span>
           <div className="mt-4 lg:mt-6 flex flex-col items-center space-y-4">
             <Button
               className="w-full text-sm bg-blue-500 hover:bg-blue-700"
