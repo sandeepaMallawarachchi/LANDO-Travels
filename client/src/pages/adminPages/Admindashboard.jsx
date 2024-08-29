@@ -5,7 +5,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import AdminPasswordReset from "./AdminPasswordReset";
 import { Button, Card } from "flowbite-react";
 import profile from "../../images/user.svg";
-import { FaUserPlus, FaUsers, FaNewspaper } from "react-icons/fa";
+import { FaUserPlus, FaUsers, FaNewspaper, FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
@@ -26,7 +26,9 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchAdminDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/admin/getAdmin/${adminID}`);
+        const response = await axios.get(
+          `http://localhost:4000/admin/getAdmin/${adminID}`
+        );
         setAdminDetails(response.data);
       } catch (error) {
         console.error("Error fetching admin details:", error.message);
@@ -48,7 +50,9 @@ const AdminDashboard = () => {
 
     const fetchTotalPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/admin/getcards");
+        const response = await axios.get(
+          "http://localhost:4000/admin/getcards"
+        );
         setTotalPosts(response.data.length);
       } catch (error) {
         console.error("Error fetching total posts:", error.message);
@@ -56,7 +60,6 @@ const AdminDashboard = () => {
     };
 
     fetchTotalPosts();
-
   }, [adminID]);
 
   const handleEditProfileClick = () => {
@@ -82,16 +85,20 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const handleNavigateAddUser = () => {
-    navigate('/admin/adminregister')
-  }
+    navigate("/admin/adminregister");
+  };
 
   const handleNavigateAllUser = () => {
-    navigate('/admin/allUsers')
-  }
+    navigate("/admin/allUsers");
+  };
 
   const handleNavigateNews = () => {
     navigate('/admin/adminCards')
   }
+
+  // const handleNavigateAddUser = () => {
+  //   navigate('/admin/adminregister')
+  // }
 
   return (
     <div className="p-4 flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0 pt-10">
@@ -109,7 +116,7 @@ const AdminDashboard = () => {
           <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.email}</span>
           <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.phone}</span>
           <span className="text-sm text-gray-500 dark:text-gray-400">{adminDetails.address}</span>
-          <div className="mt-4 flex flex-col items-center space-y-2">
+          <div className="mt-4 lg:mt-6 flex flex-col items-center space-y-4">
             <Button
               className="w-full text-sm bg-blue-500 hover:bg-blue-700"
               onClick={handleEditProfileClick}
@@ -147,6 +154,9 @@ const AdminDashboard = () => {
             onClick={handleNavigateNews}
           >
             <FaNewspaper className="w-6 h-6 text-gray-600" />
+          </Button>
+          <Button className="flex justify-center items-center bg-gray-200 p-4 rounded-full">
+            <FaHotel className="w-6 h-6 text-gray-600" />
           </Button>
         </div>
       </div>

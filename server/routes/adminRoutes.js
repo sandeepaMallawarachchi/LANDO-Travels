@@ -59,9 +59,9 @@ router.put("/cards/:id", adminController.updateCard);
 router.delete("/cards/:id", adminController.deleteCard);
 
 //send password reset email route
-router.post('/passwordEmail', adminController.requestPasswordReset);
+router.post("/passwordEmail", adminController.requestPasswordReset);
 
 //reset the password route
-router.post('/passwordReset', adminController.resetPassword);
+router.post("/passwordReset", adminController.resetPassword);
 
 module.exports = router;
