@@ -2,7 +2,7 @@ import React from "react";
 
 const Helps = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 mt-10">
       <h1 className="text-3xl font-bold mb-4">Admin Dashboard Help</h1>
 
       <section className="mb-6">

@@ -48,43 +48,69 @@ const About = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 600,
+        speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true,
-        autoplay: true, 
-        autoplaySpeed: 4000, 
+        autoplay: true,
+        autoplaySpeed: 5000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 394,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     return (
         <div>
-            <div>
+            <div className="relative">
                 <img
                     src={aboutCover}
                     alt="about us"
-                    style={{ width: "1920px", height: "720px" }}
+                    className="w-full h-auto max-w-full"
+                    style={{ height: "auto", maxHeight: "720px" }}
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <h1 className="text-white text-8xl font-extrabold drop-shadow-lg leading-none">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                    <h1 className="text-white text-6xl sm:text-6xl lg:text-8xl font-extrabold drop-shadow-lg leading-none text-center">
                         About Us
                     </h1>
-                    <p className="text-white text-3xl drop-shadow-lg p-10 px-20 text-center">
-                        Lando Travels (pvt) Ltd has grown over the years as a leading IATA accredited
-                        travel Agency in Sri Lanka with professional and well experienced management and staff.
+                    <p
+                        className="text-white text-xl sm:hidden lg:text-3xl drop-shadow-lg p-6 text-center"
+                        style={{ display: window.innerWidth < 394 ? 'none' : 'block' }}
+                    >
+                        Lando Travels (pvt) Ltd has grown over the years as a leading IATA accredited travel Agency in Sri Lanka with professional and well experienced management and staff.
                     </p>
+
 
                     <button
                         onClick={handleScrollToServices}
-                        className="mt-8 px-8 py-4 border-2 border-white text-white text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+                        className="mt-8 px-8 py-4 border-2 border-white text-white text-lg sm:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
                     >
                         Explore Now
                     </button>
                 </div>
             </div>
 
+
             <div ref={servicesRef} className='my-10'>
-                <h2 className='heading drop-shadow-lg'>Our Services</h2>
-                <div className="p-10">
+                <h2
+                    className="heading drop-shadow-lg"
+                    style={{ fontSize: window.innerWidth < 394 ? '40px' : '80px' }}
+                >
+                    Our Services
+                </h2>
+                <div className="lg:p-10 p-5">
                     <Slider {...settings}>
                         {cards.map((card, index) => (
                             <div key={index} className="px-5">

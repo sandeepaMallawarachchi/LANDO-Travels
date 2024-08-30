@@ -26,8 +26,6 @@ const Login = ({ isOpen, onClose }) => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("adminID", adminID);
 
-      alert("Login successful");
-
       // Use the correct path to navigate
       navigate(`/admin/admindashboard`);
     } catch (error) {

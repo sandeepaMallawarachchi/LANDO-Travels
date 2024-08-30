@@ -140,7 +140,7 @@ const AdminRegister = () => {
 
     return (
         <div>
-            <div className="max-w-lg mx-auto p-4">
+            <div className="max-w-lg mx-auto p-4 mt-5">
                 <form onSubmit={handleSubmit}>
                     <div className="mb-6 mt-3">
                         <Label htmlFor="firstname" className="mb-2 block">
