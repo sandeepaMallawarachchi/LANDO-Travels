@@ -24,7 +24,7 @@ router.get("/getAdmin/:adminID", adminController.getAdminById);
 router.put("/update/:adminID", adminController.updateAdmin);
 
 //delete route
-router.post("/delete", adminController.deleteAdmin);
+router.delete("/delete/:adminID", adminController.deleteAdmin);
 
 //contact routes
 router.post(
