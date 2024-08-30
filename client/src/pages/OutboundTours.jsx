@@ -48,8 +48,7 @@ const OutboundTours = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1
-            className="text-white text-6xl sm:text-6xl lg:text-8xl font-extrabold drop-shadow-lg leading-none text-center">
+          <h1 className="text-white text-7xl sm:text-6xl lg:text-8xl font-extrabold drop-shadow-lg leading-none text-center">
             Outbound
           </h1>
           <h2 className="h1 sm:text-4xl lg:text-5xl mt-2">Tours</h2>
@@ -90,7 +89,7 @@ const OutboundTours = () => {
       </div>
       {/* hotels section */}
       <div className="flex justify-center items-center mt-12 mb-12">
-        <section className="flex flex-col lg:flex-row items-center justify-center my-12 px-10">
+        <section className="flex flex-col lg:flex-row items-center justify-center my-12 px-5">
           {/* Text Section */}
           <div className="lg:w-1/2 p-6">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">

@@ -44,7 +44,7 @@ const AdminPasswordReset = ({ isOpen, onClose }) => {
                 newPassword: password
             });
             alert('Password reset successfully');
-            navigate('/adminLogin'); 
+            navigate('/login-admin'); 
         } catch (error) {
             alert('Failed to reset password');
         } finally {

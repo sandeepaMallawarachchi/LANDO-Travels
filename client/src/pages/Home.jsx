@@ -21,11 +21,6 @@ import flight6 from "../images/flight6.jpg";
 import aboutushome from "../images/aboutushome.jpg";
 
 import Slider from "react-slick";
-import quatar from "../images/quatar.jpg";
-import singaporeairlines from "../images/singaporeairlines.jpg";
-import srilankanairlines from "../images/srilankanairlines.jpg";
-import male from "../images/male.jpg";
-import hotelReservationCard from "../images/hotelReservationCard.jpg";
 
 import logo1 from "../images/partners/logo1.svg";
 import logo2 from "../images/partners/logo2.svg";
