@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 import Outboundcover from "../images/Unboundcover.jpg";
 import outboundsingapore from "../images/outboundsingapore.jpg";

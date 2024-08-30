@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Avatar, Button, TextInput } from "flowbite-react";
+import { Navbar, Avatar } from "flowbite-react";
 import logo from "../images/logo-white-remove-bg.png";
 import user from "../images/user.svg";
 import { Link } from "react-router-dom";
