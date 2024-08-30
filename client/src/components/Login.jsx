@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Label, TextInput } from "flowbite-react";
 import { HiMail, HiLockClosed, HiX } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import AdminPasswordReset from "../pages/adminPages/AdminPasswordReset";
 
 const Login = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isResetOpen, setIsResetOpen] = useState(false);
   const navigate = useNavigate();
 
   const sendData = async (e) => {
@@ -34,6 +36,15 @@ const Login = ({ isOpen, onClose }) => {
     }
   };
 
+  // Function to open the password reset popup
+  const handleForgotPassword = () => {
+    setIsResetOpen(true);
+  };
+
+  // Function to close the password reset popup
+  const closeResetPopup = () => {
+    setIsResetOpen(false);
+  };
 
   if (!isOpen) return null;
 
@@ -77,9 +88,15 @@ const Login = ({ isOpen, onClose }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Checkbox id="remember" />
-            <Label htmlFor="remember">Remember me</Label>
+          <div className="flex justify-between items-center">
+            {/* Forgot Password Link */}
+            <button
+              type="button"
+              className="text-blue-500 hover:underline text-sm"
+              onClick={handleForgotPassword}
+            >
+              Forgot Password?
+            </button>
           </div>
           <Button
             type="submit"
@@ -89,6 +106,9 @@ const Login = ({ isOpen, onClose }) => {
           </Button>
         </form>
       </div>
+
+      {/* Admin Password Reset Popup */}
+      {isResetOpen && <AdminPasswordReset isOpen={isResetOpen} onClose={closeResetPopup} />}
     </div>
   );
 };

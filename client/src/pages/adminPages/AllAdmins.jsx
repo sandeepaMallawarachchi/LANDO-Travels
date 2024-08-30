@@ -22,6 +22,22 @@ const AllAdmins = () => {
         fetchAdmins();
     }, []);
 
+    const handleDeleteAdmin = async (adminID) => {
+        const confirmDelete = window.confirm('Are you sure you want to delete this admin?');
+        if (!confirmDelete) {
+            return; 
+        }
+
+        try {
+            await axios.delete(`http://localhost:4000/admin/delete/${adminID}`);
+            
+            setAdmins(admins.filter(admin => admin.adminID !== adminID));
+            alert('Admin deleted successfully.');
+        } catch (err) {
+            alert('Error deleting admin: ' + err.message);
+        }
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
@@ -71,12 +87,12 @@ const AllAdmins = () => {
                                     <Table.Cell>{admin.gender}</Table.Cell>
                                     <Table.Cell>{new Date(admin.birthdate).toLocaleDateString()}</Table.Cell>
                                     <Table.Cell>
-                                        <a
-                                            href="#"
-                                            className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
+                                        <button
+                                            onClick={() => handleDeleteAdmin(admin.adminID)}
+                                            className="font-medium text-red-600 hover:underline dark:text-red-500"
                                         >
-                                            Edit
-                                        </a>
+                                            Remove
+                                        </button>
                                     </Table.Cell>
                                 </Table.Row>
                             ))}
