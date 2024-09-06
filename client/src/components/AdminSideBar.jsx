@@ -79,7 +79,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/admindashboard"
                 icon={HiChartPie}
-                className={isActive("/admin/admindashboard")} // Add active class
+                className={isActive("/admin/admindashboard")} 
               >
                 Dashboard
               </Sidebar.Item>
@@ -88,7 +88,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/inbox"
                 icon={HiInbox}
-                className={isActive("/admin/inbox")} // Add active class
+                className={isActive("/admin/inbox")} 
               >
                 Inbox
               </Sidebar.Item>
@@ -102,7 +102,7 @@ const AdminSideBar = () => {
                   as={Link}
                   to="/admin/adminregister"
                   icon={HiUserAdd}
-                  className={isActive("/admin/adminregister")} // Add active class
+                  className={isActive("/admin/adminregister")} 
                 >
                   Register a new user
                 </Sidebar.Item>
@@ -110,7 +110,7 @@ const AdminSideBar = () => {
                   as={Link}
                   to="/admin/allUsers"
                   icon={HiUsers}
-                  className={isActive("/admin/allUsers")} // Add active class
+                  className={isActive("/admin/allUsers")} 
                 >
                   All users
                 </Sidebar.Item>
@@ -149,7 +149,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/helps"
                 icon={BiBuoy}
-                className={isActive("/admin/helps")} // Add active class
+                className={isActive("/admin/helps")} 
               >
                 Help
               </Sidebar.Item>
