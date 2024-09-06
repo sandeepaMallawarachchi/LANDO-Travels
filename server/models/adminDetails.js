@@ -30,10 +30,6 @@ const adminSchema = new Schema({
         required: true,
         enum: ['male', 'female'],
     },
-    birthdate: {
-        type: Date,
-        required: true,
-    },
     address: {
         type: String,
         required: true,
@@ -51,6 +47,11 @@ const adminSchema = new Schema({
     resetCodeExpires: {
         type: Date,
         required: false
+    },
+    role: {
+        type: String,
+        required: true,
+        enum: ['owner', 'editor'],
     },
 });
 

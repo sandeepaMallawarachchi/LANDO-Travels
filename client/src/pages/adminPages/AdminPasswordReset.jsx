@@ -44,7 +44,7 @@ const AdminPasswordReset = ({ isOpen, onClose }) => {
                 newPassword: password
             });
             alert('Password reset successfully');
-            navigate('/login-admin'); 
+            navigate('/'); 
         } catch (error) {
             alert('Failed to reset password');
         } finally {
@@ -55,8 +55,8 @@ const AdminPasswordReset = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-            <div className="relative bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 p-0">
+            <div className="relative bg-white p-10 rounded-lg shadow-lg max-w-md w-full">
                 <button
                     onClick={onClose}
                     className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"

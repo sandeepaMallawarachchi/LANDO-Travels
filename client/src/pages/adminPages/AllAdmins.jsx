@@ -25,12 +25,12 @@ const AllAdmins = () => {
     const handleDeleteAdmin = async (adminID) => {
         const confirmDelete = window.confirm('Are you sure you want to delete this admin?');
         if (!confirmDelete) {
-            return; 
+            return;
         }
 
         try {
             await axios.delete(`http://localhost:4000/admin/delete/${adminID}`);
-            
+
             setAdmins(admins.filter(admin => admin.adminID !== adminID));
             alert('Admin deleted successfully.');
         } catch (err) {
@@ -54,7 +54,7 @@ const AllAdmins = () => {
                             <Table.HeadCell>Phone</Table.HeadCell>
                             <Table.HeadCell>Address</Table.HeadCell>
                             <Table.HeadCell>Gender</Table.HeadCell>
-                            <Table.HeadCell>Birthdate</Table.HeadCell>
+                            <Table.HeadCell>Role</Table.HeadCell>
                             <Table.HeadCell>
                                 <span className="sr-only">Edit</span>
                             </Table.HeadCell>
@@ -85,7 +85,7 @@ const AllAdmins = () => {
                                     </Table.Cell>
                                     <Table.Cell>{admin.address}</Table.Cell>
                                     <Table.Cell>{admin.gender}</Table.Cell>
-                                    <Table.Cell>{new Date(admin.birthdate).toLocaleDateString()}</Table.Cell>
+                                    <Table.Cell>{admin.role}</Table.Cell>
                                     <Table.Cell>
                                         <button
                                             onClick={() => handleDeleteAdmin(admin.adminID)}

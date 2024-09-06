@@ -86,9 +86,9 @@ exports.registerAdmin = async (req, res) => {
       password,
       confirmPassword,
       gender,
-      birthdate,
       address,
       phone,
+      role,
     } = req.body;
 
     const existingAdmin = await Admin.findOne({ $or: [{ email }, { phone }] });
@@ -112,9 +112,9 @@ exports.registerAdmin = async (req, res) => {
       email,
       password: hashedPassword,
       gender,
-      birthdate,
       address,
       phone,
+      role,
     });
 
     await newAdmin.save();

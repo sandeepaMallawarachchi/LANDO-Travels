@@ -19,6 +19,9 @@ const AdminSideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const adminID = localStorage.getItem("adminID");
+
+  const [adminRole, setAdminRole] = useState({ role: "" });
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,8 +60,24 @@ const AdminSideBar = () => {
     return location.pathname === path ? "text-blue-500" : "";
   };
 
+  useEffect(() => {
+    const fetchAdminRole = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:4000/admin/getAdmin/${adminID}`
+        );
+        setAdminRole(response.data);
+        console.log()
+      } catch (error) {
+        console.error("Error fetching admin role:", error.message);
+      }
+    };
+
+    fetchAdminRole();
+  }, [adminID]);
+
   return (
-    <div className="fixed">
+    <div className="flex h-screen z-0">
       {/* Toggle Button for smaller screens */}
       <div className="absolute top-4 left-4 p-4">
         <button onClick={toggleSidebar} className="text-xl">
@@ -68,9 +87,8 @@ const AdminSideBar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed h-screen inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-transform transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:relative md:block md:w-64`}
+        className={`fixed h-screen inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 md:relative md:block md:w-64`}
       >
         <Sidebar aria-label="Sidebar with content separator example">
           <Sidebar.Items>
@@ -79,7 +97,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/admindashboard"
                 icon={HiChartPie}
-                className={isActive("/admin/admindashboard")} 
+                className={isActive("/admin/admindashboard")}
               >
                 Dashboard
               </Sidebar.Item>
@@ -88,34 +106,35 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/inbox"
                 icon={HiInbox}
-                className={isActive("/admin/inbox")} 
+                className={isActive("/admin/inbox")}
               >
                 Inbox
               </Sidebar.Item>
 
-              <Sidebar.Collapse
-                icon={HiUser}
-                label="Users"
-                className={isActive("/admin/adminregister") || isActive("/admin/allUsers")} // For sub-items
-              >
-                <Sidebar.Item
-                  as={Link}
-                  to="/admin/adminregister"
-                  icon={HiUserAdd}
-                  className={isActive("/admin/adminregister")} 
+              {adminRole.role === 'owner' && (
+                <Sidebar.Collapse
+                  icon={HiUser}
+                  label="Users"
+                  className={isActive("/admin/adminregister") || isActive("/admin/allUsers")}
                 >
-                  Register a new user
-                </Sidebar.Item>
-                <Sidebar.Item
-                  as={Link}
-                  to="/admin/allUsers"
-                  icon={HiUsers}
-                  className={isActive("/admin/allUsers")} 
-                >
-                  All users
-                </Sidebar.Item>
-              </Sidebar.Collapse>
-
+                  <Sidebar.Item
+                    as={Link}
+                    to="/admin/adminregister"
+                    icon={HiUserAdd}
+                    className={isActive("/admin/adminregister")}
+                  >
+                    Register a new user
+                  </Sidebar.Item>
+                  <Sidebar.Item
+                    as={Link}
+                    to="/admin/allUsers"
+                    icon={HiUsers}
+                    className={isActive("/admin/allUsers")}
+                  >
+                    All users
+                  </Sidebar.Item>
+                </Sidebar.Collapse>
+              )}
               <Sidebar.Collapse
                 icon={HiClipboardList}
                 label="Blogs"
@@ -125,7 +144,7 @@ const AdminSideBar = () => {
                   as={Link}
                   to="/admin/adminCards"
                   icon={HiNewspaper}
-                  className={isActive("/admin/adminCards")} // Add active class
+                  className={isActive("/admin/adminCards")}
                 >
                   Cards For News
                 </Sidebar.Item>
@@ -141,7 +160,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/documentation"
                 icon={HiViewBoards}
-                className={isActive("/admin/documentation")} // Add active class
+                className={isActive("/admin/documentation")}
               >
                 Documentations
               </Sidebar.Item>
@@ -149,7 +168,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/helps"
                 icon={BiBuoy}
-                className={isActive("/admin/helps")} 
+                className={isActive("/admin/helps")}
               >
                 Help
               </Sidebar.Item>

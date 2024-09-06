@@ -9,7 +9,7 @@ const AdminRegister = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [gender, setGender] = useState('');
-    const [birthdate, setBirthdate] = useState('');
+    const [role, setRole] = useState('');
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
 
@@ -45,11 +45,6 @@ const AdminRegister = () => {
             case 'phone':
                 newErrors.phone = phoneRegex.test(value) ? '' : 'Phone number must be exactly 10 digits.';
                 break;
-            case 'birthdate':
-                const selectedDate = new Date(value);
-                const currentDate = new Date();
-                newErrors.birthdate = selectedDate <= currentDate ? '' : 'Birthdate cannot be in the future.';
-                break;
             default:
                 break;
         }
@@ -80,8 +75,8 @@ const AdminRegister = () => {
             case 'gender':
                 setGender(value);
                 break;
-            case 'birthdate':
-                setBirthdate(value);
+            case 'role':
+                setRole(value);
                 break;
             case 'address':
                 setAddress(value);
@@ -111,7 +106,7 @@ const AdminRegister = () => {
                 password,
                 confirmPassword,
                 gender,
-                birthdate,
+                role,
                 address,
                 phone,
             });
@@ -127,7 +122,7 @@ const AdminRegister = () => {
                 setPassword('');
                 setConfirmPassword('');
                 setGender('');
-                setBirthdate('');
+                setRole('');
                 setAddress('');
                 setPhone('');
                 setErrors({});
@@ -262,24 +257,6 @@ const AdminRegister = () => {
                         {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
                     </div>
                     <div className="mb-6">
-                        <Label htmlFor="birthdate" className="mb-2 block">
-                            Birthdate
-                        </Label>
-                        <TextInput
-                            id="birthdate"
-                            name="birthdate"
-                            placeholder="08-04-2002"
-                            required
-                            type="date"
-                            value={birthdate}
-                            onChange={handleChange}
-                            min="1900-01-01"
-                            max={new Date().toISOString().split('T')[0]}
-                            className={errors.birthdate ? 'border-red-500 outline-red-500' : ''}
-                        />
-                        {errors.birthdate && <p className="text-red-500 text-sm">{errors.birthdate}</p>}
-                    </div>
-                    <div className="mb-6">
                         <Label htmlFor="address" className="mb-2 block">
                             Address
                         </Label>
@@ -294,6 +271,29 @@ const AdminRegister = () => {
                             className={errors.address ? 'border-red-500 outline-red-500' : ''}
                         />
                         {errors.address && <p className="text-red-500 text-sm">{errors.address}</p>}
+                    </div>
+                    <div className="mb-6">
+                        <Label htmlFor="role" className="mb-2 block">
+                            Admin Role
+                        </Label>
+                        <div className="flex items-center">
+                            <Radio id="owner" name="role" value="owner" checked={role === 'owner'}
+                                onChange={handleChange}
+                                className="mr-2"
+                            />
+                            <Label htmlFor="owner" className="mr-4">
+                                Owner
+                            </Label>
+
+                            <Radio id="editor" name="role" value="editor" checked={role === 'editor'}
+                                onChange={handleChange}
+                                className="mr-2"
+                            />
+                            <Label htmlFor="editor">
+                                Editor
+                            </Label>
+                        </div>
+                        {errors.role && <p className="text-red-500 text-sm">{errors.role}</p>}
                     </div>
                     <div className="mt-4 w-full">
                         <Button type="submit" className="w-full text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700">
