@@ -230,11 +230,11 @@ const Home = () => {
       </div>
 
       {/* Card Section */}
-      <div className="my-10" ref={getStartedRef}>
-        <div className="p-5 lg:p-10">
+      <div className="my-10 w-full overflow-hidden" ref={getStartedRef}>
+        <div className="p-5 lg:p-10 w-full">
           <Slider {...settings}>
             {cards.map((card, index) => (
-              <div key={index} className="px-2 lg:px-5">
+              <div key={index} className="px-2 lg:px-5 w-full">
                 <Card className="flex-shrink-0 w-full lg:h-[500px]">
                   <img
                     src={card.src}
@@ -253,6 +253,7 @@ const Home = () => {
           </Slider>
         </div>
       </div>
+
 
       {/* about section */}
       <div className="flex justify-center items-center mt-12 mb-12">
@@ -289,9 +290,9 @@ const Home = () => {
                 Contact
               </Button>
               <Link to="/about">
-                <button className="mt-4 px-6 py-3 border-2 border-blue-500 text-blue-500 text-lg font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
+                <Button className="mt-4 px-6 py-3 border-2 border-blue-500 text-blue-500 text-lg font-semibold rounded-md hover:bg-blue-500 hover:text-white transition duration-300">
                   See More
-                </button>
+                </Button>
               </Link>
             </div>
 

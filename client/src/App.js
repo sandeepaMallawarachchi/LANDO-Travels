@@ -17,10 +17,10 @@ import ProtectedRoute from "./components/ProtectedRoute";
 //admin routes
 import Admindashboard from "./pages/adminPages/Admindashboard";
 import Inbox from "./pages/adminPages/Inbox";
-import AdminSideBar from "./pages/adminPages/AdminSideBar";
+import AdminSideBar from "./components/AdminSideBar";
 import AdminRegister from "./pages/adminPages/AdminRegister";
 import AllAdmins from "./pages/adminPages/AllAdmins";
-import AdminLogin from "./pages/adminPages/AdminLogin";
+import AdminLogin from "./components/AdminLogin";
 import AdminCards from "./pages/adminPages/AdminCards";
 import Helps from "./pages/adminPages/Helps";
 
