@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Button, Label, TextInput } from "flowbite-react";
 import { HiMail, HiLockClosed, HiX } from "react-icons/hi";
+import { VscEyeClosed, VscEye } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
 import AdminPasswordReset from "../pages/adminPages/AdminPasswordReset";
 
 const Login = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isResetOpen, setIsResetOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -81,12 +83,23 @@ const Login = ({ isOpen, onClose }) => {
             </div>
             <TextInput
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               icon={HiLockClosed}
               placeholder="Password"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
+            <button
+              type="button"
+              className="absolute inset-y-0 right-0 flex items-center pr-10 focus:outline-none mt-7"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <VscEyeClosed />
+              ) : (
+                <VscEye />
+              )}
+            </button>
           </div>
           <div className="flex justify-between items-center">
             {/* Forgot Password Link */}

@@ -209,7 +209,8 @@ exports.submitContactForm = async (req, res) => {
 //get contact details
 exports.getAllContacts = async (req, res) => {
   try {
-    const contacts = await Contact.find();
+    // Sort by _id in descending order to get the latest records first
+    const contacts = await Contact.find().sort({ _id: -1 });
     return res.status(200).json(contacts);
   } catch (error) {
     console.error(error);

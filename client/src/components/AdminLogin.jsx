@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import b2b from "../../images/b2b.jpg";
-import Login from "../../components/Login";
+import b2b from "../images/b2b.jpg";
+import Login from "./Login";
 import { Button } from "flowbite-react";
 
 const AdminLogin = () => {

@@ -13,11 +13,12 @@ import {
   HiLogout,
   HiNewspaper,
 } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const AdminSideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // Hook to get the current path
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,7 +42,7 @@ const AdminSideBar = () => {
     try {
       await axios.post("http://localhost:4000/admin/logout");
       localStorage.removeItem("token");
-      navigate("/login-admin");
+      navigate("/");
     } catch (error) {
       console.error("Logout error:", error);
     }
@@ -51,10 +52,15 @@ const AdminSideBar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Helper function to check if a link is active
+  const isActive = (path) => {
+    return location.pathname === path ? "text-blue-500" : "";
+  };
+
   return (
     <div className="relative">
       {/* Toggle Button for smaller screens */}
-      <div className="absolute top-4 left-4 p-4 ">
+      <div className="absolute top-4 left-4 p-4">
         <button onClick={toggleSidebar} className="text-xl">
           <BiMenu />
         </button>
@@ -62,8 +68,9 @@ const AdminSideBar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed h-screen inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 md:relative md:block md:w-64`}
+        className={`fixed h-screen inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-transform transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:relative md:block md:w-64`}
       >
         <Sidebar aria-label="Sidebar with content separator example">
           <Sidebar.Items>
@@ -72,31 +79,53 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/admindashboard"
                 icon={HiChartPie}
+                className={isActive("/admin/admindashboard")} // Add active class
               >
                 Dashboard
               </Sidebar.Item>
 
-              <Sidebar.Item as={Link} to="/admin/inbox" icon={HiInbox}>
+              <Sidebar.Item
+                as={Link}
+                to="/admin/inbox"
+                icon={HiInbox}
+                className={isActive("/admin/inbox")} // Add active class
+              >
                 Inbox
               </Sidebar.Item>
-              <Sidebar.Collapse icon={HiUser} label="Users">
+
+              <Sidebar.Collapse
+                icon={HiUser}
+                label="Users"
+                className={isActive("/admin/adminregister") || isActive("/admin/allUsers")} // For sub-items
+              >
                 <Sidebar.Item
                   as={Link}
                   to="/admin/adminregister"
                   icon={HiUserAdd}
+                  className={isActive("/admin/adminregister")} // Add active class
                 >
                   Register a new user
                 </Sidebar.Item>
-                <Sidebar.Item as={Link} to="/admin/allUsers" icon={HiUsers}>
+                <Sidebar.Item
+                  as={Link}
+                  to="/admin/allUsers"
+                  icon={HiUsers}
+                  className={isActive("/admin/allUsers")} // Add active class
+                >
                   All users
                 </Sidebar.Item>
               </Sidebar.Collapse>
 
-              <Sidebar.Collapse icon={HiClipboardList} label="Blogs">
+              <Sidebar.Collapse
+                icon={HiClipboardList}
+                label="Blogs"
+                className={isActive("/admin/adminCards")}
+              >
                 <Sidebar.Item
                   as={Link}
                   to="/admin/adminCards"
                   icon={HiNewspaper}
+                  className={isActive("/admin/adminCards")} // Add active class
                 >
                   Cards For News
                 </Sidebar.Item>
@@ -112,10 +141,16 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/documentation"
                 icon={HiViewBoards}
+                className={isActive("/admin/documentation")} // Add active class
               >
                 Documentations
               </Sidebar.Item>
-              <Sidebar.Item as={Link} to="/admin/helps" icon={BiBuoy}>
+              <Sidebar.Item
+                as={Link}
+                to="/admin/helps"
+                icon={BiBuoy}
+                className={isActive("/admin/helps")} // Add active class
+              >
                 Help
               </Sidebar.Item>
             </Sidebar.ItemGroup>
