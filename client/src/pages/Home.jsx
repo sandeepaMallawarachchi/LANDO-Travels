@@ -404,7 +404,7 @@ const Home = () => {
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110"
+              className="h-24 w-28 flex-shrink-0 transition-transform duration-300 ease-in-out transform hover:scale-110 pr-5"
             />
           ))}
         </div>
