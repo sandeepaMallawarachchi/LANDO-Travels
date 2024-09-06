@@ -82,7 +82,6 @@ const Home = () => {
     ],
   };
 
-
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => setIsOpen(false);
@@ -204,15 +203,12 @@ const Home = () => {
 
           {/* Overlay Text and Button */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4">
-            <div className="flex flex-wrap items-center justify-center space-x-2">
-              <h1 className="sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
-                Welcome to
-              </h1>
-              <h1 className="text-whitesm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
-                LANDO
-              </h1>
-              <h1 className="sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
-                Travels
+            <div className="flex flex-col items-center justify-center space-y-2">
+              <h4 className="text-center sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-none">
+                welcome to
+              </h4>
+              <h1 className="text-center text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
+                Lando travels
               </h1>
             </div>
 
@@ -254,13 +250,14 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* about section */}
       <div className="flex justify-center items-center mt-12 mb-12">
         <section className="flex flex-col lg:flex-row items-center justify-center my-12 sm:px-10">
           {/* Text Section */}
           <div className="lg:w-1/2 p-6">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4 sm:text-center">About Us</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4 sm:text-center">
+              About Us
+            </h2>
             <p className="text-gray-600 text-lg mb-6">
               At Lando Travels, we take pride in being one of Sri Lanka's
               premier travel agencies, specializing in corporate travel
@@ -295,7 +292,6 @@ const Home = () => {
                 </Button>
               </Link>
             </div>
-
           </div>
 
           {/* Image Section */}
