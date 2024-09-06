@@ -209,7 +209,7 @@ const Home = () => {
                 Welcome to
               </h1>
               <h1 className="text-whitesm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
-                LANDO
+                Lando
               </h1>
               <h1 className="sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
                 Travels

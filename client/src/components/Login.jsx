@@ -95,9 +95,9 @@ const Login = ({ isOpen, onClose }) => {
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
-                <VscEyeClosed />
-              ) : (
                 <VscEye />
+              ) : (
+                <VscEyeClosed />
               )}
             </button>
           </div>

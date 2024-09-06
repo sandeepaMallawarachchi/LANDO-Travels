@@ -55,7 +55,7 @@ const Footers = () => {
         </div>
         {/* Footer Section */}
         <div className="bg-gray-100 text-black p-6 text-center">
-          <p>&copy; 2024 LANDO Travels. All Rights Reserved.</p>
+          <p>&copy; 2024 Lando Travels. All Rights Reserved.</p>
         </div>
       </div>
     </Footer>
