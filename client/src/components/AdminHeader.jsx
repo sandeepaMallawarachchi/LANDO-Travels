@@ -23,7 +23,6 @@ const AdminHeader = () => {
           `http://localhost:4000/admin/getAdmin/${adminID}`
         );
         setAdmin(response.data);
-        console.log(response.data);
       } catch (err) {
         console.log("Error fetching admin:", err);
       }

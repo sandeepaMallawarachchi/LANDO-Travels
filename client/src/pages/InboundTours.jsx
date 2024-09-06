@@ -16,21 +16,25 @@ const InboundTours = () => {
 
   const cardsData = [
     {
+      id: 1,
       imgSrc: inboundbeach,
       description: "Sigiriya, Rock fortress in Srilanka",
       title: "Historic & Archaeological Sites",
     },
     {
+      id: 2,
       imgSrc: inboundtiger,
       description: "National Park, Yala",
       title: "Nature & Wildlife",
     },
     {
+      id: 3,
       imgSrc: inboundtemple,
       description: "Temple of tooth, Kandy",
       title: "Cultural & Religious Centers",
     },
     {
+      id: 4,
       imgSrc: inboundleisure,
       description: "Unawatuna, Galle",
       title: "Adventure & Leisure",
@@ -70,8 +74,8 @@ const InboundTours = () => {
           Our itineraries include:
         </p>
         <div className="card__container">
-          {cardsData.map((card, index) => (
-            <article className="card__article">
+          {cardsData.map((card) => (
+            <article className="card__article" key={card.id}>
               <img src={card.imgSrc} alt={card.title} className="card__img" />
               <div className="card__data">
                 <span className="card__description">{card.description}</span>

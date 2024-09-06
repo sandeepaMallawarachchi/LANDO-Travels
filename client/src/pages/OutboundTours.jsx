@@ -18,21 +18,25 @@ const OutboundTours = () => {
 
   const cardsData = [
     {
+      id: 1,
       imgSrc: outboundsingapore,
       description: "Singapore",
       title: "Southeast Asia",
     },
     {
+      id: 2,
       imgSrc: outboundgreek,
       description: "Greek",
       title: "Middle East & Africa",
     },
     {
+      id: 3,
       imgSrc: outbounddubai,
       description: "Dubai",
       title: "Europe & Beyond ",
     },
     {
+      id: 4,
       imgSrc: outboundmaldives,
       description: "Maldives",
       title: "India & Maldives",
@@ -75,8 +79,8 @@ const OutboundTours = () => {
           Our itineraries include:
         </p>
         <div className="card__container">
-          {cardsData.map((card, index) => (
-            <article className="card__article">
+          {cardsData.map((card) => (
+            <article className="card__article" key={card.id}>
               <img src={card.imgSrc} alt={card.title} className="card__img" />
               <div className="card__data">
                 <span className="card__description">{card.description}</span>
