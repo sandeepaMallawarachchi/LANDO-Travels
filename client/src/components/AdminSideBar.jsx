@@ -18,7 +18,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const AdminSideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); // Hook to get the current path
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,7 +58,7 @@ const AdminSideBar = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="fixed">
       {/* Toggle Button for smaller screens */}
       <div className="absolute top-4 left-4 p-4">
         <button onClick={toggleSidebar} className="text-xl">
