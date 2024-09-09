@@ -102,8 +102,7 @@ const About = () => {
                 </div>
             </div>
 
-
-            <div ref={servicesRef} className='my-10'>
+            <div ref={servicesRef} className='my-10 w-full overflow-hidden'>
                 <h2
                     className="heading drop-shadow-lg"
                     style={{ fontSize: window.innerWidth < 394 ? '40px' : '80px' }}
