@@ -207,9 +207,15 @@ const Home = () => {
               <h4 className="text-center sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-none">
                 welcome to
               </h4>
-              <h1 className="text-center text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
-                Lando travels
-              </h1>
+              <div className="flex justify-center items-center">
+                <h1 className="text-[#76cbf0] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">
+                  Lando
+                </h1>
+                <h1 className="text-[#76cbf0] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none pl-6">
+                  travels
+                </h1>
+              </div>
+
             </div>
 
             <h4 className="mt-4 text-sm sm:text-base md:text-lg lg:text-2xl xl:text-2xl">
