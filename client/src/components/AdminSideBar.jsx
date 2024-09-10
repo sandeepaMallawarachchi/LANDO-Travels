@@ -57,7 +57,7 @@ const AdminSideBar = () => {
 
   // Helper function to check if a link is active
   const isActive = (path) => {
-    return location.pathname === path ? "text-blue-500" : "";
+    return location.pathname === path ? "text-black bg-gray-300" : "";
   };
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/admindashboard"
                 icon={HiChartPie}
-                className={isActive("/admin/admindashboard")}
+                className={isActive("/admin/admindashboard") }
               >
                 Dashboard
               </Sidebar.Item>
