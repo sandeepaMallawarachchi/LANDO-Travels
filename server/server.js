@@ -5,7 +5,6 @@ const dbConnection = require('./database/dbConnection');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -19,7 +18,5 @@ app.use('/admin', adminRouter);
 // DB connection
 dbConnection();
 
-// Server listen
-if (process.env.NODE_ENV !== 'deployment') {
-    app.listen(port, () => console.log(`Listening on port ${port}`));
-}
+// Export the app for serverless functions
+module.exports = app;
