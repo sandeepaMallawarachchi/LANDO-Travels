@@ -42,6 +42,13 @@ const AdminSideBar = () => {
   }, []);
 
   const handleLogout = async () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to logout?"
+    );
+    if (!confirmDelete) {
+      return;
+    }
+
     try {
       await axios.post("http://localhost:4000/admin/logout");
       localStorage.removeItem("token");
@@ -67,7 +74,7 @@ const AdminSideBar = () => {
           `http://localhost:4000/admin/getAdmin/${adminID}`
         );
         setAdminRole(response.data);
-        console.log()
+        console.log();
       } catch (error) {
         console.error("Error fetching admin role:", error.message);
       }
@@ -97,7 +104,7 @@ const AdminSideBar = () => {
                 as={Link}
                 to="/admin/admindashboard"
                 icon={HiChartPie}
-                className={isActive("/admin/admindashboard") }
+                className={isActive("/admin/admindashboard")}
               >
                 Dashboard
               </Sidebar.Item>
@@ -111,11 +118,14 @@ const AdminSideBar = () => {
                 Inbox
               </Sidebar.Item>
 
-              {adminRole.role === 'owner' && (
+              {adminRole.role === "owner" && (
                 <Sidebar.Collapse
                   icon={HiUser}
                   label="Users"
-                  className={isActive("/admin/adminregister") || isActive("/admin/allUsers")}
+                  className={
+                    isActive("/admin/adminregister") ||
+                    isActive("/admin/allUsers")
+                  }
                 >
                   <Sidebar.Item
                     as={Link}
