@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../../CSS/manageCards.css'
+import { Textarea, TextInput, Label, Button, Modal } from "flowbite-react";
 
 const ManageCards = () => {
   const [cards, setCards] = useState([]);
   const [editingCard, setEditingCard] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Fetch cards from server when component mounts
   useEffect(() => {
@@ -13,13 +15,13 @@ const ManageCards = () => {
         const response = await axios.get(
           "http://localhost:4000/admin/getcards"
         );
-        setCards(response.data); // Store fetched data in state
+        setCards(response.data);
       } catch (error) {
         console.error("Error fetching cards:", error);
       }
     };
     fetchCards();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  }, []);
 
   const handleUpdateCard = async (e) => {
     e.preventDefault();
@@ -34,51 +36,74 @@ const ManageCards = () => {
         )
       );
       setEditingCard(null);
+      setIsModalOpen(false);
     } catch (error) {
       console.error("Error updating card:", error);
     }
+  };
+
+  const handleEditClick = (card) => {
+    setEditingCard(card);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setEditingCard(null);
+    setIsModalOpen(false);
   };
 
   return (
     <div className="manage-cards-container">
       <h1 className="title">Manage Cards</h1>
 
-      {editingCard && (
-        <form className="card-form" onSubmit={handleUpdateCard}>
-          <input
-            type="text"
-            className="form-input"
-            placeholder="Image URL"
-            value={editingCard.src}
-            onChange={(e) =>
-              setEditingCard({ ...editingCard, src: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            className="form-input"
-            placeholder="Title"
-            value={editingCard.title}
-            onChange={(e) =>
-              setEditingCard({ ...editingCard, title: e.target.value })
-            }
-          />
-          <textarea
-            className="form-textarea"
-            placeholder="Description"
-            value={editingCard.description}
-            onChange={(e) =>
-              setEditingCard({
-                ...editingCard,
-                description: e.target.value,
-              })
-            }
-          />
-          <button type="submit" className="form-button">
-            Save Changes
-          </button>
-        </form>
-      )}
+      {/* Modal for editing card */}
+      <Modal show={isModalOpen} onClose={handleModalClose} className="bg-black">
+        <Modal.Header>Edit Card</Modal.Header>
+        <Modal.Body>
+          <form className="card-form" onSubmit={handleUpdateCard}>
+            <div className="mb-4">
+              <Label htmlFor="Enter image URL" value="Image URL" className="mb-2" />
+              <TextInput
+                type="text"
+                placeholder="Image URL"
+                value={editingCard?.src || ''}
+                onChange={(e) =>
+                  setEditingCard({ ...editingCard, src: e.target.value })
+                }
+              />
+            </div>
+            <div className="mb-4">
+              <Label htmlFor="Title" value="Enter title" className="mb-2" />
+              <TextInput
+                type="text"
+                placeholder="Title"
+                value={editingCard?.title || ''}
+                onChange={(e) =>
+                  setEditingCard({ ...editingCard, title: e.target.value })
+                }
+              />
+            </div>
+            <div className="mb-4">
+              <Label htmlFor="Description" value="Enter description" className="mb-2" />
+              <Textarea
+                placeholder="Description"
+                value={editingCard?.description || ''}
+                onChange={(e) =>
+                  setEditingCard({
+                    ...editingCard,
+                    description: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className="flex justify-center space-x-4">
+              <Button type="submit" className="text-sm px-2 py-1 sm:px-4 sm:py-2 bg-blue-500 hover:bg-blue-700">
+                Save Changes
+              </Button>
+            </div>
+          </form>
+        </Modal.Body>
+      </Modal>
 
       <h2 className="subtitle">Existing Cards</h2>
       <div className="cards-list">
@@ -89,7 +114,7 @@ const ManageCards = () => {
             <p className="card-description">{card.description}</p>
             <div className="card-buttons">
               <button
-                onClick={() => setEditingCard(card)}
+                onClick={() => handleEditClick(card)}
                 className="card-button edit-button"
               >
                 Edit
