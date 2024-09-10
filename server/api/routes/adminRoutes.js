@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { body } = require("express-validator");
-const adminController = require("../../controller/adminContoller");
-const authMiddleware = require("../../middlewares/authMiddleware");
+const adminController = require("../controller/adminContoller");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 // Login route
 router.post("/login", adminController.getAdmin);
