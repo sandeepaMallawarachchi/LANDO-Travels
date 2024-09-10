@@ -18,5 +18,5 @@ app.use('/admin', adminRouter);
 // DB connection
 dbConnection();
 
-// Export the app for serverless functions
+// Export the app instead of using app.listen()
 module.exports = app;
