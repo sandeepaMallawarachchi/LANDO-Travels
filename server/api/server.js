@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const dbConnection = require('./database/dbConnection');
+const dbConnection = require('../database/dbConnection');
 
 require('dotenv').config();
 
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Import routes
-const adminRouter = require('./routes/adminRoutes');
+const adminRouter = require('../routes/adminRoutes');
 
 // Use routes
 app.use('/admin', adminRouter);
