@@ -8,7 +8,7 @@ const Inbox = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/admin/contacts")
+      .get("https://lando-travels-api.vercel.app/admin/contacts")
       .then((response) => {
         setEmails(response.data);
       })
@@ -19,7 +19,7 @@ const Inbox = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:4000/admin/contacts/${id}`)
+      .delete(`https://lando-travels-api.vercel.app/admin/contacts/${id}`)
       .then((response) => {
         setEmails(emails.filter((email) => email._id !== id));
         setSelectedEmail(null);
@@ -33,7 +33,7 @@ const Inbox = () => {
   const handleEmailClick = (email) => {
     // Mark the email as read on the server
     axios
-      .patch(`http://localhost:4000/admin/contacts/${email._id}`, {
+      .patch(`https://lando-travels-api.vercel.app/admin/contacts/${email._id}`, {
         read: true,
       })
       .then((response) => {

@@ -23,7 +23,7 @@ const Contact = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`http://localhost:4000/admin/contact`, {
+            const res = await axios.post(`https://lando-travels-api.vercel.app/admin/contact`, {
                 email,
                 subject,
                 message

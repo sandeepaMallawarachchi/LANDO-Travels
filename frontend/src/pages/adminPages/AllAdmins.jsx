@@ -10,7 +10,7 @@ const AllAdmins = () => {
     useEffect(() => {
         const fetchAdmins = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/admin/getAll');
+                const response = await axios.get('https://lando-travels-api.vercel.app/admin/getAll');
                 setAdmins(response.data);
                 setLoading(false);
             } catch (err) {
@@ -29,7 +29,7 @@ const AllAdmins = () => {
         }
 
         try {
-            await axios.delete(`http://localhost:4000/admin/delete/${adminID}`);
+            await axios.delete(`https://lando-travels-api.vercel.app/admin/delete/${adminID}`);
 
             setAdmins(admins.filter(admin => admin.adminID !== adminID));
             alert('Admin deleted successfully.');

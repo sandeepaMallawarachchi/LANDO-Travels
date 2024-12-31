@@ -13,7 +13,7 @@ const ManageCards = () => {
     const fetchCards = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/admin/getcards"
+          "https://lando-travels-api.vercel.app/admin/getcards"
         );
         setCards(response.data);
       } catch (error) {
@@ -27,7 +27,7 @@ const ManageCards = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:4000/admin/cards/${editingCard._id}`,
+        `https://lando-travels-api.vercel.app/admin/cards/${editingCard._id}`,
         editingCard
       );
       setCards(

@@ -50,7 +50,7 @@ const AdminSideBar = () => {
     }
 
     try {
-      await axios.post("http://localhost:4000/admin/logout");
+      await axios.post("https://lando-travels-api.vercel.app/admin/logout");
       localStorage.removeItem("token");
       navigate("/");
     } catch (error) {
@@ -71,7 +71,7 @@ const AdminSideBar = () => {
     const fetchAdminRole = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/admin/getAdmin/${adminID}`
+          `https://lando-travels-api.vercel.app/admin/getAdmin/${adminID}`
         );
         setAdminRole(response.data);
         console.log();

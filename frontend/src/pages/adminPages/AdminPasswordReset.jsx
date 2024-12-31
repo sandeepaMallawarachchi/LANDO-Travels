@@ -58,7 +58,7 @@ const AdminPasswordReset = ({ isOpen, onClose }) => {
         setLoading(true);
 
         try {
-            await axios.post('http://localhost:4000/admin/passwordEmail', { email });
+            await axios.post('https://lando-travels-api.vercel.app/admin/passwordEmail', { email });
             setStep(2);
         } catch (error) {
             alert('Failed to request reset code');
@@ -81,7 +81,7 @@ const AdminPasswordReset = ({ isOpen, onClose }) => {
         setLoading(true);
 
         try {
-            await axios.post('http://localhost:4000/admin/passwordReset', {
+            await axios.post('https://lando-travels-api.vercel.app/admin/passwordReset', {
                 email,
                 resetCode,
                 newPassword: password

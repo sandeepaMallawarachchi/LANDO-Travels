@@ -17,7 +17,7 @@ const Login = ({ isOpen, onClose }) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:4000/admin/login", {
+      const res = await axios.post("https://lando-travels-api.vercel.app/admin/login", {
         email,
         password,
       });

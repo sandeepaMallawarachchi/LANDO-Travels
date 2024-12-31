@@ -27,7 +27,7 @@ const AdminDashboard = () => {
     const fetchAdminDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/admin/getAdmin/${adminID}`
+          `https://lando-travels-api.vercel.app/admin/getAdmin/${adminID}`
         );
         setAdminDetails(response.data);
       } catch (error) {
@@ -39,7 +39,7 @@ const AdminDashboard = () => {
 
     const fetchTotalUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/admin/getAll");
+        const response = await axios.get("https://lando-travels-api.vercel.app/admin/getAll");
         setTotalUsers(response.data.length);
       } catch (error) {
         console.error("Error fetching total users:", error.message);
@@ -51,7 +51,7 @@ const AdminDashboard = () => {
     const fetchTotalPosts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/admin/getcards"
+          "https://lando-travels-api.vercel.app/admin/getcards"
         );
         setTotalPosts(response.data.length);
       } catch (error) {

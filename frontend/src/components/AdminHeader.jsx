@@ -20,7 +20,7 @@ const AdminHeader = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:4000/admin/getAdmin/${adminID}`
+          `https://lando-travels-api.vercel.app/admin/getAdmin/${adminID}`
         );
         setAdmin(response.data);
       } catch (err) {

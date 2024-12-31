@@ -99,7 +99,7 @@ const AdminRegister = () => {
         if (Object.values(errors).some((error) => error)) return;
 
         try {
-            const response = await axios.post('http://localhost:4000/admin/register', {
+            const response = await axios.post('https://lando-travels-api.vercel.app/admin/register', {
                 firstname,
                 lastname,
                 email,

@@ -20,7 +20,7 @@ const EditProfilePopup = ({ isOpen, onClose, adminDetails, onSave }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.put(`http://localhost:4000/admin/update/${adminDetails.adminID}`, {
+      const response = await axios.put(`https://lando-travels-api.vercel.app/admin/update/${adminDetails.adminID}`, {
         email,
         phone,
         address,
