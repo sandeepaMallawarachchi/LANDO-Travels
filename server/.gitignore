@@ -122,3 +122,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.vercel
+
+#.env
+.env
+.env.local
+.env.production
+.env.development
+.env.test
