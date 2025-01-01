@@ -51,7 +51,7 @@ const Login = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50" style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
       {/* Login Form */}
       <div className="relative bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
         {/* Close Icon */}
@@ -91,7 +91,8 @@ const Login = ({ isOpen, onClose }) => {
             />
             <button
               type="button"
-              className="absolute inset-y-0 right-0 flex items-center pr-10 focus:outline-none mt-7"
+              className="absolute inset-y-0 right-0 flex items-center focus:outline-none mt-7"
+              style={{marginRight: "35px"}}
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (

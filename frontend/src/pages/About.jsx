@@ -79,7 +79,7 @@ const About = () => {
                     src={aboutCover}
                     alt="about us"
                     className="w-full h-auto max-w-full"
-                    style={{ height: "auto", maxHeight: "720px" }}
+                    style={{ height: "auto", maxHeight: "700px" }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                     <h1 className="text-white text-6xl sm:text-6xl lg:text-8xl font-extrabold drop-shadow-lg leading-none text-center">
@@ -113,7 +113,7 @@ const About = () => {
                     <Slider {...settings}>
                         {cards.map((card, index) => (
                             <div key={index} className="px-5">
-                                <Card className="flex-shrink-0 w-full h-[500px]"> {/* Fixed height */}
+                                <Card className="flex-shrink-0 w-full h-[500px]" style={{ height: "500px" }}> {/* Fixed height */}
                                     <img src={card.src} alt={card.title} className="w-full h-64 object-cover rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105" /> {/* Object-cover to fit image */}
                                     <h5 className="text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white mt-4">
                                         {card.title}

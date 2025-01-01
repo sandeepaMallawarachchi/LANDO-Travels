@@ -21,11 +21,10 @@ const Header = () => {
   return (
     <div className="sticky top-0 z-50 bg-white shadow-lg lg:pl-10 lg:pr-10">
 
-      <img src={iata} className="h-14 absolute pl-32" alt="Iata" />
-
       <Navbar fluid rounded>
         <Navbar.Brand as={Link} to="/">
           <img src={logo} className="h-6 sm:h-9" alt="Logo" />
+          <img src={iata} className="h-12 sm:h-12" alt="Iata" />
         </Navbar.Brand>
 
         <div className="flex md:order-2">

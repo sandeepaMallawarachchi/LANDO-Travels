@@ -184,7 +184,7 @@ const Home = () => {
           <Slider {...settings}>
             {cards.map((card, index) => (
               <div key={index} className="px-2 lg:px-5 w-full">
-                <Card className="flex-shrink-0 w-full lg:h-[500px]">
+                <Card className="flex-shrink-0 w-full" style={{ height: "500px" }}>
                   <img
                     src={card.src}
                     alt={card.title}
@@ -207,7 +207,7 @@ const Home = () => {
       <div className="flex justify-center items-center mt-12 mb-12">
         <section className="flex flex-col lg:flex-row items-center justify-center my-12 sm:px-10">
           {/* Text Section */}
-          <div className="lg:w-1/2 p-6">
+          <div className="lg:w-1/2 p-6 pt-0">
             <h2 className="text-4xl font-bold text-gray-800 mb-4 sm:text-center">
               About Us
             </h2>
@@ -248,7 +248,7 @@ const Home = () => {
           </div>
 
           {/* Image Section */}
-          <div className="lg:w-1/2 p-6 ">
+          <div className="lg:w-1/2 p-6 " style={{ maxWidth: "50%" }}>
             <img
               src={aboutushome}
               alt="About Us"
@@ -347,7 +347,7 @@ const Home = () => {
         Partnerships
       </h2>
 
-      <div className="overflow-hidden py-20">
+      <div className="overflow-hidden" style={{margin:"50px 0 50px 0"}}>
         <div className="flex items-center animate-scroll">
           {logos.concat(logos).map((logo, index) => (
             <img

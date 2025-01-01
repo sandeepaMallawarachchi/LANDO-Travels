@@ -49,7 +49,7 @@ const Contact = () => {
                     src={contactCover}
                     alt="contact us"
                     className="w-full h-auto max-w-full"
-                    style={{ height: "auto", maxHeight: "720px" }}
+                    style={{ height: "auto", maxHeight: "700px" }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                     <h1 className="text-white text-5xl sm:text-6xl lg:text-8xl font-extrabold drop-shadow-lg leading-none text-center">
@@ -69,7 +69,7 @@ const Contact = () => {
 
             {/* Contact form and information */}
             <div className="flex flex-col lg:flex-row gap-4 p-8 lg:p-20" ref={contactRef}>
-                <div className="lg:w-1/2 pt-10">
+                <div className="flex-1 pt-10">
                     <p className="mb-4 lg:text-left">
                         At Lando Travels, we're here to assist you with all your travel needs.
                         Whether you're planning corporate travel, booking a tour, or seeking travel consultation, our team is ready to help.
@@ -100,7 +100,7 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <div className="lg:w-1/2">
+                <div className="flex-1">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="mb-6 mt-3">
                             <Label htmlFor="email" className="mb-2 block">Your email</Label>

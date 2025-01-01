@@ -4,6 +4,8 @@ import inboundtiger from "../images/inboundtiger.jpg";
 import inboundtemple from "../images/inboundtemple.jpg";
 import inboundbeach from "../images/inboundbeach.jpg";
 import inboundleisure from "../images/inboundleisure.jpg";
+import { Button } from "flowbite-react";
+import { HiOutlineArrowDown } from "react-icons/hi";
 import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
@@ -18,32 +20,32 @@ const InboundTours = () => {
     {
       id: 1,
       imgSrc: inboundbeach,
-      description: "Sigiriya, Rock fortress in Srilanka",
+      description: "Sigiriya, an ancient rock fortress and UNESCO World Heritage site in Sri Lanka, showcasing breathtaking views and historical significance.",
       title: "Historic & Archaeological Sites",
     },
     {
       id: 2,
       imgSrc: inboundtiger,
-      description: "National Park, Yala",
+      description: "Yala National Park, famous for its rich biodiversity, offering a chance to witness leopards, elephants, and vibrant wildlife.",
       title: "Nature & Wildlife",
     },
     {
       id: 3,
       imgSrc: inboundtemple,
-      description: "Temple of tooth, Kandy",
+      description: "Temple of the Sacred Tooth Relic in Kandy, a revered Buddhist pilgrimage site with rich history and stunning architecture.",
       title: "Cultural & Religious Centers",
     },
     {
       id: 4,
       imgSrc: inboundleisure,
-      description: "Unawatuna, Galle",
+      description: "Unawatuna, a tropical paradise in Galle, ideal for relaxing beaches, snorkeling, and exploring coastal charm.",
       title: "Adventure & Leisure",
     },
-  ];
+  ];  
 
   return (
     <div>
-      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]">
+      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]" style={{height:"700px"}}>
         <img
           src={inboundcover}
           alt="Inbound Tour"
@@ -56,10 +58,11 @@ const InboundTours = () => {
           <h2 className="h1 sm:text-4xl lg:text-5xl mt-2">Tours</h2>
           <button
             onClick={handleScrollToInboundServices}
-            className="mt-8 px-6 py-3 border-2 border-white text-white text-lg sm:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
+            className="mt-8 px-6 py-3 border-2 border-white text-white text-lg sm:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300 inline-block"
           >
             Explore Now
           </button>
+
         </div>
       </div>
 
@@ -67,7 +70,7 @@ const InboundTours = () => {
         <h2 className="text-4xl font-bold text-gray-800 mb-4">
           Explore Sri Lanka with Lando Travels
         </h2>
-        <p className="text-center">
+        <p className="text-center my-10">
           If you are promoting tourism in Sri Lanka as part of your business
           expansion, Lando Travels offers a range of exciting inbound tour
           packages. <br />
@@ -80,19 +83,9 @@ const InboundTours = () => {
               <div className="card__data">
                 <span className="card__description">{card.description}</span>
                 <h2 className="card__title">{card.title}</h2>
-                <h3>And More</h3>
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="flex justify-center items-center my-12">
-          <p>
-            Our tours are led by experienced guides who speak your language,
-            ensuring a comfortable and informative experience. Whether it's a
-            honeymoon, educational trip, or business event, we tailor each
-            package to your specific needs.
-          </p>
         </div>
       </div>
     </div>
