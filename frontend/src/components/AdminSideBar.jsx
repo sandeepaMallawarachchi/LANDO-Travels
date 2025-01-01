@@ -84,18 +84,18 @@ const AdminSideBar = () => {
   }, [adminID]);
 
   return (
-    <div className="flex h-screen z-0">
-      {/* Toggle Button for smaller screens */}
-      <div className="absolute top-4 left-4 p-4">
-        <button onClick={toggleSidebar} className="text-xl">
-          <BiMenu />
-        </button>
-      </div>
+    <div className="flex h-screen">
+      {/* Toggle Button */}
+      <button
+        onClick={toggleSidebar}
+        className="absolute top-24 left-4 z-50 text-xl md:hidden bg-blue-200 p-2 rounded-full shadow-md"
+      >
+        <BiMenu />
+      </button>
 
       {/* Sidebar */}
       <div
-        className={`fixed h-screen inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 md:relative md:block md:w-64`}
+        className={`fixed h-[calc(100%-64px)] inset-y-0 left-0 z-40 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-transform transform overflow-y-auto ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative`}
       >
         <Sidebar aria-label="Sidebar with content separator example">
           <Sidebar.Items>

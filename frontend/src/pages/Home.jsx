@@ -82,6 +82,31 @@ const Home = () => {
     ],
   };
 
+  const carousel = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 394,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => setIsOpen(false);
@@ -118,7 +143,7 @@ const Home = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`http://localhost:4000/admin/contact`, {
+      const res = await axios.post(`https://lando-travels-api.vercel.app/admin/contact`, {
         email,
         subject,
         message,
@@ -139,38 +164,55 @@ const Home = () => {
     <div>
       {/* Carousel Section */}
       <div className="relative">
-        <div className="rounded-none" style={{ height: "90vh" }}>
-          <Carousel slideInterval={5000}>
-            <img src={flight1} alt="Flight 1" className="w-full object-cover h-full" />
-            <img src={flight2} alt="Flight 2" className="w-full object-cover h-full" />
-            <img src={flight3} alt="Flight 3" className="w-full object-cover h-full" />
-            <img src={flight4} alt="Flight 4" className="w-full object-cover h-full" />
-            <img src={flight5} alt="Flight 5" className="w-full object-cover h-full" />
-            <img src={flight6} alt="Flight 6" className="w-full object-cover h-full" />
+        <div className="h-[200px] sm:h-[200px] md:h-[400px] lg:h-[95vh]">
+          <Carousel slideInterval={5000} className="rounded-none">
+            <img
+              src={flight1}
+              alt="Flight 1"
+              className="w-full object-cover h-full"
+            />
+            <img
+              src={flight2}
+              alt="Flight 2"
+              className="w-full object-cover h-full"
+            />
+            <img
+              src={flight3}
+              alt="Flight 3"
+              className="w-full object-cover h-full"
+            />
+            <img
+              src={flight4}
+              alt="Flight 4"
+              className="w-full object-cover h-full"
+            />
+            <img
+              src={flight5}
+              alt="Flight 5"
+              className="w-full object-cover h-full"
+            />
+            <img
+              src={flight6}
+              alt="Flight 6"
+              className="w-full object-cover h-full"
+            />
           </Carousel>
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>
+
+          {/* Overlay Text and Button */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4">
             <div className="flex flex-col items-center justify-center space-y-2">
-              <h1 className="text-white text-center sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-none">
+              <h4 className="text-center sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-none">
                 welcome to
-              </h1>
+              </h4>
               <div className="flex justify-center items-center">
-                <h1
-                  className="text-8xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none"
-                  style={{ color: "#1ca4d4" }}
-                >
-                  Lando
-                </h1>
-                <h1 className="text-white text-8xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none ml-6">
-                  Travels
-                </h1>
+                <h1 className="text-[#1ca4d4] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none">Lando</h1>
+                <h1 className="text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-none pl-6">travels</h1>
               </div>
             </div>
-            <h4 className="text-white mt-4 text-sm sm:text-base md:text-lg lg:text-2xl xl:text-2xl">
-              Your journey starts here
-            </h4>
+            <h4 className="mt-4 text-sm sm:text-base md:text-lg lg:text-2xl xl:text-2xl">Your journey starts here</h4>
             <button
               onClick={handleScrollToServices}
-              className="mt-8 px-6 py-3 md:px-8 md:py-4 border-2 border-white text-white text-lg md:text-xl font-semibold rounded-md hover:bg-white transition duration-300"
+              className="hidden md:block mt-8 px-6 py-3 md:px-8 md:py-4 border-2 border-white text-white text-lg md:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
             >
               Get Started
             </button>
@@ -184,7 +226,7 @@ const Home = () => {
           <Slider {...settings}>
             {cards.map((card, index) => (
               <div key={index} className="px-2 lg:px-5 w-full">
-                <Card className="flex-shrink-0 w-full" style={{ height: "500px" }}>
+                <Card className="flex-shrink-0 w-full lg:h-[500px]">
                   <img
                     src={card.src}
                     alt={card.title}
@@ -207,7 +249,7 @@ const Home = () => {
       <div className="flex justify-center items-center mt-12 mb-12">
         <section className="flex flex-col lg:flex-row items-center justify-center my-12 sm:px-10">
           {/* Text Section */}
-          <div className="lg:w-1/2 p-6 pt-0">
+          <div className="lg:w-1/2 p-6">
             <h2 className="text-4xl font-bold text-gray-800 mb-4 sm:text-center">
               About Us
             </h2>
@@ -248,7 +290,7 @@ const Home = () => {
           </div>
 
           {/* Image Section */}
-          <div className="lg:w-1/2 p-6 " style={{ maxWidth: "50%" }}>
+          <div className="lg:w-1/2 p-6 ">
             <img
               src={aboutushome}
               alt="About Us"
@@ -347,7 +389,7 @@ const Home = () => {
         Partnerships
       </h2>
 
-      <div className="overflow-hidden" style={{margin:"50px 0 50px 0"}}>
+      <div className="overflow-hidden py-20">
         <div className="flex items-center animate-scroll">
           {logos.concat(logos).map((logo, index) => (
             <img

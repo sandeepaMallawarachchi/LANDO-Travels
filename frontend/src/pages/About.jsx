@@ -113,7 +113,7 @@ const About = () => {
                     <Slider {...settings}>
                         {cards.map((card, index) => (
                             <div key={index} className="px-5">
-                                <Card className="flex-shrink-0 w-full h-[500px]" style={{ height: "500px" }}> {/* Fixed height */}
+                                <Card className="flex-shrink-0 w-full h-[500px]"> {/* Fixed height */}
                                     <img src={card.src} alt={card.title} className="w-full h-64 object-cover rounded-lg transition-transform duration-300 ease-in-out transform hover:scale-105" /> {/* Object-cover to fit image */}
                                     <h5 className="text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white mt-4">
                                         {card.title}

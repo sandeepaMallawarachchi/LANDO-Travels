@@ -43,7 +43,7 @@ const CorporateTravelServices = () => {
 
   return (
     <div>
-      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]" style={{ height: "700px" }}>
+      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]">
         <img
           src={corparateServices}
           alt="corparate Services"

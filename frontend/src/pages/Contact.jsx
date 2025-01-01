@@ -69,7 +69,7 @@ const Contact = () => {
 
             {/* Contact form and information */}
             <div className="flex flex-col lg:flex-row gap-4 p-8 lg:p-20" ref={contactRef}>
-                <div className="flex-1 pt-10">
+                <div className="lg:w-1/2 pt-10">
                     <p className="mb-4 lg:text-left">
                         At Lando Travels, we're here to assist you with all your travel needs.
                         Whether you're planning corporate travel, booking a tour, or seeking travel consultation, our team is ready to help.
@@ -100,7 +100,7 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <div className="flex-1">
+                <div className="lg:w-1/2">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="mb-6 mt-3">
                             <Label htmlFor="email" className="mb-2 block">Your email</Label>

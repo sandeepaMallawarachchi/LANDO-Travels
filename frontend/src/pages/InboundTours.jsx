@@ -4,8 +4,6 @@ import inboundtiger from "../images/inboundtiger.jpg";
 import inboundtemple from "../images/inboundtemple.jpg";
 import inboundbeach from "../images/inboundbeach.jpg";
 import inboundleisure from "../images/inboundleisure.jpg";
-import { Button } from "flowbite-react";
-import { HiOutlineArrowDown } from "react-icons/hi";
 import "../CSS/Cardstyles.css";
 import "../CSS/Index.css";
 
@@ -41,11 +39,11 @@ const InboundTours = () => {
       description: "Unawatuna, a tropical paradise in Galle, ideal for relaxing beaches, snorkeling, and exploring coastal charm.",
       title: "Adventure & Leisure",
     },
-  ];  
+  ];
 
   return (
     <div>
-      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]" style={{height:"700px"}}>
+      <div className="relative w-full h-[400px] sm:h-[600px] lg:h-[720px]">
         <img
           src={inboundcover}
           alt="Inbound Tour"
@@ -58,11 +56,10 @@ const InboundTours = () => {
           <h2 className="h1 sm:text-4xl lg:text-5xl mt-2">Tours</h2>
           <button
             onClick={handleScrollToInboundServices}
-            className="mt-8 px-6 py-3 border-2 border-white text-white text-lg sm:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300 inline-block"
+            className="mt-8 px-6 py-3 border-2 border-white text-white text-lg sm:text-xl font-semibold rounded-md hover:bg-white hover:text-black transition duration-300"
           >
             Explore Now
           </button>
-
         </div>
       </div>
 
@@ -83,6 +80,7 @@ const InboundTours = () => {
               <div className="card__data">
                 <span className="card__description">{card.description}</span>
                 <h2 className="card__title">{card.title}</h2>
+                <h3>And More</h3>
               </div>
             </article>
           ))}
