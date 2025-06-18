@@ -24,6 +24,9 @@ router.get("/getAdmin/:adminID", adminController.getAdminById);
 //update route
 router.put("/update/:adminID", adminController.updateAdmin);
 
+//update role
+router.put("/updateRole/:adminID", adminController.updateRole);
+
 //delete route
 router.delete("/delete/:adminID", adminController.deleteAdmin);
 
