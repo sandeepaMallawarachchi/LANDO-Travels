@@ -3,6 +3,7 @@ const router = express.Router();
 const { body } = require("express-validator");
 const adminController = require("../controller/adminContoller");
 const authMiddleware = require("../middlewares/authMiddleware");
+const { getActiveUserCount } = require("../middlewares/trafficTracker");
 
 // Login route
 router.post("/login", adminController.getAdmin);
@@ -63,5 +64,10 @@ router.post("/passwordEmail", adminController.requestPasswordReset);
 
 //reset the password route
 router.post("/passwordReset", adminController.resetPassword);
+
+//current online users
+router.get("/online-users", (req, res) => {
+  res.json({ count: getActiveUserCount() });
+});
 
 module.exports = router;
