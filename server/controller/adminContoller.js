@@ -298,9 +298,9 @@ exports.getAllCards = async (req, res) => {
 
 // Create a new card
 exports.createCard = async (req, res) => {
-  const { src, title, description } = req.body;
+  const { src, title, description, show } = req.body;
   try {
-    const newCard = new Card({ src, title, description });
+    const newCard = new Card({ src, title, description, show });
     await newCard.save();
     res.status(201).json(newCard);
   } catch (err) {
