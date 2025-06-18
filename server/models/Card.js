@@ -7,6 +7,7 @@ const cardSchema = new Schema(
     src: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
+    show: { type: Boolean, default: false }
   },
   { timestamps: true }
 ); // `timestamps` will add createdAt and updatedAt fields
