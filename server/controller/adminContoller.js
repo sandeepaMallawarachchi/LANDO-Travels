@@ -289,7 +289,7 @@ exports.logout = (req, res) => {
 // Get all cards
 exports.getAllCards = async (req, res) => {
   try {
-    const cards = await Card.find();
+    const cards = await Card.find({ show: true });
     res.json(cards);
   } catch (err) {
     res.status(500).json({ message: err.message });
