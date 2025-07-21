@@ -73,8 +73,8 @@ exports.sendFlightRequest = async (req, res) => {
                                     ],
                                     ...req.body.multiCityFlights.map((flight) => [
                                         { text: flight.origin || "—", margin: [0, 6, 0, 6] },
-                                        { text: flight.destination || "—", margin: [0, 6, 0, 6] },
-                                        { text: flight.depart || "—", margin: [0, 6, 0, 6] }
+                                        { text: flight.destination || "—", margin: [4, 6, 0, 6] },
+                                        { text: flight.depart || "—", margin: [4, 6, 0, 6] }
                                     ])
                                 ],
                             },
@@ -128,8 +128,9 @@ exports.sendFlightRequest = async (req, res) => {
                     layout: "noBorders",
                 },
                 {
-                    text: "\nThank you for submitting your request!",
+                    text: "\nPowered by LANDO Travels",
                     alignment: "center",
+                    fontSize: 8,
                     margin: [0, 30, 0, 0],
                     color: "#6B7280",
                 },
