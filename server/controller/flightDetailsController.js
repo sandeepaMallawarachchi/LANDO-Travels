@@ -72,9 +72,9 @@ exports.sendFlightRequest = async (req, res) => {
                                         { text: "Departure Date", bold: true, margin: [0, 6, 0, 6] }
                                     ],
                                     ...req.body.multiCityFlights.map((flight) => [
-                                        flight.origin || "—",
-                                        flight.destination || "—",
-                                        flight.depart || "—"
+                                        { text: flight.origin || "—", margin: [0, 6, 0, 6] },
+                                        { text: flight.destination || "—", margin: [0, 6, 0, 6] },
+                                        { text: flight.depart || "—", margin: [0, 6, 0, 6] }
                                     ])
                                 ],
                             },
