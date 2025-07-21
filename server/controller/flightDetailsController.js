@@ -57,22 +57,62 @@ exports.sendFlightRequest = async (req, res) => {
                     margin: [0, 10, 0, 10],
                 },
                 { text: "\nFlight Details", style: "sectionHeader", fontSize: 14, bold: true },
-                {
-                    style: "tableStyle",
-                    table: {
-                        widths: ["35%", "65%"],
-                        body: [
-                            [{ text: "Origin", bold: true }, origin],
-                            [{ text: "Destination", bold: true }, destination],
-                            [{ text: "Departure Date", bold: true }, depart],
-                            ...(tripType === "Round Trip" ? [[{ text: "Return Date", bold: true }, returnDate]] : []),
-                            [{ text: "Travel Class", bold: true }, travelClass],
-                            [{ text: "Travellers", bold: true }, `${adults} Adult(s), ${children} Child, ${infants} Infant`],
-                            [{ text: "Additional Details", bold: true }, decription || "—"],
-                        ],
-                    },
-                    layout: "noBorders",
-                },
+
+                ...(tripType === "Multi City"
+                    ? [
+                        {
+                            style: "tableStyle",
+                            table: {
+                                headerRows: 1,
+                                widths: ["30%", "30%", "40%"],
+                                body: [
+                                    [
+                                        { text: "Origin", bold: true },
+                                        { text: "Destination", bold: true },
+                                        { text: "Departure Date", bold: true }
+                                    ],
+                                    ...req.body.multiCityFlights.map((flight) => [
+                                        flight.origin || "—",
+                                        flight.destination || "—",
+                                        flight.depart || "—"
+                                    ])
+                                ],
+                            },
+                            layout: "noBorders",
+                        },
+                        {
+                            style: "tableStyle",
+                            table: {
+                                widths: ["35%", "65%"],
+                                body: [
+                                    [{ text: "Travel Class", bold: true }, travelClass],
+                                    [{ text: "Travellers", bold: true }, `${adults} Adult(s), ${children} Child, ${infants} Infant`],
+                                    [{ text: "Additional Details", bold: true }, decription || "—"],
+                                ],
+                            },
+                            layout: "noBorders",
+                            margin: [0, 10, 0, 0],
+                        }
+                    ]
+                    : [
+                        {
+                            style: "tableStyle",
+                            table: {
+                                widths: ["35%", "65%"],
+                                body: [
+                                    [{ text: "Origin", bold: true }, origin],
+                                    [{ text: "Destination", bold: true }, destination],
+                                    [{ text: "Departure Date", bold: true }, depart],
+                                    ...(tripType === "Round Trip" ? [[{ text: "Return Date", bold: true }, returnDate]] : []),
+                                    [{ text: "Travel Class", bold: true }, travelClass],
+                                    [{ text: "Travellers", bold: true }, `${adults} Adult(s), ${children} Child, ${infants} Infant`],
+                                    [{ text: "Additional Details", bold: true }, decription || "—"],
+                                ],
+                            },
+                            layout: "noBorders",
+                        }
+                    ]
+                ),
                 { text: "\nPersonal Details", style: "sectionHeader", fontSize: 14, bold: true },
                 {
                     style: "tableStyle",
