@@ -67,9 +67,9 @@ exports.sendFlightRequest = async (req, res) => {
                                 widths: ["30%", "30%", "40%"],
                                 body: [
                                     [
-                                        { text: "Origin", bold: true },
-                                        { text: "Destination", bold: true },
-                                        { text: "Departure Date", bold: true }
+                                        { text: "Origin", bold: true, margin: [0, 6, 0, 6] },
+                                        { text: "Destination", bold: true, margin: [0, 6, 0, 6] },
+                                        { text: "Departure Date", bold: true, margin: [0, 6, 0, 6] }
                                     ],
                                     ...req.body.multiCityFlights.map((flight) => [
                                         flight.origin || "—",
@@ -85,9 +85,9 @@ exports.sendFlightRequest = async (req, res) => {
                             table: {
                                 widths: ["35%", "65%"],
                                 body: [
-                                    [{ text: "Travel Class", bold: true }, travelClass],
-                                    [{ text: "Travellers", bold: true }, `${adults} Adult(s), ${children} Child, ${infants} Infant`],
-                                    [{ text: "Additional Details", bold: true }, decription || "—"],
+                                    [{ text: "Travel Class", bold: true, margin: [0, 6, 0, 6] }, travelClass],
+                                    [{ text: "Travellers", bold: true, margin: [0, 6, 0, 6] }, `${adults} Adult(s), ${children} Child, ${infants} Infant`],
+                                    [{ text: "Additional Details", bold: true, margin: [0, 6, 0, 6] }, decription || "—"],
                                 ],
                             },
                             layout: "noBorders",
@@ -100,29 +100,29 @@ exports.sendFlightRequest = async (req, res) => {
                             table: {
                                 widths: ["35%", "65%"],
                                 body: [
-                                    [{ text: "Origin", bold: true }, origin],
-                                    [{ text: "Destination", bold: true }, destination],
-                                    [{ text: "Departure Date", bold: true }, depart],
-                                    ...(tripType === "Round Trip" ? [[{ text: "Return Date", bold: true }, returnDate]] : []),
-                                    [{ text: "Travel Class", bold: true }, travelClass],
-                                    [{ text: "Travellers", bold: true }, `${adults} Adult(s), ${children} Child, ${infants} Infant`],
-                                    [{ text: "Additional Details", bold: true }, decription || "—"],
+                                    [{ text: "Origin", bold: true, margin: [0, 6, 0, 6] }, origin],
+                                    [{ text: "Destination", bold: true, margin: [0, 6, 0, 6] }, destination],
+                                    [{ text: "Departure Date", bold: true, margin: [0, 6, 0, 6] }, depart],
+                                    ...(tripType === "Round Trip" ? [[{ text: "Return Date", bold: true, margin: [0, 6, 0, 6] }, returnDate]] : []),
+                                    [{ text: "Travel Class", bold: true, margin: [0, 6, 0, 6] }, travelClass],
+                                    [{ text: "Travellers", bold: true, margin: [0, 6, 0, 6] }, `${adults} Adult(s), ${children} Child, ${infants} Infant`],
+                                    [{ text: "Additional Details", bold: true, margin: [0, 6, 0, 6] }, decription || "—"],
                                 ],
                             },
                             layout: "noBorders",
                         }
                     ]
                 ),
-                { text: "\nPersonal Details", style: "sectionHeader", fontSize: 14, bold: true },
+                { text: "\nPersonal Details", style: "sectionHeader", fontSize: 14, bold: true, margin: [0, 6, 0, 6] },
                 {
                     style: "tableStyle",
                     table: {
                         widths: ["35%", "65%"],
                         body: [
-                            [{ text: "Full Name", bold: true }, name],
-                            [{ text: "Email", bold: true }, email],
-                            [{ text: "Phone", bold: true }, phone],
-                            [{ text: "Address", bold: true }, address],
+                            [{ text: "Full Name", bold: true, margin: [0, 6, 0, 6] }, name],
+                            [{ text: "Email", bold: true, margin: [0, 6, 0, 6] }, email],
+                            [{ text: "Phone", bold: true, margin: [0, 6, 0, 6] }, phone],
+                            [{ text: "Address", bold: true, margin: [0, 6, 0, 6] }, address],
                         ],
                     },
                     layout: "noBorders",
