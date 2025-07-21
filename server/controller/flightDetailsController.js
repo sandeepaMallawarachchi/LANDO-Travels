@@ -64,7 +64,7 @@ exports.sendFlightRequest = async (req, res) => {
                     alignment: "right",
                     fontSize: 9,
                     color: "#6B7280",
-                    margin: [0, 0, 0, 10],
+                    margin: [0, 5, 0, 5],
                 },
                 {
                     canvas: [
