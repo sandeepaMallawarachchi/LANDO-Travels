@@ -31,8 +31,7 @@ exports.sendFlightRequest = async (req, res) => {
             tripType,
         } = req.body;
 
-        // ✅ Load logo
-        const logoDataUrl = fs.readFileSync("./assets/logo.webp", { encoding: "base64" });
+        const logoDataUrl = req.body.logoBase64;
 
         const docDefinition = {
             content: [
@@ -122,9 +121,9 @@ exports.sendFlightRequest = async (req, res) => {
             });
 
             await transporter.sendMail({
-                from: `"${name}" <${process.env.EMAIL_USER}>`,   
-                to: process.env.EMAIL_USER,                      
-                replyTo: email,                                  
+                from: `"${name}" <${process.env.EMAIL_USER}>`,
+                to: process.env.EMAIL_USER,
+                replyTo: email,
                 subject: "Flight Request Summary",
                 text: `Attached is the PDF summary of ${name}'s flight request.`,
                 attachments: [
