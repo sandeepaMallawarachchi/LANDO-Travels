@@ -13,9 +13,11 @@ app.use(trackOnlineUsers);
 
 // Import routes
 const adminRouter = require('../routes/adminRoutes');
+const flightDetailsRouter = require('../routes/flightDetailsRoute');
 
 // Use routes
 app.use('/admin', adminRouter);
+app.use('/flight', flightDetailsRouter);
 
 // DB connection
 dbConnection();
