@@ -4,3 +4,5 @@ const { body } = require("express-validator");
 const flightDetailsController = require("../controller/flightDetailsController");
 
 router.post("/sendFlightRequest", flightDetailsController.sendFlightRequest);
+
+module.exports = router;
