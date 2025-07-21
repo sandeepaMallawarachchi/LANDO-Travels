@@ -12,6 +12,15 @@ const fonts = {
 
 const printer = new PdfPrinter(fonts);
 
+const requestId = "REQ-" + Math.floor(100000 + Math.random() * 900000);
+const generatedDate = new Date().toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+});
+
 exports.sendFlightRequest = async (req, res) => {
     try {
         const {
@@ -49,6 +58,13 @@ exports.sendFlightRequest = async (req, res) => {
                             margin: [0, 10, 0, 0],
                         },
                     ],
+                },
+                {
+                    text: `Request ID: ${requestId}\nGenerated: ${generatedDate}`,
+                    alignment: "right",
+                    fontSize: 9,
+                    color: "#6B7280",
+                    margin: [0, 0, 0, 10],
                 },
                 {
                     canvas: [
@@ -127,13 +143,6 @@ exports.sendFlightRequest = async (req, res) => {
                     },
                     layout: "noBorders",
                 },
-                {
-                    text: "\nPowered by LANDO Travels",
-                    alignment: "center",
-                    fontSize: 8,
-                    margin: [0, 30, 0, 0],
-                    color: "#6B7280",
-                },
             ],
             styles: {
                 tableStyle: {
@@ -169,7 +178,7 @@ exports.sendFlightRequest = async (req, res) => {
                 text: `Attached is the PDF summary of ${name}'s flight request.`,
                 attachments: [
                     {
-                        filename: "Flight_Request.pdf",
+                        filename: `${requestId}_flight_request.pdf`,
                         content: pdfBuffer,
                     },
                 ],
