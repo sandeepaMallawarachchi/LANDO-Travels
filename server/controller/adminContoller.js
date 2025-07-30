@@ -354,7 +354,18 @@ exports.requestPasswordReset = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Password Reset Request",
-      text: `Your password reset code is ${resetCode}. It will expire in 15 minutes.`,
+      html: `
+          <div style="font-family: Arial, sans-serif; color: #333;">
+            <h2>Password Reset Request</h2>
+            <p>You’ve requested to reset your admin account password for <strong>My Ticketer</strong>.</p>
+            <p>Your one-time verification code is:</p>
+            <p style="font-size: 24px; font-weight: bold; color: #d97706; letter-spacing: 2px;">${resetCode}</p>
+            <p>This code is valid for <strong>15 minutes</strong>.</p>
+            <p>If you didn’t request this, please ignore this email or contact support immediately.</p>
+            <br/>
+            <p>— My Ticketer Team</p>
+          </div>
+        `,
     };
 
     await transporter.sendMail(mailOptions);
